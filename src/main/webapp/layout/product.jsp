@@ -342,6 +342,12 @@
 <script src="template/script/header.js"></script>
 <script src="template/script/product.js"></script>
 <script>
+    let flag = false
+    $("#purchase-btn").click(function () {
+        flag = true
+        addToCart()
+    })
+
     displayRating(${avgRating}, $(".product-info__star-container").width())
 
     function addToCart() {
@@ -365,6 +371,9 @@
                             const currentCartLength = data.currentCartLength
                             badge.removeClass("d-none")
                             badge.text(currentCartLength)
+                            if (flag) {
+                                window.location = '/cart'
+                            }
                         } else alert("Có lỗi khi thêm sản phẩm vào giỏ hàng")
                     },
                     error: function () {

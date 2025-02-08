@@ -40,12 +40,8 @@ public class PurchaseController extends HttpServlet {
                 //Xử lý thông tin
                 Cart sessionCart = (Cart) session.getAttribute("cart");
                 Map<String, CartProduct> listSelectedProductCode = new HashMap<>();
-                //Nếu gửi từ trang product -> Chọn tất cả product
 
-                if (request.getParameter("quick-buy") != null) {
-                    listSelectedProductCode = sessionCart.getProducts();
-                    session.setAttribute("selectedProducts", listSelectedProductCode);
-                } else if (session.getAttribute("selectedProducts") != null) {
+                if (session.getAttribute("selectedProducts") != null) {
                     Map<?, ?> tempMap = (Map<?, ?>) session.getAttribute("selectedProducts");
                     if (tempMap.keySet().stream().allMatch(k -> k instanceof String) &&
                             tempMap.values().stream().allMatch(v -> v instanceof CartProduct)) {

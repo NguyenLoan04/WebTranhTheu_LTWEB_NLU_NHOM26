@@ -186,7 +186,10 @@ public class User implements Serializable {
     }
 
     public Address getDefaultLocation() {
-        return location.get(0);
+        if (location == null || location.size() == 0) {
+            return new Address(0, "Chưa chọn");
+        }
+        else return location.get(0);
     }
 
     public List<Order> getOrders() {

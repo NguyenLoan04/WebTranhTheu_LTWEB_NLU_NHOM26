@@ -100,11 +100,6 @@ $("#product-detail__remove-amount").click(function () {
     amountElement.text(value + "")
 })
 
-// Nút mua ngay -> Mở trang thanh toán
-$("#purchase-btn").click(function () {
-    window.location = "/purchase?quick-buy=true"
-})
-
 // Click vào số sao ở mục đánh giá để bình luận số sao
 $("#product-review__star .product-info__star-container").click(function () {
     const maskElement = $("#product-review__star .product-info__star-mask") //Lấy list mask cucomment

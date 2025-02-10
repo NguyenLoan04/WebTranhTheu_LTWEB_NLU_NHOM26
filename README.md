@@ -1,10 +1,9 @@
 # Nét Việt - Website kinh doanh tranh thêu
-Đồ án nhóm 26 - Môn Lập trình Web - NLU 2024-2025
+Đồ án nhóm 61 - Môn Lập trình Web - NLU 2024-2025
 
 ## Mục lục
 - [Các tính năng](#tính-năng) 
-- [Cách chạy đồ án](#cách-chạy-đồ-án)
-- [Các thư viện áp dụng](#các-thư-viện)
+- [Cài đặt](#cài-đặt)
 - [Các tính năng dự kiến](#các-tính-năng-dự-kiến)
 - [Ghi chú](#ghi-chú)
 
@@ -21,25 +20,25 @@
 9. **Chi tiết admin**: Bao gồm các chức năng quản lý và thay đổi thông tin của admin.
 
 ---
-### Cách chạy đồ án
-1. Git clone repository này về.
-2. Cài đặt IDE 
-3. Cài đặt **Apache Tomcat** version 10.1.31
-4. Load file `pom.xml` ở project trên máy.
-5. **Edit configurations**: Thêm tomcat local, build artifact và config deployment tomcat.
-6. Tạo các file properties trong resources, trong đó:
-    - _db.properties_: chức thông tin kết nối đến database như host, port, username, password, tên database. Đặc biệt thêm dòng `db.options= useUnicode=true&characterEncoding=utf-8`.
-    - _cloud.properties_: chứa thông tin kết nối đến **cloudinary** như cloud_name, api_key, api_secret.
-    - _email.properties_: chứa thông tin mail để gửi mã xác thực cho người dùng như name-email và pass_email.
-    - _gg.properties_: chứa loginId của google dùng để login bằng google.
-7. Nhấn nút **Run** trên tool bar hoặc tổ hợp phím `Ctrl+Shift+F10` để chạy server.
+### Cài đặt
+- Clone repo này.
+
+- Tạo các file properties trong `src/java/main/resources`, trong đó:
+    - _db.properties_: chức thông tin kết nối đến database: `db.host`, `db.port`, `db.username`, `db.password`, `db.name` (tên db) và `db.options= useUnicode=true&characterEncoding=utf-8`.
+    - _cloud.properties_: chứa thông tin kết nối đến **cloudinary** như `cloud_name`, `api_key`, `api_secret`.
+    - _email.properties_: chứa thông tin mail để gửi mã xác thực cho người dùng như `name-email` và `pass_email`.
+    - _gg.properties_: chứa `loginId` của google dùng để login bằng google.
+ 
+- Thao tác với **Docker** cơ bản: (nếu chưa biết Docker)
+    - `docker build -t your-app-name .`: Để tiến hành build Docker Image. Với `your-app-name` là tên application muốn đặt
+    - `docker run -d -p 8080:8080 --name your-container-name your-app-name`: Dùng để chạy Container từ Image đã tạo với `your-container-name` là tên Container muốn đặt tại port 8080
+    - Mở `localhost:8080/` để sử dụng.
 
 ---
 ### Các tính năng dự kiến
-1. Sửa lại **TOÀN BỘ** phần code chưa hoàn thiện.
+1. Chỉnh sửa code chưa hoàn thiện.
 2. Bổ sung chức năng thêm sản phẩm vào danh sách yêu thích.
 3. Bổ sung phần liên kết đến sản phẩm trong trang Giỏ hàng và User.
-
----
-### Ghi chú
-- Sử dụng Apache Tomcat 10.1.31 để host server
+4. Cập nhật hash cho id sản phẩm trong trang `/product`
+5. Cập nhật UI cho mọi tính năng.
+6. Fix các bug còn tồn đọng.

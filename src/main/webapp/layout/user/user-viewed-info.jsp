@@ -6,8 +6,8 @@
 <%--    <title>Lịch sử xem</title>--%>
 <%--    <%@include file="../public/library.jsp" %>--%>
     <!-- css property -->
-<%--    <link rel="stylesheet" href="../../template/style/user/account-page.css">--%>
-    <link rel="stylesheet" href="../../template/style/user/style-forms/viewed-info.css">
+<%--    <link rel="stylesheet" href="../../static/style/user/account-page.css">--%>
+    <link rel="stylesheet" href="../../static/style/user/style-forms/viewed-info.css">
 </head>
 <body>
 <div id="user-viewed-info" class="content-details col">
@@ -51,7 +51,7 @@
     </div>
     <div class="row mt-2 ms-2 text-center">Số lượng sản phẩm vượt mức quy định.</div>
 </div>
-<script src="template/script/header.js"></script>
+<script src="static/script/header.js"></script>
 <script>
     function formatPriceViewed(productId){
         let card;
@@ -130,6 +130,6 @@
         }
     }
 </script>
-<script src="../../template/script/account/user-history.js"></script>
+<script src="../../static/script/account/user-history.js"></script>
 </body>
 </html>

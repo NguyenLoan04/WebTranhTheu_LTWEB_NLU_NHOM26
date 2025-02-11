@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-1 text-white d-flex text-center">
-                    <a href="/"><img src="../../template/asset/favicon/web_logo.png" alt="" id="header-logo"></a>
+                    <a href="/"><img src="../../static/asset/favicon/web_logo.png" alt="" id="header-logo"></a>
                 </div>
                 <div class="col-7 text-white d-flex text-center align-items-center" style="position: relative">
                     <div class="input-group">

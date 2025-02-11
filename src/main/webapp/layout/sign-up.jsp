@@ -1,17 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: MINH THU
-  Date: 1/11/2025
-  Time: 3:30 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Đăng Ký - Nét Việt</title>
     <%@include file="public/library.jsp" %>
-    <link rel="stylesheet" href="../template/style/user/sign-in.css">
+    <link rel="stylesheet" href="../static/style/user/sign-in.css">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const confirmPasswordInput = document.getElementById("confirmPassword");

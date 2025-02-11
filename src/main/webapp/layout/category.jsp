@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>${categoryTitle} - Nét Việt</title>
-    <link rel="stylesheet" href="../template/style/user/category.css">
+    <link rel="stylesheet" href="../static/style/user/category.css">
     <jsp:include page="public/library.jsp"/>
 </head>
 <body>
@@ -144,7 +144,7 @@
 </section>
 
 <jsp:include page="public/footer.jsp"/>
-<script src="/template/script/header.js"></script>
-<script src="/template/script/category.js"></script>
+<script src="/static/script/header.js"></script>
+<script src="/static/script/category.js"></script>
 </body>
 </html>

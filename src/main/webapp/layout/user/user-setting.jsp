@@ -6,8 +6,8 @@
     <title>Cài đặt</title>
     <%--    <%@include file="../public/library.jsp" %>--%>
     <%--    <!-- css property -->--%>
-    <%--    <link rel="stylesheet" href="../../template/style/user/account-page.css">--%>
-    <link rel="stylesheet" href="../../template/style/user/style-forms/user-setting.css">
+    <%--    <link rel="stylesheet" href="../../static/style/user/account-page.css">--%>
+    <link rel="stylesheet" href="../../static/style/user/style-forms/user-setting.css">
 </head>
 <body>
 <div id="user_setting" class=" content-details col">
@@ -57,7 +57,7 @@
         </div>
     </div>
 </div>
-<%--<script src="template/script/header.js"></script>--%>
+<%--<script src="static/script/header.js"></script>--%>
 <script>
     function changeAvatar() {
         document.getElementById("file-avatar").click();

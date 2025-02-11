@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>${product.category.title} ${product.title} - Nét Việt</title>
-    <link rel="stylesheet" href="../template/style/user/product.css">
+    <link rel="stylesheet" href="../static/style/user/product.css">
     <jsp:include page="public/library.jsp"/>
 </head>
 <body>
@@ -339,8 +339,8 @@
     </c:choose>
 </div>
 <jsp:include page="public/footer.jsp"/>
-<script src="template/script/header.js"></script>
-<script src="template/script/product.js"></script>
+<script src="static/script/header.js"></script>
+<script src="static/script/product.js"></script>
 <script>
     let flag = false
     $("#purchase-btn").click(function () {

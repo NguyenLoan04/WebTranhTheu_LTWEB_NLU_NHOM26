@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Giỏ hàng của bạn - Nét Việt</title>
-    <link rel="stylesheet" href="../../template/style/user/cart.css">
+    <link rel="stylesheet" href="../../static/style/user/cart.css">
     <jsp:include page="../public/library.jsp"/>
 </head>
 <body>
@@ -182,8 +182,8 @@
     <div class="row mt-2 ms-2 text-center">Số lượng sản phẩm vượt mức quy định.</div>
 </div>
 <jsp:include page="../public/footer.jsp"/>
-<script src="../../template/script/header.js"></script>
-<script src="../../template/script/cart.js"></script>
+<script src="../../static/script/header.js"></script>
+<script src="../../static/script/cart.js"></script>
 <script>
     // chuyển đơn vị tiền qua số
     function parseCurrencyToFloat(currency) {

@@ -6,8 +6,8 @@
 <%--    <title>Địa chỉ người dùng</title>--%>
 <%--    <%@include file="../public/library.jsp" %>--%>
     <!-- css property -->
-<%--    <link rel="stylesheet" href="../../template/style/user/account-page.css">--%>
-    <link rel="stylesheet" href="../../template/style/user/style-forms/user-address.css">
+<%--    <link rel="stylesheet" href="../../static/style/user/account-page.css">--%>
+    <link rel="stylesheet" href="../../static/style/user/style-forms/user-address.css">
 </head>
 <body>
 <div id="user-address" class="content-details col" >
@@ -56,8 +56,8 @@
     </div>
 </div>
 <div id="formWrapper" class="d-none"></div>
-<%--<script src="template/script/header.js"></script>--%>
-<script src="../../template/script/account/user-addresses.js"></script>
+<%--<script src="static/script/header.js"></script>--%>
+<script src="../../static/script/account/user-addresses.js"></script>
 <script>
     function showSubChange(addressId){
         let element= $("div#address_"+ addressId)

@@ -6,8 +6,8 @@
     <%--    <title>Trợ giúp</title>--%>
     <%--  <%@include file="../public/library.jsp"%>--%>
     <%--  <!-- css property -->--%>
-    <%--  <link rel="stylesheet" href="../../template/style/user/account-page.css">--%>
-    <link rel="stylesheet" href="../../template/style/user/style-forms/user-setting.css">
+    <%--  <link rel="stylesheet" href="../../static/style/user/account-page.css">--%>
+    <link rel="stylesheet" href="../../static/style/user/style-forms/user-setting.css">
 </head>
 <body>
 <div id="user_support" class="  content-details col">
@@ -26,7 +26,7 @@
         </div>
     </div>
 </div>
-<%--<script src="template/script/header.js"></script>--%>
-<script src="../../template/script/account/user-help.js"></script>
+<%--<script src="static/script/header.js"></script>--%>
+<script src="../../static/script/account/user-help.js"></script>
 </body>
 </html>

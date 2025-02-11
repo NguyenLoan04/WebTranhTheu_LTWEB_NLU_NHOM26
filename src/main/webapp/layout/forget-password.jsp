@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Quên mật khẩu - Nét Việt</title>
     <%@include file="public/library.jsp" %>
-    <link rel="stylesheet" href="../template/style/user/sign-in.css">
-    <link rel="stylesheet" href="../template/style/user/verify.css">
+    <link rel="stylesheet" href="../static/style/user/sign-in.css">
+    <link rel="stylesheet" href="../static/style/user/verify.css">
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const confirmPasswordInput = document.getElementById("pre-password");
@@ -129,6 +129,6 @@
     </div>
 </div>
 
-<script src="../template/script/forget-password.js"></script>
+<script src="../static/script/forget-password.js"></script>
 </body>
 </html>

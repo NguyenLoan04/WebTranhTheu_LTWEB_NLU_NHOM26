@@ -106,6 +106,6 @@
     </c:if>
 </div>
 <div id="review_detail" class="d-none"></div>
-<script src="../../template/script/account/user-feedback.js"></script>
+<script src="../../static/script/account/user-feedback.js"></script>
 </body>
 </html>

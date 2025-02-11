@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>Trang Chủ - Nét Việt</title>
     <jsp:include page="layout/public/library.jsp"/>
-    <link rel="stylesheet" href="template/style/user/home.css">
+    <link rel="stylesheet" href="static/style/user/home.css">
 </head>
 <body>
 <jsp:include page="layout/public/header.jsp"/>
@@ -15,7 +15,7 @@
     <div class="row p-4">
         <div class="col-6 d-flex justify-content-center flex-column">
             <div class="text-center my-3">
-                <img src="template/asset/favicon/web_logo_revert_color.png" width="175px" height="175px">
+                <img src="static/asset/favicon/web_logo_revert_color.png" width="175px" height="175px">
             </div>
             <h2 class="text-center main-color">Thanh tao, Mộc mạc, Uyển chuyển</h2>
             <p class="text-center mt-2 mx-5">
@@ -27,7 +27,7 @@
             </p>
         </div>
         <div class="col-6 p-0 position-relative">
-            <img class="w-100" src="template/asset/image/landing-image.jpeg" alt="" srcset="">
+            <img class="w-100" src="static/asset/image/landing-image.jpeg" alt="" srcset="">
         </div>
     </div>
 </section>
@@ -172,7 +172,7 @@
     </div>
 </section>
 <jsp:include page="layout/public/footer.jsp"/>
-<script src="template/script/home.js"></script>
-<script src="template/script/header.js"></script>
+<script src="static/script/home.js"></script>
+<script src="static/script/header.js"></script>
 </body>
 </html>

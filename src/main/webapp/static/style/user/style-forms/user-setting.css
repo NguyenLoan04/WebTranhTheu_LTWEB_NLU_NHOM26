@@ -1,0 +1,29 @@
+/*User's setting*/
+#user_setting .change-img, #user_setting .change-name{
+    background-color: var(--web-background-color);
+    color:var(--sub-cta-button);
+    border: solid 1px var(--sub-cta-button);
+    border-radius: 5px;
+}
+#user_setting .change-avatar{
+    background-color: var(--web-background-color);
+}
+#user_setting .fullname .edit_name{
+    background-color: var(--web-background-color);
+    color:var(--sub-cta-button);
+}
+#user_setting .feedback_form .container{
+    background-color: var(--web-background-color);
+}
+#user_setting .feedback_form .container .submit-btn{
+    background-color: var(--sub-cta-button);
+    color: var(--web-background-color);
+    border: none;
+    border-radius: 3px;
+}
+#user_setting .delete-account{
+    background-color: var(--main-cta-button);
+    color: var(--web-background-color);
+    height: 40px;
+    border-radius: 5px;
+}

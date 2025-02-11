@@ -1,0 +1,49 @@
+/*User's order list*/
+.order-details{
+    min-height: 600px;
+}
+.order-categories .order-details{
+    cursor: pointer;
+}
+.order-categories .on{
+    color: var(--sub-cta-button);
+    font-weight: 500;
+}
+#user-ordered-list .card button{
+    padding: 5px;
+    border-radius: 5px;
+}
+#user-ordered-list .card .cancel-btn{
+    background-color: var(--main-cta-button);
+    color:var(--web-background-color);
+}
+#user-ordered-list .shipped{
+    color:var(--sub-cta-button);
+    font-weight: bold;
+}
+/*User's order shipping*/
+#user-ordered-list #shippinglist .card .received{
+    background-color: var(--main-cta-button);
+    color: var(--web-background-color);
+    opacity: 0.5;
+}
+/*User's shipped list*/
+#user-ordered-list #shippedlist .card .received,.rebuy_btn{
+    background-color: var(--main-cta-button);
+    color: var(--web-background-color);
+}
+/*User's turnedback orders*/
+#user-ordered-list #turnedback .card .turnback_details,.submit-cancel-reason,.write_review{
+    background-color: var(--sub-cta-button);
+    color: var(--web-background-color);
+}
+/*User's canceled Orders*/
+.rebuy_btn{
+    width: 200px;
+    height: 40px;
+    border-radius: 5px;
+}
+.details-btn,.turnback_order{
+    border:solid 1px var(--sub-cta-button);
+    background-color: var(--web-background-color);
+}

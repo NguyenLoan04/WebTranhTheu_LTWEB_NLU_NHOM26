@@ -1,0 +1,43 @@
+.rounded-circle {
+    background-color: var(--dark-component-background-color);
+}
+
+.card-body {
+    height: 100px;
+}
+
+.widget-card-title, .card-title {
+    font-size: 18px;
+}
+
+.text-body-secondary {
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.radio-buttons input[type="radio"] {
+    display: none;
+}
+
+.radio-buttons label {
+    font-size: 14px;
+    padding: 5px 10px;
+    margin: 5px;
+    border: 2px solid var(--dark-component-background-color);
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    color: var(--dark-component-background-color);
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.radio-buttons input[type="radio"]:checked + label {
+    background-color: var(--dark-component-background-color);
+    color: white;
+}
+
+.text-body-order {
+    font-weight: normal;
+    color: #212529BF;
+}

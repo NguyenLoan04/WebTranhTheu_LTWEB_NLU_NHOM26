@@ -1,0 +1,74 @@
+.img-container {
+    width: 170px;
+    height: 170px;
+    position: relative;
+}
+
+.img {
+    border-radius: 100px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.icon-edit-avt {
+    position: absolute;
+    bottom: 0;
+    right: 15px;
+    font-size: 30px;
+    color: var(--sub-cta-button);
+    cursor: pointer;
+}
+
+.style-label {
+    color: var(--big-text-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.style-input, .style-textarea {
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 20px;
+    border: solid 2px var(--dark-component-background-color);
+}
+
+.style-textarea {
+    height: 100px;
+    resize: none;
+}
+
+.btn-edit {
+    border: none;
+    color: white;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--main-cta-button);
+    margin-bottom: 10px;
+    width: 150px;
+}
+
+.btn-edit:hover {
+    opacity: 0.7;
+}
+
+.style-button {
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+}
+#btn-close {
+    color: var(--text-color);
+    background-color: var(--light-component-background-color);
+}
+#btn-close:hover {
+    color: var(--text-hover-color);
+    opacity: 0.8;
+}
+#btn-update {
+    color: white;
+    background-color: var(--sub-cta-button);
+}
+#btn-update:hover {
+    background-color: var(--sub-cta-button-hover);
+}

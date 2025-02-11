@@ -1,0 +1,37 @@
+.confirmModal {
+    margin-bottom: 0px;
+    background-color: var(--light-component-background-color);
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.style-title {
+    color: var(--big-text-color);
+    font-weight: 500;
+}
+
+.style-name-element {
+    font-weight: 500;
+}
+
+.style-text {
+    font-weight: normal;
+}
+
+.btn-no {
+    height: 40px;
+    width: 100px;
+    border: none;
+    margin-right: 5px;
+    border-radius: 5px;
+    background-color: var(--sub-component-background-color);
+}
+
+.btn-yes {
+    width: 60px;
+    height: 40px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    background-color: var(--sub-cta-button);
+}

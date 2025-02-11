@@ -1,0 +1,29 @@
+#logOutModal .btn-secondary {
+    background-color: var(--light-component-background-color);
+    color: var(--text-color);
+    border: none;
+}
+
+#logOutModal .btn-secondary:hover {
+    background-color: var(--label-color);
+    color: var(--text-hover-color);
+}
+
+#logOutModal .btn-primary {
+    background-color: var(--sub-cta-button);
+    color: white;
+    border: none;
+}
+
+#logOutModal .btn-primary:hover {
+    background-color: var(--sub-cta-button-hover);
+}
+
+#log-out {
+    background-color: var(--light-component-background-color);
+    border: none;
+}
+
+#log-out:hover {
+    color: var(--text-hover-color);
+}

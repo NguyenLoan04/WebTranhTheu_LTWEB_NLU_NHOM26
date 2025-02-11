@@ -1,0 +1,114 @@
+footer i, footer p {
+    color: var(--label-color);
+}
+
+.breadcrumb a {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.breadcrumb a:hover {
+    color: var(--text-hover-color);
+}
+
+/* Màu sử dụng chính */
+.main-color {
+    color: var(--big-text-color);
+}
+
+.sub-color {
+    color: var(--sub-cta-button);
+}
+
+.background-container {
+    background-color: var(--light-component-background-color);
+}
+
+.badge-color {
+    background-color: var(--main-cta-button);
+    color: var(--label-color);
+}
+
+/* Phần button */
+.main-cta-button {
+    background-color: var(--main-cta-button);
+    color: var(--label-color);
+}
+
+.main-cta-button:hover {
+    background-color: var(--main-cta-button-hover);
+}
+
+.text-button {
+    color: var(--text-color) !important;
+}
+
+.text-button:hover {
+    color: var(--text-hover-color) !important;
+}
+
+.sub-cta-button {
+    background-color: var(--light-component-background-color);
+    color: var(--sub-cta-button);
+    border: solid 2px var(--sub-cta-button) !important;
+}
+
+.sub-cta-button:hover {
+    color: var(--sub-cta-button-hover);
+    border: solid 2px var(--sub-cta-button-hover) !important;
+}
+
+.sub-cta-button-background {
+    background-color: var(--sub-cta-button);
+    color: var(--label-color);
+}
+
+.sub-cta-button-background:hover {
+    background-color: var(--sub-cta-button-hover);
+    color: var(--label-color);
+}
+
+.form-check-input:checked {
+    background-color: var(--sub-cta-button);
+    border-color: var(--sub-cta-button);
+}
+
+/* Phần số sao đánh giá */
+.product-info__star-container {
+    position: relative;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-info__star-outline, .product-info__star {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+.product-info__star-mask {
+    width: 0;
+    height: 28px;
+    position: absolute;
+    right: 0;
+    background-color: var(--light-component-background-color);
+}
+
+/* Css card */
+.card {
+    background-color: var(--light-component-background-color);
+    border: 0;
+}
+
+.card-element:hover {
+    box-shadow: 1px 1px 8px 0px rgba(0,0,0,0.75);
+}
+
+.card-title {
+    font-weight: normal;
+    margin-bottom: 0;
+}

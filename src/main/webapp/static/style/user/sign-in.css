@@ -1,0 +1,65 @@
+a {
+    color: var(--sub-cta-button);
+    text-shadow: 0 0 1px var(--dark-component-background-color), /* Bóng sáng nhẹ, sát cạnh chữ */ 0 0 4px var(--light-component-background-color); /* Bóng sáng thứ hai, xa hơn một chút */
+}
+
+.container {
+    width: 450px;
+    background-color: var(--light-component-background-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3),
+    0 6px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.style-big-title {
+    font-weight: bold;
+    color: var(--big-text-color);
+}
+
+.style-title {
+    color: var(--big-text-color);
+    font-weight: 500;
+}
+
+.style-button {
+    border: none;
+    background-color: var(--sub-cta-button);
+    color: var(--label-color);
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+}
+
+.style-caption {
+    font-weight: lighter;
+    color: var(--text-color);
+    font-size: 14px;
+}
+
+.style-label {
+    color: var(--big-text-color);
+}
+
+.icon-social {
+    height: 40px;
+    text-align: center;
+    align-content: center;
+}
+
+.style-input {
+    height: 40px;
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+.icon-container {
+    height: 40px;
+    background-color: white;
+    align-content: center;
+    border: solid 1px rgb(118, 118, 118);
+    border-right: none;
+}
+
+.fa-brands {
+    color: var(--sub-cta-button);
+}

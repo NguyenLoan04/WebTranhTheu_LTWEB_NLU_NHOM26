@@ -1,0 +1,119 @@
+body, html {
+    overflow: visible;
+}
+
+.style-big-title {
+    padding-top: 10px;
+    font-weight: 500;
+    color: var(--big-text-color);
+}
+
+.style-title {
+    color: var(--big-text-color);
+    font-weight: 500;
+}
+
+.style-button, .style-cancel-btn {
+    border: none;
+    background-color: var(--sub-cta-button);
+    color: var(--label-color);
+    height: 40px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.style-update-btn {
+    border: solid 3px var(--sub-cta-button);
+    background-color: var(--sub-component-background-color);
+    color: var(--text-color);
+    height: 40px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.style-label {
+    color: var(--big-text-color);
+}
+
+.icon-social {
+    height: 40px;
+    text-align: center;
+    align-content: center;
+}
+
+.style-input {
+    height: 40px;
+    padding-left: 10px;
+}
+
+.style-area {
+    height: 150px;
+    padding-left: 10px;
+    resize: none;
+}
+
+.style-input:disabled, .style-area:disabled, .style-select-many:disabled, .style-select:disabled {
+    background-color: #F0F0F0;
+    border: solid 1px rgb(118, 118, 118) !important;
+}
+
+.style-select-many, .style-select {
+    height: 130px;
+    width: 100%;
+    padding-left: 20px;
+}
+
+.style-select {
+    height: 40px;
+}
+
+.icon-container {
+    height: 50px;
+    background-color: white;
+    align-content: center;
+    border: solid 1px rgb(118, 118, 118);
+    border-right: none;
+}
+
+.form-container {
+    margin-bottom: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: var(--light-component-background-color);
+}
+
+.form-container input, .form-container textarea, .form-container select {
+    border: solid 1px rgb(118, 118, 118);
+    border-radius: 5px;
+}
+
+.form-container input[type = 'file'] {
+    border: none;
+}
+
+.style-cancel-btn {
+    background-color: var(--sub-component-background-color);
+    color: var(--text-color);
+}
+
+.icon-del {
+    font-size: 20px;
+    color: var(--dark-component-background-color);
+    padding: 10px 0px 10px 10px;
+    cursor: pointer;
+}
+
+.icon-del:hover {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.style-add-btn {
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.style-checkbox {
+    height: 16px;
+    width: 16px;
+}

@@ -1,0 +1,19 @@
+.container #user-info{
+    height: 500px;
+}
+.container #user-info .change-pass #change-password{
+    background-color: var(--sub-cta-button);
+    color: var(--web-background-color);
+    border:none;
+    border-radius: 3px;
+    font-size: 15px;
+    height: 30px;
+}
+.container #user-info #save-info ,#save-password{
+    background-color: var(--sub-cta-button);
+    color: var(--web-background-color);
+    border:none;
+    height: 40px;
+    font-size: 16px;
+    border-radius: 3px;
+}

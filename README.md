@@ -1,12 +1,11 @@
 # Nét Việt - Website kinh doanh tranh thêu
-Đồ án nhóm 61 - Môn Lập trình Web - NLU 2024-2025
+Đồ án nhóm 61 - Môn Lập trình Web - NLU 2024-2025.
 
 ## Mục lục
 - [Các tính năng](#tính-năng) 
 - [Cài đặt](#cài-đặt)
 - [Các tính năng dự kiến](#các-tính-năng-dự-kiến)
-- [Ghi chú](#ghi-chú)
-
+- [Hình ảnh của web](#hình-ảnh-của-web)
 ---
 ### Tính năng
 1. **Trang chủ**: Hiển thị thông tin website, sản phẩm HOT (được mua nhiều), sản phẩm đang được khuyến mãi thời điểm người dùng truy cập vào trang, sản phẩm được đánh giá cao (số lượng đánh giá 5 sao cao nhất), các sản phẩm còn hoạt động ở trên web.
@@ -21,15 +20,14 @@
 
 ---
 ### Cài đặt
-- Clone repo này.
-
-- Tạo các file properties trong `src/java/main/resources`, trong đó:
+1. Clone repo này.
+2. Tạo các file properties trong `src/java/main/resources`, trong đó:
     - _db.properties_: chức thông tin kết nối đến database: `db.host`, `db.port`, `db.username`, `db.password`, `db.name` (tên db) và `db.options= useUnicode=true&characterEncoding=utf-8`.
     - _cloud.properties_: chứa thông tin kết nối đến **cloudinary** như `cloud_name`, `api_key`, `api_secret`.
     - _email.properties_: chứa thông tin mail để gửi mã xác thực cho người dùng như `name-email` và `pass_email`.
     - _gg.properties_: chứa `loginId` của google dùng để login bằng google.
- 
-- Thao tác với **Docker** cơ bản: (nếu chưa biết Docker)
+      
+3. Thao tác với **Docker** cơ bản: (nếu chưa biết Docker)
     - `docker build -t your-app-name .`: Để tiến hành build Docker Image. Với `your-app-name` là tên application muốn đặt
     - `docker run -d -p 8080:8080 --name your-container-name your-app-name`: Dùng để chạy Container từ Image đã tạo với `your-container-name` là tên Container muốn đặt tại port 8080
     - Mở `localhost:8080/` để sử dụng.
@@ -42,3 +40,10 @@
 4. Cập nhật hash cho id sản phẩm trong trang `/product`
 5. Cập nhật UI cho mọi tính năng.
 6. Fix các bug còn tồn đọng.
+
+---
+### Hình ảnh của web
+
+![image](https://github.com/user-attachments/assets/7cfa7b1a-2362-4a1d-bf9d-3aaad46a4580)
+![image](https://github.com/user-attachments/assets/c016b6df-73b8-4f89-8a8b-e97639d32ed6)
+![image](https://github.com/user-attachments/assets/8f33d9f4-2db9-49e8-8471-35f391fea459)

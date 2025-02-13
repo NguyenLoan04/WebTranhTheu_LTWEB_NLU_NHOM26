@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>${account.fullName} - Nét Việt</title>
-    <link rel="stylesheet" href="../../template/style/user/account-page.css">
+    <link rel="stylesheet" href="../../static/style/user/account-page.css">
     <jsp:include page="../public/library.jsp"/>
 </head>
 <body>
@@ -140,7 +140,7 @@
 </div>
 <div class="p-4"></div>
 <jsp:include page="../public/footer.jsp"/>
-<script src="../../template/script/header.js"></script>
-<script src="../../template/script/account/account.js"></script>
+<script src="../../static/script/header.js"></script>
+<script src="../../static/script/account/account.js"></script>
 </body>
 </html>

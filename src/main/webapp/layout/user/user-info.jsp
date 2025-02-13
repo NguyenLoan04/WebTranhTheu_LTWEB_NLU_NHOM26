@@ -7,7 +7,7 @@
     <%--    <title>Thông tin người dùng </title>--%>
     <%--    <%@include file="../public/library.jsp" %>--%>
     <!-- css property -->
-    <link rel="stylesheet" href="../../template/style/user/style-forms/user-info.css">
+    <link rel="stylesheet" href="../../static/style/user/style-forms/user-info.css">
 </head>
 <body>
 <div id="user-info" class="content-details col">
@@ -72,8 +72,8 @@
         </div>
     </div>
 </div>
-<%--<script src="template/script/header.js"></script>--%>
-<script src="../../template/script/account/user-info.js"></script>
+<%--<script src="static/script/header.js"></script>--%>
+<script src="../../static/script/account/user-info.js"></script>
 <script>
     function updateInfo() {
         let accountId = '${sessionScope.accountId}'

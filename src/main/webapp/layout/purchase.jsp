@@ -4,7 +4,7 @@
 <html>
 <head>
     <title>Xác nhận thanh toán - Nét Việt</title>
-    <link rel="stylesheet" href="../template/style/user/purchase.css">
+    <link rel="stylesheet" href="../static/style/user/purchase.css">
     <jsp:include page="public/library.jsp"/>
     <script>
         window.history.pushState({}, '', "/purchase")
@@ -191,7 +191,7 @@
     </div>
 </div>
 
-<script src="../template/script/purchase.js"></script>
+<script src="../static/script/purchase.js"></script>
 <jsp:include page="public/footer.jsp"/>
 </body>
 </html>

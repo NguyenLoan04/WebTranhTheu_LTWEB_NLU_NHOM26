@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Điều khoản sử dụng - Nét Việt</title>
-    <link rel="stylesheet" href="../template/style/user/policy.css">
+    <link rel="stylesheet" href="../static/style/user/policy.css">
     <jsp:include page="public/library.jsp"/>
 </head>
 <body>

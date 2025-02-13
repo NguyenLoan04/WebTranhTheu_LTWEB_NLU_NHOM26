@@ -1,17 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: MINH THU
-  Date: 1/11/2025
-  Time: 8:58 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Xác thực tài khoản - Nét Việt</title>
     <%@include file="public/library.jsp"%>
-    <link rel="stylesheet" href="../template/style/user/verify.css">
+    <link rel="stylesheet" href="../static/style/user/verify.css">
 
 </head>
 <body>
@@ -42,6 +35,6 @@
 
 <%@include file="public/footer.jsp"%>
 
-<script src="../template/script/verify.js"></script>
+<script src="../static/script/verify.js"></script>
 </body>
 </html>

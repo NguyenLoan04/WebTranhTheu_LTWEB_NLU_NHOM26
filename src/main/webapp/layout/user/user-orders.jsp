@@ -6,8 +6,8 @@
     <%--    <title>Đơn hàng</title>--%>
     <%--    <%@include file="../public/library.jsp" %>--%>
     <!-- css property -->
-    <%--    <link rel="stylesheet" href="../../template/style/user/account-page.css">--%>
-    <link rel="stylesheet" href="../../template/style/user/style-forms/orders.css">
+    <%--    <link rel="stylesheet" href="../../static/style/user/account-page.css">--%>
+    <link rel="stylesheet" href="../../static/style/user/style-forms/orders.css">
 </head>
 <body>
 <div id="user-ordered-list" class="content-details">
@@ -75,8 +75,8 @@
 </div>
 <div id="order-detail" class="d-none"></div>
 <div id="cancel-form" class="d-none"></div>
-<%--<script src="template/script/header.js"></script>--%>
-<script src="../../template/script/account/user-order.js"></script>
+<%--<script src="static/script/header.js"></script>--%>
+<script src="../../static/script/account/user-order.js"></script>
 <script>
     <c:forEach var="order" items="${account.orders}">
     <c:forEach var="orderProduct" items="${order.products}">

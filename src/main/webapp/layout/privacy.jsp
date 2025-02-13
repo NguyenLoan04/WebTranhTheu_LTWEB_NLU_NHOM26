@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Chính sách quyền riêng tư - Nét Việt</title>
-    <link rel="stylesheet" href="../template/style/user/policy.css">
+    <link rel="stylesheet" href="../static/style/user/policy.css">
     <jsp:include page="public/library.jsp"/>
 </head>
 <body>

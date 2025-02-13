@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <title>Đăng nhập - Nét Việt</title>
     <%@include file="public/library.jsp" %>
-    <link rel="stylesheet" href="../template/style/user/sign-in.css">
-    <link rel="stylesheet" href="../template/style/user/verify.css">
+    <link rel="stylesheet" href="../static/style/user/sign-in.css">
+    <link rel="stylesheet" href="../static/style/user/verify.css">
     <script src="https://accounts.google.com/gsi/client" async defer></script>
 
 </head>
@@ -89,6 +89,6 @@
 </div>
 <% } %>
 
-<script src="../template/script/login.js"></script>
+<script src="../static/script/login.js"></script>
 </body>
 </html>

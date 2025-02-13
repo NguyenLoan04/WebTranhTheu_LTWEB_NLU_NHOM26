@@ -6,8 +6,8 @@
     <title>Cài đặt</title>
     <%--    <%@include file="../public/library.jsp" %>--%>
     <%--    <!-- css property -->--%>
-    <%--    <link rel="stylesheet" href="../../template/style/user/account-page.css">--%>
-    <link rel="stylesheet" href="../../template/style/user/style-forms/user-setting.css">
+    <%--    <link rel="stylesheet" href="../../static/style/user/account-page.css">--%>
+    <link rel="stylesheet" href="../../static/style/user/style-forms/user-setting.css">
 </head>
 <body>
 <div id="user_setting" class=" content-details col">
@@ -41,7 +41,7 @@
                 </div>
                 <div>
                     <label class="my-2">
-                        <input type="radio" value="old" class="form-check-input" name="choose-theme" id="current-theme">
+                        <input type="radio" value="fresh" class="form-check-input" name="choose-theme" id="old-theme">
                         Theme tươi mát
                     </label>
                 </div>
@@ -57,8 +57,21 @@
         </div>
     </div>
 </div>
-<%--<script src="template/script/header.js"></script>--%>
+<%--<script src="static/script/header.js"></script>--%>
 <script>
+    const themeUrl = localStorage.getItem("themeUrl")
+    switch (themeUrl.substring(themeUrl.lastIndexOf("/") + 1, themeUrl.lastIndexOf("."))) {
+        case "default-theme" : {
+            $("#new-theme").prop("checked", true)
+            break
+        }
+        case "fresh-theme": {
+            $("#old-theme").prop("checked", true)
+            break
+        }
+        default: break
+    }
+
     function changeAvatar() {
         document.getElementById("file-avatar").click();
     }

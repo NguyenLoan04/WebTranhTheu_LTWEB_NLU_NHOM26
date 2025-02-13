@@ -9,7 +9,7 @@
 <!-- JQuery -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <%-- Tạm thời --%>
-<link class="base-theme" rel="stylesheet" href="../../static/style/index.css">
+<link class="base-theme" rel="stylesheet" href="../../static/style/theme/default-theme.css">
 <link rel="stylesheet" href="../../static/style/user/header.css">
 <link rel="stylesheet" href="../../static/style/user/footer.css">
 <link rel="stylesheet" href="../../static/style/style.css">
@@ -23,8 +23,8 @@
 
     function setDefaultTheme() {
         if (localStorage.getItem("themeUrl") === null) {
-            window.themeElement.attr("href", "../../static/style/index.css")
-            localStorage.setItem("themeUrl", "../../static/style/index.css")
+            window.themeElement.attr("href", "../../static/style/theme/default-theme.css")
+            localStorage.setItem("themeUrl", "../../static/style/theme/default-theme.css")
         } else window.themeElement.attr("href", localStorage.getItem("themeUrl"))
     }
 
@@ -35,11 +35,11 @@
         let changedUrl = ""
         switch (name) {
             case "default": {
-                changedUrl = "../../static/style/index.css"
+                changedUrl = "../../static/style/theme/default-theme.css"
                 break
             }
-            case "old": {
-                changedUrl = "../../static/style/old-index.css"
+            case "fresh": {
+                changedUrl = "../../static/style/theme/fresh-theme.css"
                 break
             }
             default:

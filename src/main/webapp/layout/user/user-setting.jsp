@@ -41,7 +41,7 @@
                 </div>
                 <div>
                     <label class="my-2">
-                        <input type="radio" value="old" class="form-check-input" name="choose-theme" id="current-theme">
+                        <input type="radio" value="fresh" class="form-check-input" name="choose-theme" id="old-theme">
                         Theme tươi mát
                     </label>
                 </div>
@@ -59,6 +59,19 @@
 </div>
 <%--<script src="static/script/header.js"></script>--%>
 <script>
+    const themeUrl = localStorage.getItem("themeUrl")
+    switch (themeUrl.substring(themeUrl.lastIndexOf("/") + 1, themeUrl.lastIndexOf("."))) {
+        case "default-theme" : {
+            $("#new-theme").prop("checked", true)
+            break
+        }
+        case "fresh-theme": {
+            $("#old-theme").prop("checked", true)
+            break
+        }
+        default: break
+    }
+
     function changeAvatar() {
         document.getElementById("file-avatar").click();
     }

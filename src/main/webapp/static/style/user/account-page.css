@@ -9,6 +9,11 @@ a{
 hr{
     margin: 0;
 }
+
+tbody * {
+    font-weight: normal;
+}
+
 .h1,.h2,.h3,.h4,.h5 {
     color:var(--big-text-color);
     font-weight: 400;
@@ -42,6 +47,7 @@ hr{
 .resized-image{
     object-fit: contain;
     aspect-ratio: 3/2;
+    width: 100%;
 }
 .resized-image-his{
     width: 98px;

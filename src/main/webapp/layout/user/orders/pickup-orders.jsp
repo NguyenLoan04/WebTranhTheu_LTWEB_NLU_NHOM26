@@ -52,6 +52,26 @@
                             <span class="total-price h5 fw-semibold">${order.totalPrice}</span>
                         </th>
                     </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="rounded p-2 sub-cta-button"
+                                        onclick="getCancelForm(${order.id})">
+                                    Hủy hàng
+                                </button>
+                            </div>
+
+                        </th>
+                        <th>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="rounded p-2 main-cta-button" onclick="getDetailsForm(${order.id})">
+                                    Chi tiết
+                                </button>
+                            </div>
+                        </th>
+                    </tr>
                 </c:forEach>
                 </tbody>
             </table>
@@ -129,7 +149,6 @@
             formatPrice($(this))
         })
     })
-
 
 
     <%--<c:forEach var="order" items="${listOrder}">--%>

@@ -33,7 +33,7 @@ public class PickupOrderController extends HttpServlet {
             });
             order.setProducts(orderProducts);
         });
-        request.setAttribute("pickup",pickup);
+        request.setAttribute("listOrder",pickup);
         request.getRequestDispatcher("/layout/user/orders/pickup-orders.jsp").forward(request, response);
     }
 

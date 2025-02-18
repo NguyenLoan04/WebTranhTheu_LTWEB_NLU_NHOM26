@@ -45,6 +45,12 @@
                         </tr>
                     </c:forEach>
                     <tr>
+                        <th>ID đơn hàng: <span class="fw-semibold">${order.id}</span></th>
+                        <th>Trạng thái đơn hàng: <span class="fw-semibold">${order.getStatusDetail()}</span></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
                         <th></th>
                         <th></th>
                         <th class="py-3 text-center">Thành tiền:</th>

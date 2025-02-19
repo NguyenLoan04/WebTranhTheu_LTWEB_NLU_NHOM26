@@ -14,21 +14,12 @@
         formatDate($(this))
     })
 </script>
-<div id="order-detail-info" class=" content-details col">
-    <div class="row"><i class="backpage pt-4 bi bi-chevron-left">Trở lại</i></div>
+<div id="order-detail-info" class=" content-details col p-4">
+    <div class="row cursor-pointer mb-4">< Trở lại</div>
     <div class="row">
-        <div class="col-8 h3 fw-semibold px-4 pt-2 pb-2 ">Chi tiết đơn hàng</div>
-        <div class="col-4 justify-content-center align-items-center text-center">
-            <c:choose>
-                <c:when test="${order.status == 1}">Chờ xác nhận</c:when>
-                <c:when test="${order.status == 2}">Chờ lấy hàng </c:when>
-                <c:when test="${order.status == 3}">Chờ giao hàng</c:when>
-                <c:when test="${order.status == 4}">Đã giao hàng</c:when>
-                <c:when test="${order.status == 5}">Đã nhận được hàng</c:when>
-                <c:when test="${order.status == 6}">Yêu cầu hoàn đơn - đổi trả</c:when>
-                <c:when test="${order.status == 0}">Đã hủy</c:when>
-                <c:otherwise> Trạng thái không xác định</c:otherwise>
-            </c:choose>
+        <div class="col-12 h3 fw-semibold px-4 pt-2 pb-2 ">Chi tiết đơn hàng</div>
+        <div class="">
+            Trạng thái đơn hàng: <span class="fw-semibold">${order.getStatusDetail()}</span>
         </div>
     </div>
     <hr/>

@@ -17,7 +17,6 @@
     <div class="back-page row cursor-pointer mb-4 text-button">< Trở lại</div>
     <div class="row">
         <h3 class="h3 fw-semibold pt-2 pb-2 ">Chi tiết đơn hàng</h3>
-        <p class="mb-1">ID đơn hàng: <span class="fw-semibold">${order.getId()}</span></p>
         <p class="mb-1">
             Trạng thái đơn hàng: <span class="fw-semibold">${order.getStatusDetail()}</span>
         </p>

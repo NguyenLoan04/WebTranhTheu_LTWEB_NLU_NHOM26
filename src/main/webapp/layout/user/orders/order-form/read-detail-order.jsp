@@ -2,15 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <script>
-        $(".back-page").click(function () {
-            $("#order-detail").addClass("d-none")
-            $("#user-ordered-list").removeClass("d-none")
-        })
-        $(".date").each(function () {
-            formatDate($(this))
-        })
-    </script>
 </head>
 <body>
 <div id="order-detail-info" class=" content-details col p-4 pb-0">
@@ -34,15 +25,15 @@
             <h5 class="fw-semibold mb-3">Thông tin người mua</h5>
             <div class="row">
                 <div class="col">Tên người dùng:</div>
-                <div class="col"> <span class=" fw-semibold">${account.fullName}</span></div>
+                <div class="col"><span class=" fw-semibold">${account.fullName}</span></div>
             </div>
             <div class="row">
-                <div class="col">Số điện thoại: </div>
-                <div class="col"> <span class="ms-1">${account.phone}</span></div>
+                <div class="col">Số điện thoại:</div>
+                <div class="col"><span class="ms-1">${account.phone.trim().isEmpty() ? "Chưa có số điện thoại" : account.phone}</span></div>
             </div>
             <div class="row">
                 <div class="col">Địa chỉ:</div>
-                <div class="col"> <span class="ms-1">${order.shippingAddress}</span></div>
+                <div class="col"><span class="ms-1">${order.shippingAddress}</span></div>
             </div>
         </div>
         <div class="col ms-2 py-3">
@@ -70,7 +61,7 @@
     </div>
 </div>
 <hr/>
-<div class="mt-4 container">
+<div class="mt-4 container" id="form-detail">
     <h5>Thông tin sản phẩm</h5>
     <!--Danh sach sp trong 1 order-->
     <div class="row py-4 list-products">
@@ -101,17 +92,11 @@
                     </th>
                 </tr>
             </c:forEach>
-            <tr>
-                <th></th>
-                <th></th>
-                <th class="py-3 text-center">Thành tiền:</th>
-                <th class="py-3">
-                    <span class="total-price h5 fw-semibold">${order.totalPrice}</span>
-                </th>
-            </tr>
             </tbody>
         </table>
-
+        <p class="text-end py-3">
+            Thành tiền: <span class="ms-1 total-price h5 fw-semibold">${order.totalPrice}</span>
+        </p>
     </div>
     <c:if test="${order.status==0}">
         <div class="row p-0 my-3">
@@ -133,11 +118,19 @@
     </c:if>
 </div>
 <script>
+    $(".back-page").click(function () {
+        $("#order-detail").addClass("d-none")
+        $("#user-ordered-list").removeClass("d-none")
+    })
+    $("#order-detail-info .date").each(function () {
+        formatDate($(this))
+    })
+
     $(document).ready(function () {
-        $(".product-price").each(function (index) {
+        $("#form-detail .product-price").each(function (index) {
             formatPrice($(this))
         })
-        $(".total-price").each(function (index) {
+        $("#form-detail .total-price").each(function (index) {
             formatPrice($(this))
         })
     })

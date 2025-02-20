@@ -7,11 +7,6 @@
     <%--    <%@include file="../public/library.jsp" %>--%>
     <!-- css property -->
     <%--    <link rel="stylesheet" href="../../static/style/user/account-page.css">--%>
-    <script>
-        $(".date").each(function () {
-            formatDate($(this))
-        })
-    </script>
     <link rel="stylesheet" href="../../static/style/user/style-forms/orders.css">
 </head>
 <body>
@@ -56,7 +51,7 @@
                                 <th>
                                     <span class="total-price fw-semibold">${order.totalPrice}</span>
                                 </th>
-                                <th class="">
+                                <th>
                                     <div class="row">
                                         <div class="col"></div>
                                         <div class="d-flex justify-content-center col-5">
@@ -68,7 +63,8 @@
                                             </c:if>
                                         </div>
                                         <div class="d-flex justify-content-center col-5">
-                                            <button type="button" class="w-100 rounded p-2 main-cta-button" onclick="getDetailsForm(${order.id})">
+                                            <button type="button" class="w-100 rounded p-2 main-cta-button"
+                                                    onclick="getDetailsForm(${order.id})">
                                                 Chi tiết
                                             </button>
                                         </div>
@@ -201,6 +197,9 @@
 <%--<script src="static/script/header.js"></script>--%>
 <script src="../../static/script/account/user-order.js"></script>
 <script>
+    $(".date").each(function () {
+        formatDate($(this))
+    })
     $(document).ready(function () {
         $(".product-price").each(function (index) {
             formatPrice($(this))

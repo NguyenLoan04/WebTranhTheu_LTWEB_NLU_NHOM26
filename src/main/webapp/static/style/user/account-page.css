@@ -14,6 +14,10 @@ tbody * {
     font-weight: normal;
 }
 
+input[type=radio] {
+    border-color: black;
+}
+
 .h1,.h2,.h3,.h4,.h5 {
     color:var(--big-text-color);
     font-weight: 400;

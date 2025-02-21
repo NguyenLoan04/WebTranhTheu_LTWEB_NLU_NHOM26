@@ -20,6 +20,7 @@
                     <th>Thông tin sản phẩm</th>
                     <th>Kích thước</th>
                     <th>Giá tiền</th>
+                    <th></th>
                 </tr>
                 </thead>
 
@@ -30,15 +31,24 @@
                             <th style="width: 20%">
                                 <img src="${product.thumbnail}" class="my-3 resized-image">
                             </th>
-                            <th class="p-3">
+                            <th class="">
                                 <p class="title h5 main-color">${product.title}</p>
                                 <p class="p-0">Số lượng: <span class="fw-semibold">${product.quantity}</span></p>
                             </th>
-                            <th class="p-3">
+                            <th class="">
                                 <p>${product.width} x ${product.height} cm</p>
                             </th>
-                            <th class="p-3">
+                            <th class="">
                                 <div class="product-price">${product.price}</div>
+                            </th>
+                            <th class="">
+                                    <%--Button viết đánh giá--%>
+                                <div class="d-flex justify-content-center">
+                                    <button type="button" class="rounded p-2 sub-cta-button-background"
+                                            onclick="window.location.href = /product?id=${product.id}">
+                                        Viết đánh giá
+                                    </button>
+                                </div>
                             </th>
                         </tr>
                     </c:forEach>
@@ -47,8 +57,10 @@
                         <th>Trạng thái đơn hàng: <span class="fw-semibold">${order.getStatusDetail()}</span></th>
                         <th></th>
                         <th></th>
+                        <th></th>
                     </tr>
                     <tr>
+                        <th></th>
                         <th></th>
                         <th></th>
                         <th class="py-3 text-center">Thành tiền:</th>
@@ -59,18 +71,20 @@
                     <tr>
                         <th></th>
                         <th></th>
+                        <th></th>
                         <th>
-                            <div class="d-flex justify-content-center">
-                                <button type="button" class="rounded p-2 sub-cta-button"
-                                        onclick="getCancelForm(${order.id})">
-                                    Hủy hàng
-                                </button>
-                            </div>
-
+                                <%--Button viết đánh giá--%>
+                                <%--                            <div class="d-flex justify-content-center">--%>
+                                <%--                                <button type="button" class="rounded p-2 sub-cta-button"--%>
+                                <%--                                        onclick="getCancelForm(${order.id})">--%>
+                                <%--                                    Hủy hàng--%>
+                                <%--                                </button>--%>
+                                <%--                            </div>--%>
                         </th>
                         <th>
                             <div class="d-flex justify-content-center">
-                                <button type="button" class="rounded p-2 main-cta-button" onclick="getDetailsForm(${order.id})">
+                                <button type="button" class="rounded p-2 main-cta-button"
+                                        onclick="getDetailsForm(${order.id})">
                                     Chi tiết
                                 </button>
                             </div>
@@ -83,12 +97,21 @@
     </c:choose>
 </div>
 <script>
-    <c:forEach var="order" items="${received}">
-    formatPrice($("div#" +${order.id}).find(".total").find("#totalPrice"))
-    <c:forEach var="orderProduct" items="${order.products}">
-    formatPrice($("div#product_" +${orderProduct.id}).find("#productPrice"))
-    </c:forEach>
-    </c:forEach>
+    $(document).ready(function () {
+        $(".product-price").each(function (index) {
+            formatPrice($(this))
+        })
+        $(".total-price").each(function (index) {
+            formatPrice($(this))
+        })
+    })
+
+    <%--    <c:forEach var="order" items="${received}">--%>
+    <%--    formatPrice($("div#" +${order.id}).find(".total").find("#totalPrice"))--%>
+    <%--    <c:forEach var="orderProduct" items="${order.products}">--%>
+    <%--    formatPrice($("div#product_" +${orderProduct.id}).find("#productPrice"))--%>
+    <%--    </c:forEach>--%>
+    <%--    </c:forEach>--%>
 </script>
 </body>
 </html>

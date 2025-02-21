@@ -33,7 +33,7 @@ public class ReceivedOrderController extends HttpServlet {
             });
             order.setProducts(orderProducts);
         });
-        request.setAttribute("received",received);
+        request.setAttribute("listOrder",received);
         request.getRequestDispatcher("/layout/user/orders/received-orders.jsp").forward(request, response);
     }
 

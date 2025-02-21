@@ -12,11 +12,12 @@
             Trạng thái đơn hàng: <span class="fw-semibold">${order.getStatusDetail()}</span>
         </p>
     </div>
-    <hr/>
     <c:if test="${order.status==5}">
-        <div class="m-2 row rebuy-area">
-            <div class="col-8">Cảm ơn quý khách đã tham gia mua sắm!</div>
-            <button class="col-4 rebuy_btn" onclick="rebuyOrder(${order.id})">Mua lại</button>
+        <div class="row rebuy-area mt-3">
+            <div class="col-9">Cảm ơn quý khách đã tham gia mua sắm!</div>
+            <div class="col">
+                <button class="w-75 rebuy_btn p-2" onclick="rebuyOrder(${order.id})">Mua lại</button>
+            </div>
         </div>
         <hr/>
     </c:if>
@@ -29,7 +30,9 @@
             </div>
             <div class="row">
                 <div class="col">Số điện thoại:</div>
-                <div class="col"><span class="ms-1">${account.phone.trim().isEmpty() ? "Chưa có số điện thoại" : account.phone}</span></div>
+                <div class="col"><span
+                        class="ms-1">${account.phone.trim().isEmpty() ? "Chưa có số điện thoại" : account.phone}</span>
+                </div>
             </div>
             <div class="row">
                 <div class="col">Địa chỉ:</div>

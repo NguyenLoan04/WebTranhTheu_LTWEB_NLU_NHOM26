@@ -15,13 +15,13 @@
     <hr>
     <div class="container px-3">
         <div class="row order-categories mb-2">
-            <div class="cursor-pointer col order-item p-2" data-url="/waitlist-orders">Chờ xác nhận</div>
-            <div class="cursor-pointer col order-item p-2" data-url="/pickup-orders">Chờ lấy hàng</div>
-            <div class="cursor-pointer col order-item p-2" data-url="/shipping-orders">Chờ giao hàng</div>
-            <div class="cursor-pointer col order-item p-2" data-url="/turnback-orders">Trả hàng</div>
-            <div class="cursor-pointer col order-item p-2" data-url="/shipped-orders">Đã giao</div>
-            <div class="cursor-pointer col order-item p-2" data-url="/received-orders">Đã nhận hàng</div>
-            <div class="cursor-pointer col order-item p-2" data-url="/cancel-orders">Đã hủy</div>
+            <div class="text-center cursor-pointer col order-item p-2" data-url="/waitlist-orders">Chờ xác nhận</div>
+            <div class="text-center cursor-pointer col order-item p-2" data-url="/pickup-orders">Chờ lấy hàng</div>
+            <div class="text-center cursor-pointer col order-item p-2" data-url="/shipping-orders">Chờ giao hàng</div>
+            <div class="text-center cursor-pointer col order-item p-2" data-url="/turnback-orders">Trả hàng</div>
+            <div class="text-center cursor-pointer col order-item p-2" data-url="/shipped-orders">Đã giao</div>
+            <div class="text-center cursor-pointer col order-item p-2" data-url="/received-orders">Đã nhận hàng</div>
+            <div class="text-center cursor-pointer col order-item p-2" data-url="/cancel-orders">Đã hủy</div>
         </div>
         <div id="orderContent" class="order-details">
             <c:choose>
@@ -53,7 +53,7 @@
                                 </th>
                                 <th>
                                     <div class="row">
-                                        <div class="col"></div>
+                                        <div class="col-1"></div>
                                         <div class="d-flex justify-content-center col-5">
                                             <c:if test="${order.status < 5}">
                                                 <button type="button" class="w-100 rounded p-2 sub-cta-button"
@@ -68,7 +68,7 @@
                                                 Chi tiết
                                             </button>
                                         </div>
-                                        <div class="col"></div>
+                                        <div class="col-1"></div>
                                     </div>
                                 </th>
                             </tr>

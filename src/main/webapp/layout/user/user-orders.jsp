@@ -55,7 +55,7 @@
                                     <div class="row">
                                         <div class="col-1"></div>
                                         <div class="d-flex justify-content-center col-5">
-                                            <c:if test="${order.status < 5}">
+                                            <c:if test="${order.status < 5 && order.status > 0}">
                                                 <button type="button" class="w-100 rounded p-2 sub-cta-button"
                                                         onclick="getCancelForm(${order.id})">
                                                     Hủy hàng

@@ -144,4 +144,17 @@ public class Order implements Serializable {
             default -> "Đã hủy";
         };
     }
+
+    public String getCancelReasonDetail() {
+        if (this.status != 0) return "";
+        return switch (this.cancelReason) {
+            case 1 -> "Tôi muốn đổi hình thức thanh toán";
+            case 2 -> "Tôi muốn đổi địa chỉ nhận hàng";
+            case 3 -> "Tôi muốn đổi sản phẩm";
+            case 4 -> "Tôi không có nhu cầu mua nữa";
+            case 5 -> "Thời gian giao hàng quá lâu";
+            case 6 -> "Tôi tìm thấy nội dung phù hợp hơn";
+            default -> "Lý do không xác định";
+        };
+    }
 }

@@ -11,6 +11,9 @@
         <p class="mb-1">
             Trạng thái đơn hàng: <span class="fw-semibold">${order.getStatusDetail()}</span>
         </p>
+        <c:if test="${order.status eq 0}">
+            <p class="mb-2">Lý do hủy: <span class="fw-semibold">${order.getCancelReasonDetail()}</span></p>
+        </c:if>
     </div>
     <c:if test="${order.status==5}">
         <div class="row rebuy-area mt-3">
@@ -24,32 +27,32 @@
     <div class="row">
         <div class="border-end py-3" style="width: 55%">
             <h5 class="fw-semibold mb-3">Thông tin người mua</h5>
-            <div class="row">
+            <div class="row my-1">
                 <div class="col">Tên người dùng:</div>
                 <div class="col"><span class=" fw-semibold">${account.fullName}</span></div>
             </div>
-            <div class="row">
+            <div class="row my-1">
                 <div class="col">Số điện thoại:</div>
-                <div class="col"><span
-                        class="ms-1">${account.phone.trim().isEmpty() ? "Chưa có số điện thoại" : account.phone}</span>
+                <div class="col">
+                    <span id="user-phone" class="">${ account.phone}</span>
                 </div>
             </div>
-            <div class="row">
+            <div class="row my-1">
                 <div class="col">Địa chỉ:</div>
-                <div class="col"><span class="ms-1">${order.shippingAddress}</span></div>
+                <div class="col"><span class="">${order.shippingAddress}</span></div>
             </div>
         </div>
         <div class="col ms-2 py-3">
             <h5 class="fw-semibold mb-3">Thông tin vận chuyển</h5>
-            <div class="row">
+            <div class="row my-1">
                 <div class="col-7">Ngày tạo đơn hàng:</div>
                 <div class="col date">${order.createdAt}</div>
             </div>
-            <div class="row">
+            <div class="row my-1">
                 <div class="col-7">Ngày giao:</div>
                 <div class="col date">${order.deliveredAt}</div>
             </div>
-            <div class="row">
+            <div class="row my-1">
                 <div class="col-7">Phương thức thanh toán:</div>
                 <div class="col">
                     <c:choose>
@@ -75,6 +78,9 @@
                 <th>Thông tin sản phẩm</th>
                 <th>Kích thước</th>
                 <th>Giá tiền</th>
+                <c:if test="${order.status ge 5}">
+                    <th></th>
+                </c:if>
             </tr>
             </thead>
             <tbody>
@@ -93,6 +99,16 @@
                     <th class="p-3">
                         <div class="product-price">${product.price}</div>
                     </th>
+                    <c:if test="${order.status ge 5}">
+                        <th>
+                            <div class="d-flex justify-content-center">
+                                <button type="button" class="rounded p-2 sub-cta-button-background"
+                                        onclick="window.location.href = '/product?id=${product.id}'">
+                                    Viết đánh giá
+                                </button>
+                            </div>
+                        </th>
+                    </c:if>
                 </tr>
             </c:forEach>
             </tbody>
@@ -101,24 +117,24 @@
             Thành tiền: <span class="ms-1 total-price h5 fw-semibold">${order.totalPrice}</span>
         </p>
     </div>
-    <c:if test="${order.status==0}">
-        <div class="row p-0 my-3">
-            <div class="col-3"></div>
-            <div class="col-4 border-end">Lý do hủy:</div>
-            <div class="col-5">
-                <c:choose>
-                    <c:when test="${order.cancelReason == 1}">Tôi muốn đổi hình thức thanh toán</c:when>
-                    <c:when test="${order.cancelReason == 2}">Tôi muốn đổi địa chỉ nhận hàng </c:when>
-                    <c:when test="${order.cancelReason == 3}">Tôi muốn đổi sản phẩm</c:when>
-                    <c:when test="${order.cancelReason == 4}">Tôi không có nhu cầu mua nữa</c:when>
-                    <c:when test="${order.cancelReason == 5}">Thời gian giao hàng quá lâu</c:when>
-                    <c:when test="${order.cancelReason == 6}">Tôi tìm thấy nội dung phù hợp hơn</c:when>
-                    <c:otherwise> Không xác định</c:otherwise>
-                </c:choose>
-            </div>
-        </div>
-        <hr/>
-    </c:if>
+<%--    <c:if test="${order.status==0}">--%>
+<%--        <div class="row p-0 my-3">--%>
+<%--            <div class="col-3"></div>--%>
+<%--            <div class="col-4 border-end">Lý do hủy:</div>--%>
+<%--            <div class="col-5">--%>
+<%--                <c:choose>--%>
+<%--                    <c:when test="${order.cancelReason == 1}">Tôi muốn đổi hình thức thanh toán</c:when>--%>
+<%--                    <c:when test="${order.cancelReason == 2}">Tôi muốn đổi địa chỉ nhận hàng </c:when>--%>
+<%--                    <c:when test="${order.cancelReason == 3}">Tôi muốn đổi sản phẩm</c:when>--%>
+<%--                    <c:when test="${order.cancelReason == 4}">Tôi không có nhu cầu mua nữa</c:when>--%>
+<%--                    <c:when test="${order.cancelReason == 5}">Thời gian giao hàng quá lâu</c:when>--%>
+<%--                    <c:when test="${order.cancelReason == 6}">Tôi tìm thấy nội dung phù hợp hơn</c:when>--%>
+<%--                    <c:otherwise> Không xác định</c:otherwise>--%>
+<%--                </c:choose>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--        <hr/>--%>
+<%--    </c:if>--%>
 </div>
 <script>
     $(".back-page").click(function () {
@@ -137,6 +153,10 @@
             formatPrice($(this))
         })
     })
+
+    if ($("#user-phone").text() === "") {
+        $("#user-phone").text("Chưa có số điện thoại")
+    }
 </script>
 </body>
 </html>

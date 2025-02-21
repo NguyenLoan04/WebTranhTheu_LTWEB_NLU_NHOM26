@@ -25,7 +25,7 @@
                 </thead>
 
                 <tbody>
-                <c:forEach var="order" items="${account.orders}">
+                <c:forEach var="order" items="${listOrder}">
                     <tr>
                         <th>${order.getId()}</th>
                         <th>${order.getStatusDetail()}</th>

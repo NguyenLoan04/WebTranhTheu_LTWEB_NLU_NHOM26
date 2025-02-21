@@ -9,7 +9,7 @@
         $("#review_detail").addClass("d-none")
         $("#user-feedback-histories").removeClass("d-none")
     })
-    $(".date").each(function () {
+    $("#user-feedback-info .date").each(function () {
         formatDate($(this))
     })
 </script>

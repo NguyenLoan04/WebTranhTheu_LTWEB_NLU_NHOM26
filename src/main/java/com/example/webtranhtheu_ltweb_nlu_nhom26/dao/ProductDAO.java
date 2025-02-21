@@ -146,7 +146,7 @@ public interface ProductDAO {
 
     //Thêm đánh giá vào
     @SqlUpdate("""
-        insert into product_reviews(productId, accountId, rating, content, createdAt, updatedAt)
+        insert into product_reviews(accountId, productId, rating, content, createdAt, updatedAt)
         values(:accountId, :productId, :rating, :content, :createdAt, :updatedAt)
     """)
     int insertReview(@Bind("accountId") int accountId, @Bind("productId") int productId, @Bind("rating") int rating, @Bind("content") String content, @Bind("createdAt") Timestamp createdAt, @Bind("updatedAt") Timestamp updatedAt);

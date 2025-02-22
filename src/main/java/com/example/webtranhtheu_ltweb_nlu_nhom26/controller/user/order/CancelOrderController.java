@@ -33,7 +33,7 @@ public class CancelOrderController extends HttpServlet {
             });
             order.setProducts(orderProducts);
         });
-        request.setAttribute("cancel",cancel);
+        request.setAttribute("listOrder",cancel);
         request.getRequestDispatcher("/layout/user/orders/cancel-orders.jsp").forward(request, response);
     }
 

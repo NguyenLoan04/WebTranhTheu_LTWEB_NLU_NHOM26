@@ -84,12 +84,17 @@
 </div>
 
 <script>
-    <c:forEach var="order" items="${waitlist}">
-    formatPrice($("div#" +${order.id}).find(".total").find("#totalPrice"))
-    <c:forEach var="orderProduct" items="${order.products}">
-    formatPrice($("div#product_" +${orderProduct.id}).find("#productPrice"))
-    </c:forEach>
-    </c:forEach>
+    $(".date").each(function () {
+        formatDate($(this))
+    })
+    $(document).ready(function () {
+        $(".product-price").each(function (index) {
+            formatPrice($(this))
+        })
+        $(".total-price").each(function (index) {
+            formatPrice($(this))
+        })
+    })
 </script>
 </body>
 </html>

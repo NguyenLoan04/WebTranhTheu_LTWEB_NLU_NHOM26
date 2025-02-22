@@ -47,7 +47,7 @@ public class AddOrderToCartController extends HttpServlet {
             product.setListImageUrls(productService.getListImageUrls(product.getId()));
             product.setListPrices(productService.getProductPrices(product.getId()));
             Price price= product.getSelectedPrice(orderProduct.getWidth(), orderProduct.getHeight());
-            cart.addProduct(product,price,1);
+            cart.addProduct(product,price,orderProduct.getQuantity());
         }
         session.setAttribute("cart",cart);
         jsonResult.addProperty("currentCartLength", cart.getCartSize());

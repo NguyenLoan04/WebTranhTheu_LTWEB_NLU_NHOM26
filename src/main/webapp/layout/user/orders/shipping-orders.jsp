@@ -62,16 +62,15 @@
                         <th></th>
                         <th>
                             <div class="d-flex justify-content-center">
-                                <button type="button" class="rounded p-2 sub-cta-button"
-                                        onclick="getCancelForm(${order.id})">
-                                    Hủy hàng
+                                <button type="button" class="rounded p-2 main-cta-button" style="opacity: 50%">
+                                    Đã nhận được hàng
                                 </button>
                             </div>
 
                         </th>
                         <th>
                             <div class="d-flex justify-content-center">
-                                <button type="button" class="rounded p-2 main-cta-button" onclick="getDetailsForm(${order.id})">
+                                <button type="button" class="rounded p-2 sub-cta-button" onclick="getDetailsForm(${order.id})">
                                     Chi tiết
                                 </button>
                             </div>
@@ -84,12 +83,17 @@
     </c:choose>
 </div>
 <script>
-    <c:forEach var="order" items="${shipping}">
-    formatPrice($("div#" +${order.id}).find(".total").find("#totalPrice"))
-    <c:forEach var="orderProduct" items="${order.products}">
-    formatPrice($("div#product_" +${orderProduct.id}).find("#productPrice"))
-    </c:forEach>
-    </c:forEach>
+    $(".date").each(function () {
+        formatDate($(this))
+    })
+    $(document).ready(function () {
+        $(".product-price").each(function (index) {
+            formatPrice($(this))
+        })
+        $(".total-price").each(function (index) {
+            formatPrice($(this))
+        })
+    })
 </script>
 
 </body>

@@ -19,7 +19,7 @@
     <h3 class="h3 fw-semibold pt-3">Chi tiết đánh giá</h3>
 </div>
 <div class="mt-3 p-3" id="form-detail">
-    <div class="row pt-2">
+    <div class="row pt-2 pb-4 border-bottom">
         <h5>Thông tin sản phẩm</h5>
         <div class="row mt-3">
             <img src="${review.product.getThumbnail()}" alt="${review.product.getTitle()}" class="col-3 resized-image">
@@ -37,7 +37,7 @@
             </div>
         </div>
     </div>
-    <div class="row pt-4">
+    <div class="row pt-4 pb-4 border-bottom">
         <h5>Thông tin tài khoản</h5>
         <div class="mt-2">
             <p class="mb-1">Tên người dùng: <span class="fw-semibold">${account.fullName}</span></p>

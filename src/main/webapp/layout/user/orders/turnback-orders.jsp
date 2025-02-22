@@ -59,18 +59,10 @@
                     <tr>
                         <th></th>
                         <th></th>
+                        <th></th>
                         <th>
                             <div class="d-flex justify-content-center">
-                                <button type="button" class="rounded p-2 sub-cta-button"
-                                        onclick="getCancelForm(${order.id})">
-                                    Hủy hàng
-                                </button>
-                            </div>
-
-                        </th>
-                        <th>
-                            <div class="d-flex justify-content-center">
-                                <button type="button" class="rounded p-2 main-cta-button" onclick="getDetailsForm(${order.id})">
+                                <button type="button" class="rounded p-2 sub-cta-button" onclick="getDetailsForm(${order.id})">
                                     Chi tiết
                                 </button>
                             </div>
@@ -83,12 +75,14 @@
     </c:choose>
 </div>
 <script>
-    <c:forEach var="order" items="${turnback}">
-    formatPrice($("div#" +${order.id}).find(".total").find("#totalPrice"))
-    <c:forEach var="orderProduct" items="${order.products}">
-    formatPrice($("div#product_" +${orderProduct.id}).find("#productPrice"))
-    </c:forEach>
-    </c:forEach>
+    $(document).ready(function () {
+        $(".product-price").each(function (index) {
+            formatPrice($(this))
+        })
+        $(".total-price").each(function (index) {
+            formatPrice($(this))
+        })
+    })
 </script>
 </body>
 </html>

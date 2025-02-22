@@ -33,7 +33,7 @@ public class ShippingOrderController extends HttpServlet {
             });
             order.setProducts(orderProducts);
         });
-        request.setAttribute("listProduct",shipping);
+        request.setAttribute("listOrder",shipping);
         request.getRequestDispatcher("/layout/user/orders/shipping-orders.jsp").forward(request, response);
     }
 

@@ -24,6 +24,10 @@
         </div>
         <hr/>
     </c:if>
+    <c:if test="${order.status==0}">
+        <button class="w-40 rebuy_btn p-2" onclick="rebuyOrder(${order.id})">Mua lại</button>
+        <hr/>
+    </c:if>
     <div class="row">
         <div class="border-end py-3" style="width: 55%">
             <h5 class="fw-semibold mb-3">Thông tin người mua</h5>
@@ -78,7 +82,7 @@
                 <th>Thông tin sản phẩm</th>
                 <th>Kích thước</th>
                 <th>Giá tiền</th>
-                <c:if test="${order.status ge 5}">
+                <c:if test="${order.status == 5}">
                     <th></th>
                 </c:if>
             </tr>
@@ -99,7 +103,7 @@
                     <th class="p-3">
                         <div class="product-price">${product.price}</div>
                     </th>
-                    <c:if test="${order.status ge 5}">
+                    <c:if test="${order.status==5}">
                         <th>
                             <div class="d-flex justify-content-center">
                                 <button type="button" class="rounded p-2 sub-cta-button-background"

@@ -94,13 +94,6 @@
         })
     })
 
-
-    <%--<c:forEach var="order" items="${listOrder}">--%>
-    <%--    formatPrice($("div#" +${order.id}).find(".total").find(".totalPrice"))--%>
-    <%--    <c:forEach var="orderProduct" items="${order.products}">--%>
-    <%--        formatPrice($("div#product_" +${orderProduct.id}).find(".productPrice"))--%>
-    <%--    </c:forEach>--%>
-    <%--</c:forEach>--%>
 </script>
 </body>
 </html>

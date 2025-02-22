@@ -33,12 +33,14 @@ public class UploadProductReview extends HttpServlet {
             int rating = Integer.parseInt(request.getParameter("rating"));
             String content = request.getParameter("content");
 
+            System.out.println("Review detail: " + new ConcreteProductDetail().isUserCanReview(userSessionId, productId));
             if (!new ConcreteProductDetail().isUserCanReview(userSessionId, productId)) {
                 ControllerUtil.sendAjaxResultFalse(response, jsonResult, null);
             } else {
                 Timestamp currentTime = new Timestamp(System.currentTimeMillis());
                 Review newReview = new Review(productId, userSessionId, rating, content, currentTime, currentTime);
                 boolean insertResult = new ConcreteProductDetail().uploadReview(newReview);
+                System.out.println("Insert detail: " + insertResult);
                 jsonResult.addProperty("currentAvgRating", ProductService.getProductRating(productId));
                 jsonResult.addProperty("result", insertResult);
 
@@ -54,6 +56,7 @@ public class UploadProductReview extends HttpServlet {
 //            }
 
         } catch (Exception e) {
+            e.printStackTrace();
             ControllerUtil.sendAjaxResultFalse(response, jsonResult, null);
         }
 

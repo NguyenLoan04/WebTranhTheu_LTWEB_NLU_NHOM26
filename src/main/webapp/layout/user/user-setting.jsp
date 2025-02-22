@@ -59,8 +59,8 @@
 </div>
 <%--<script src="static/script/header.js"></script>--%>
 <script>
-    const themeUrl = localStorage.getItem("themeUrl")
-    switch (themeUrl.substring(themeUrl.lastIndexOf("/") + 1, themeUrl.lastIndexOf("."))) {
+    window.themeDetail = localStorage.getItem("themeUrl")
+    switch (window.themeDetail.substring(window.themeDetail.lastIndexOf("/") + 1, window.themeDetail.lastIndexOf("."))) {
         case "default-theme" : {
             $("#new-theme").prop("checked", true)
             break

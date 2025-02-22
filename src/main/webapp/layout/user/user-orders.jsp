@@ -128,12 +128,7 @@
             formatPrice($(this))
         })
     })
-    <%--    <c:forEach var="order" items="${account.orders}">--%>
-    <%--    <c:forEach var="orderProduct" items="${order.products}">--%>
-    <%--    formatPrice($("div#" +${orderProduct.id}).find("#productPrice"))--%>
-    <%--    </c:forEach>--%>
-    <%--    formatPrice($("div#" +${order.id}).find(".total").find("#totalPrice"))--%>
-    <%--    </c:forEach>--%>
+
 </script>
 </body>
 </html>

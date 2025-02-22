@@ -47,3 +47,7 @@
     border:solid 1px var(--sub-cta-button);
     background-color: var(--web-background-color);
 }
+.order{
+    border: solid 1px var(--sub-cta-button);
+    border-radius: 5px;
+}

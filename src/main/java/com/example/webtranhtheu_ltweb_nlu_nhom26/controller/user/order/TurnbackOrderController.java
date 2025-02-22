@@ -34,7 +34,7 @@ public class TurnbackOrderController extends HttpServlet {
             order.setProducts(orderProducts);
         });
         request.setAttribute("listOrder",turnback);
-        request.getRequestDispatcher("/layout/user/orders/turnback-orders.jsp").forward(request, response);
+        request.getRequestDispatcher("/layout/user/orders/orders-detail.jsp").forward(request, response);
     }
 
     @Override

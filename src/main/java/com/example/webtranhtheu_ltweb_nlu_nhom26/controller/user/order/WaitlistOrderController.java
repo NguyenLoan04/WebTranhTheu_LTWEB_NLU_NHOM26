@@ -34,7 +34,7 @@ public class WaitlistOrderController extends HttpServlet {
             order.setProducts(orderProducts);
         });
         request.setAttribute("listOrder",waitlist);
-        request.getRequestDispatcher("/layout/user/orders/waitlist-orders.jsp").forward(request, response);
+        request.getRequestDispatcher("/layout/user/orders/orders-detail.jsp").forward(request, response);
     }
 
     @Override

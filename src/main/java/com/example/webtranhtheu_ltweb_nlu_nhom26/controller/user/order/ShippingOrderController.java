@@ -34,7 +34,7 @@ public class ShippingOrderController extends HttpServlet {
             order.setProducts(orderProducts);
         });
         request.setAttribute("listOrder",shipping);
-        request.getRequestDispatcher("/layout/user/orders/shipping-orders.jsp").forward(request, response);
+        request.getRequestDispatcher("/layout/user/orders/orders-detail.jsp").forward(request, response);
     }
 
     @Override

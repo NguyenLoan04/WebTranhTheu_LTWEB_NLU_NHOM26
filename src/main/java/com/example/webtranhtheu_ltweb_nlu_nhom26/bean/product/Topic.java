@@ -67,4 +67,11 @@ public class Topic implements Serializable {
     public void setUpdatedAt(Timestamp updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    public String printBean() {
+        return "Provider: \n" +
+                "\tName: " + this.getTitle() +
+                "\tCreated at: " + this.getCreatedAt() +
+                "\tUpdated at: " + this.getUpdatedAt() + "\n";
+    }
 }

@@ -128,4 +128,13 @@ public class Discount implements Serializable {
                 this.startedAt.equals(otherDiscount.startedAt) &&
                 this.endedAt.equals(otherDiscount.endedAt);
     }
+
+    public String printBean() {
+        return "Discount: \n" +
+                "\tTitle: " + this.getTitle() +
+                "\tDescription: " + this.getDescription() +
+                "\tValue: " + this.getValue() +
+                "\tStartedAt: " + this.getStartedAt() +
+                "\tEndedAt: " + this.getEndedAt() + "\n";
+    }
 }

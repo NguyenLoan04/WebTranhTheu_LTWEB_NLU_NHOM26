@@ -56,4 +56,11 @@ public class Material implements Serializable {
     public int getActive() {
         return active;
     }
+
+    public String printBean() {
+        return "Material: \n" +
+                "\tTitle: " + this.getTitle() +
+                "\tCreated at: " + this.getCreatedAt() +
+                "\tUpdated at: " + this.getUpdatedAt() + "\n";
+    }
 }

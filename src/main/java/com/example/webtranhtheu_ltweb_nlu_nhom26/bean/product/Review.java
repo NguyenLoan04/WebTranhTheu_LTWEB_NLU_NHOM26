@@ -88,4 +88,13 @@ public class Review implements Serializable {
     public void setProduct(Product product) {
         this.product = product;
     }
+
+    public String printBean() {
+        return "Material: \n" +
+                "\tAccount Id: " + this.getAccountId() +
+                "\tRating: " + this.getRating() +
+                "\tContent: " + this.getContent() +
+                "\tCreated at: " + this.getCreatedAt() +
+                "\tUpdated at: " + this.getUpdatedAt() + "\n";
+    }
 }

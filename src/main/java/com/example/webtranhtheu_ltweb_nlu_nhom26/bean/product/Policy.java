@@ -67,4 +67,12 @@ public class Policy implements Serializable {
     public void setUpdateAt(Timestamp updateAt) {
         this.updateAt = updateAt;
     }
+
+    public String printBean() {
+        return "Policy: \n" +
+                "\tTitle: " + this.getTitle() +
+                "\tDescription: " + this.getDescription() +
+                "\tCreated at: " + this.getCreateAt() +
+                "\tUpdated at: " + this.getUpdateAt() + "\n";
+    }
 }

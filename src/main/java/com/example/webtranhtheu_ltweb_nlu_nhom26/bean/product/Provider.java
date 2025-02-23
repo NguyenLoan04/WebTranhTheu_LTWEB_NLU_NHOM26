@@ -71,4 +71,12 @@ public class Provider implements Serializable {
             return new Provider(rs.getInt("id"), rs.getString("providerName"), rs.getString("location"), rs.getTimestamp("createdAt"), rs.getTimestamp("updatedAt"));
         }
     }
+
+    public String printBean() {
+        return "Provider: \n" +
+                "\tName: " + this.getProviderName() +
+                "\tAddress: " + this.getAddress() +
+                "\tCreated at: " + this.getCreatedAt() +
+                "\tUpdated at: " + this.getUpdatedAt() + "\n";
+    }
 }

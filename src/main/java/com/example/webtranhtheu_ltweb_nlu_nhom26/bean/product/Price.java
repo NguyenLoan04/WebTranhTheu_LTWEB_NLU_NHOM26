@@ -111,6 +111,14 @@ public class Price implements Serializable {
                 ", available=" + available +
                 '}';
     }
+
+    public String printBean() {
+        return "Price: \n" +
+                "\tWidth: " + this.getWidth() +
+                "\tHeight: " + this.getHeight() +
+                "\tPrice: " + this.getPrice() +
+                "\tAvailable: " + this.getAvailable() + "\n";
+    }
 }
 
 

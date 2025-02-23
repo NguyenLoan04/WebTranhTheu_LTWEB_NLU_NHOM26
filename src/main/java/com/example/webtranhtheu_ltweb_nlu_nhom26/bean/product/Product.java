@@ -243,5 +243,23 @@ public class Product implements Serializable {
     public String[] getDisplayDescriptionDetails() {
         return this.description.split("&nbsp;");
     }
+
+    public String printBean() {
+        return "Product: \n" +
+                "\tProduct code:" + this.getCode()
+                + "\tTitle:" + this.getTitle()
+                + "\tCategory:" + this.getCategory()
+                + "\tProvider:" + this.getProvider()
+                + "\tPolicy:" + this.getPolicy()
+                + "\tDiscount:" + this.getDiscount()
+                + "\tList topics:" + this.getListTopics()
+                + "\tList materials:" + this.getListMaterials()
+                + "\tList reviews:" + this.getListReviews()
+                + "\tList prices:" + this.getListPrices()
+                + "\tList images:" + this.getListImageUrls()
+                + "\tCreatedAt:" + this.getCreatedAt()
+                + "\tUpdatedAt:" + this.getUpdatedAt()
+                + "\tStatus:" + this.getStatus() + "\n";
+    }
 }
 

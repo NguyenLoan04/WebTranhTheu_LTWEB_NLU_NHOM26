@@ -79,4 +79,12 @@ public class Category implements Serializable {
     public void setUpdatedAt(Timestamp updatedAt) {
         this.updatedAt = updatedAt;
     }
+
+    public String printBean() {
+        return "Category: \n" +
+                "\tTitle: " + this.getTitle() +
+                "\tPattern name: " + this.getPatternName() +
+                "\tCreated at: " + this.getCreatedAt() +
+                "\tUpdated at: " + this.getUpdatedAt() + "\n";
+    }
 }

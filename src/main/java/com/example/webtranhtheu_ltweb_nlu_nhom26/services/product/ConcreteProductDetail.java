@@ -21,7 +21,7 @@ public class ConcreteProductDetail implements ProductDetailService {
         return productDAO.getProductInfo(productId);
     }
 
-    //Đây là method tạm
+    // Các utility method
     public int countProducts() {
         return productDAO.countProducts();
     }

@@ -31,46 +31,46 @@ $("#product-detail__share-btn i").click(function () {
     }, 1000)
 })
 
-// //Nút thêm vào danh sách yêu thích
-// $("#product-detail__loved-btn i").click(function () {
-//     const msg = $("#product-detail__loved-btn .notification-message")
-//     let productId= new URL(window.location.href).searchParams.get('id')
-//     console.log(productId)
-//     //Thay đổi trạng thái icon và nội dung message
-//     if ($("#product-detail__loved-btn i").hasClass("fa-regular")) {
-//         $("#product-detail__loved-btn i").removeClass("fa-regular")
-//         $("#product-detail__loved-btn i").addClass("fa-solid")
-//         msg.text("Đã thêm vào mục Yêu thích")
-//         $.ajax({
-//             url: "/add-to-wishlist",
-//             type: "POST",
-//             data: {
-//                 "productId": productId
-//             },
-//             success: function () {
-//                 console.log("Da them")
-//             },
-//             error: function () {
-//
-//             }
-//         })
-//         // $(this).removeClass("fa-regular")
-//         // $(this).addClass("fa-solid")
-//         // msg.text("Đã thêm vào mục Yêu thích")
-//     } else {
-//         $(this).removeClass("fa-solid")
-//         $(this).addClass("fa-regular")
-//         msg.text("Đã gỡ khỏi mục Yêu thích")
-//     }
-//
-//     // Hiển thị message
-//     msg.removeClass("d-none")
-//     msg.addClass("d-block")
-//     setTimeout(() => { // Ẩn message
-//         msg.removeClass("d-block")
-//         msg.addClass("d-none")
-//     }, 1000)
-// })
+//Nút thêm vào danh sách yêu thích
+$("#product-detail__loved-btn i").click(function () {
+    const msg = $("#product-detail__loved-btn .notification-message")
+    let productId= new URL(window.location.href).searchParams.get('id')
+    console.log(productId)
+    //Thay đổi trạng thái icon và nội dung message
+    if ($("#product-detail__loved-btn i").hasClass("fa-regular")) {
+        $("#product-detail__loved-btn i").removeClass("fa-regular")
+        $("#product-detail__loved-btn i").addClass("fa-solid")
+        msg.text("Đã thêm vào mục Yêu thích")
+        $.ajax({
+            url: "/add-to-wishlist",
+            type: "POST",
+            data: {
+                "productId": productId
+            },
+            success: function () {
+                console.log("Da them")
+            },
+            error: function () {
+
+            }
+        })
+        // $(this).removeClass("fa-regular")
+        // $(this).addClass("fa-solid")
+        // msg.text("Đã thêm vào mục Yêu thích")
+    } else {
+        $(this).removeClass("fa-solid")
+        $(this).addClass("fa-regular")
+        msg.text("Đã gỡ khỏi mục Yêu thích")
+    }
+
+    // Hiển thị message
+    msg.removeClass("d-none")
+    msg.addClass("d-block")
+    setTimeout(() => { // Ẩn message
+        msg.removeClass("d-block")
+        msg.addClass("d-none")
+    }, 1000)
+})
 
 // Tăng số lươợng sản phẩm mua
 $("#product-detail__add-amount").click(function () {

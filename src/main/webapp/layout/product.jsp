@@ -101,6 +101,10 @@
                             <p class="bg-opacity-75 p-1 d-none notification-message bg-dark rounded">Đã copy link vào
                                 clipboard</p>
                         </div>
+                        <div id="product-detail__loved-btn" class="col position-relative">
+                            <i class="cursor-pointer h4 main-color fa-regular fa-heart"></i>
+                            <p class="bg-opacity-75 p-1 d-none notification-message bg-dark rounded"></p>
+                        </div>
                         <div class="col"></div>
                     </div>
                 </div>

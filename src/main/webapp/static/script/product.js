@@ -187,6 +187,9 @@ function getReviewList(amount) {
                     $("#load-more-review").attr("disabled", true)
                     $("#load-more-review").addClass("d-none")
                 }
+                if (reviewLimit === 0) {
+                    $("#comment-container").append(`<p class="d-flex justify-content-center row text-center">Sản phẩm chưa có bình luận</p>`)
+                }
             },
             error: (response) => {
                 $("#comment-container").append(`<p class="d-flex justify-content-center row text-center">Có lỗi khi tải bình luận của bạn</p>`)

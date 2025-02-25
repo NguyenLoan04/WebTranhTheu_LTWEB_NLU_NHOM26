@@ -27,9 +27,9 @@
                 <p class="mt-4 mb-1">Kích thước: </p>
                 <div class="w-100">
                     <c:forEach var="price" items="${product.getListPrices()}">
-                        <button class="sub-cta-button py-2 px-2 rounded switch-size-btn"
+                        <button class="m-1 sub-cta-button py-2 px-2 rounded switch-size-btn"
                                 data-width=${price.width} data-height=${price.height}>
-                                ${price.width}x${price.height}cm
+                                ${price.width}x${price.height} cm
                         </button>
                     </c:forEach>
                 </div>

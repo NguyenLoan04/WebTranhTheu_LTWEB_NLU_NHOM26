@@ -24,6 +24,20 @@
         <div class="row">
             <div class="col-3 p-4_5">
                 <img id="product-image" src="${product.getThumbnail()}" alt="">
+                <div class="mt-4_5 row d-flex justify-content-start align-items-center">
+                    <div class="col"></div>
+                    <div id="product-detail__share-btn" class="col position-relative">
+                        <i class="cursor-pointer h4 main-color fa-regular fa-share-from-square"></i>
+                        <p class="bg-opacity-75 p-1 d-none notification-message bg-dark rounded">Đã copy link vào
+                            clipboard</p>
+                    </div>
+                    <div id="product-detail__loved-btn" class="col position-relative">
+                        <i class="cursor-pointer h4 main-color fa-regular fa-heart"></i>
+                        <p class="bg-opacity-75 p-1 d-none notification-message bg-dark rounded"></p>
+                    </div>
+                    <div class="col"></div>
+                </div>
+
                 <p class="mt-4 mb-1">Kích thước: </p>
                 <div class="w-100">
                     <c:forEach var="price" items="${product.getListPrices()}">
@@ -67,27 +81,33 @@
                             <div class="col-2 product-info__star-container   px-0">
                                 <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                                 <div class="product-info__star-mask"></div>
-                                <i class="fa-regular fa-star product-info__star-outline" style="color: var(--big-text-color)"></i>
+                                <i class="fa-regular fa-star product-info__star-outline"
+                                   style="color: var(--big-text-color)"></i>
                             </div>
                             <div class="col-2 product-info__star-container   px-0">
                                 <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                                 <div class="product-info__star-mask"></div>
-                                <i class="fa-regular fa-star product-info__star-outline" style="color: var(--big-text-color)"></i>
+                                <i class="fa-regular fa-star product-info__star-outline"
+                                   style="color: var(--big-text-color)"></i>
                             </div>
                             <div class="col-2 product-info__star-container   px-0">
                                 <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                                 <div class="product-info__star-mask"></div>
-                                <i class="fa-regular fa-star product-info__star-outline" style="color: var(--big-text-color)"></i>
+                                <i class="fa-regular fa-star product-info__star-outline"
+                                   style="color: var(--big-text-color)"></i>
                             </div>
                             <div class="col-2 product-info__star-container   px-0">
-                                <i class="fa-solid fa-star product-info__star sample_half" style="color: var(--big-text-color)"></i>
+                                <i class="fa-solid fa-star product-info__star sample_half"
+                                   style="color: var(--big-text-color)"></i>
                                 <div class="product-info__star-mask"></div>
-                                <i class="fa-regular fa-star product-info__star-outline" style="color: var(--big-text-color)"></i>
+                                <i class="fa-regular fa-star product-info__star-outline"
+                                   style="color: var(--big-text-color)"></i>
                             </div>
                             <div class="col-2 product-info__star-container   px-0">
                                 <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                                 <div class="product-info__star-mask"></div>
-                                <i class="fa-regular fa-star product-info__star-outline" style="color: var(--big-text-color)"></i>
+                                <i class="fa-regular fa-star product-info__star-outline"
+                                   style="color: var(--big-text-color)"></i>
                             </div>
 
                         </div>
@@ -95,17 +115,17 @@
                     </div>
                     <div class="col-2"></div>
                     <div class="col-6 row d-flex justify-content-start align-items-center">
-                        <div class="col"></div>
-                        <div id="product-detail__share-btn" class="col position-relative">
-                            <i class="cursor-pointer h4 main-color fa-regular fa-share-from-square"></i>
-                            <p class="bg-opacity-75 p-1 d-none notification-message bg-dark rounded">Đã copy link vào
-                                clipboard</p>
-                        </div>
-                        <div id="product-detail__loved-btn" class="col position-relative">
-                            <i class="cursor-pointer h4 main-color fa-regular fa-heart"></i>
-                            <p class="bg-opacity-75 p-1 d-none notification-message bg-dark rounded"></p>
-                        </div>
-                        <div class="col"></div>
+                        <%--                        <div class="col"></div>--%>
+                        <%--                        <div id="product-detail__share-btn" class="col position-relative">--%>
+                        <%--                            <i class="cursor-pointer h4 main-color fa-regular fa-share-from-square"></i>--%>
+                        <%--                            <p class="bg-opacity-75 p-1 d-none notification-message bg-dark rounded">Đã copy link vào--%>
+                        <%--                                clipboard</p>--%>
+                        <%--                        </div>--%>
+                        <%--                        <div id="product-detail__loved-btn" class="col position-relative">--%>
+                        <%--                            <i class="cursor-pointer h4 main-color fa-regular fa-heart"></i>--%>
+                        <%--                            <p class="bg-opacity-75 p-1 d-none notification-message bg-dark rounded"></p>--%>
+                        <%--                        </div>--%>
+                        <%--                        <div class="col"></div>--%>
                     </div>
                 </div>
                 <div class="row col-4 mt-1">
@@ -116,17 +136,17 @@
                             <div>Số lượng:</div>
                         </div>
                         <div class="col-8 row">
-                            <div class="row">
-                                <div class="col-4 text-center">
-                                    <button class="rounded" id="product-detail__remove-amount" disabled>
+                            <div class="d-flex justify-content-start ms-4">
+                                <div class="text-center me-4">
+                                    <button class="p-1 rounded" id="product-detail__remove-amount" disabled>
                                         <i class="fa-solid fa-minus"></i>
                                     </button>
                                 </div>
-                                <div class="col-4 text-center" id="product-detail__amount">
+                                <div class="text-center" id="product-detail__amount">
                                     1
                                 </div>
-                                <div class="col-4 text-center">
-                                    <button class="rounded" id="product-detail__add-amount">
+                                <div class="text-center ms-4">
+                                    <button class="p-1 rounded" id="product-detail__add-amount">
                                         <i class="fa-solid fa-plus"></i>
                                     </button>
                                 </div>
@@ -223,7 +243,6 @@
 
     </div>
 </section>
-
 <section class="container my-4_5" id="product-review">
     <div class="background-container  p-4_5">
         <div id="product-review-comment">
@@ -238,27 +257,33 @@
                         <div class="col-2 product-info__star-container   px-0">
                             <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                             <div class="product-info__star-mask" style="width: 100%"></div>
-                            <i class="fa-regular fa-star product-info__star-outline" style="color: var(--big-text-color)"></i>
+                            <i class="fa-regular fa-star product-info__star-outline"
+                               style="color: var(--big-text-color)"></i>
                         </div>
                         <div class="col-2 product-info__star-container   px-0">
                             <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                             <div class="product-info__star-mask" style="width: 100%"></div>
-                            <i class="fa-regular fa-star product-info__star-outline" style="color: var(--big-text-color)"></i>
+                            <i class="fa-regular fa-star product-info__star-outline"
+                               style="color: var(--big-text-color)"></i>
                         </div>
                         <div class="col-2 product-info__star-container   px-0">
                             <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                             <div class="product-info__star-mask" style="width: 100%"></div>
-                            <i class="fa-regular fa-star product-info__star-outline" style="color: var(--big-text-color)"></i>
+                            <i class="fa-regular fa-star product-info__star-outline"
+                               style="color: var(--big-text-color)"></i>
                         </div>
                         <div class="col-2 product-info__star-container   px-0">
-                            <i class="fa-solid fa-star product-info__star sample_half" style="color: var(--big-text-color)"></i>
+                            <i class="fa-solid fa-star product-info__star sample_half"
+                               style="color: var(--big-text-color)"></i>
                             <div class="product-info__star-mask" style="width: 100%"></div>
-                            <i class="fa-regular fa-star product-info__star-outline" style="color: var(--big-text-color)"></i>
+                            <i class="fa-regular fa-star product-info__star-outline"
+                               style="color: var(--big-text-color)"></i>
                         </div>
                         <div class="col-2 product-info__star-container   px-0">
                             <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                             <div class="product-info__star-mask" style="width: 100%"></div>
-                            <i class="fa-regular fa-star product-info__star-outline" style="color: var(--big-text-color)"></i>
+                            <i class="fa-regular fa-star product-info__star-outline"
+                               style="color: var(--big-text-color)"></i>
                         </div>
                     </div>
                     <div class="text-center">
@@ -284,7 +309,15 @@
         <div>
             <h4 class="main-color">Bình luận</h4>
             <p class="text-start">(<span id="count-comment">${countReview}</span> bình luận)</p>
-            <div id="comment-container">
+            <div id="comment-container" class="position-relative">
+                <div id="review-upload-spinner"
+                     style="background-color: rgba(0,0,0,0.2)"
+                     class="w-100 position-absolute p-4 d-flex justify-content-center">
+                    <div class="spinner main-color spinner-border"
+                         role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
             </div>
             <div class="d-flex justify-content-center mt-4">
                 <button class="sub-cta-button  py-2 px-3 rounded" id="load-more-review">
@@ -295,12 +328,13 @@
     </div>
 </section>
 <section class="container my-4_5" id="other-product">
-    <div class="background-container  p-4_5">
+    <div class="background-container p-4_5">
         <h4 class="main-color">Sản phẩm khác</h4>
-        <div class="row mt-2">
+        <div class="row mt-4">
             <c:forEach var="product" items="${similarProduct}">
                 <div class="card-element mb-3" style="width: 20%">
-                    <div onclick="window.location = '/product?id=${product.id}'" class="card p-2" style="cursor: pointer">
+                    <div onclick="window.location = '/product?id=${product.id}'" class="card p-2"
+                         style="cursor: pointer">
                         <img src="${product.getThumbnail()}" class="card-img" alt="...">
                         <div class="card-body px-1">
                             <h5 class="card-title text-center pb-2 fw-semibold text-truncate"
@@ -309,14 +343,16 @@
                             </h5>
                             <p class="card-text my-1 text-center text-truncate"
                                title="Nhà cung cấp: ${product.getProvider().getProviderName()}">
-                                Nhà cung cấp: <span class="fw-semibold">${product.getProvider().getProviderName()}</span>
+                                Nhà cung cấp: <span
+                                    class="fw-semibold">${product.getProvider().getProviderName()}</span>
                             </p>
                             <p class="card-text text-center text-truncate my-1"
                                title="Nguyên liệu: ${product.getStringDisplayMaterials()}">
                                 Nguyên liệu: <span class="fw-semibold">${product.getStringDisplayMaterials()}</span>
                             </p>
                             <p class="card-text text-center mt-1">
-                                Kích thước: từ <span class="fw-semibold">${product.getMinPrice().getWidth()}x${product.getMinPrice().getHeight()} cm</span>
+                                Kích thước: từ <span
+                                    class="fw-semibold">${product.getMinPrice().getWidth()}x${product.getMinPrice().getHeight()} cm</span>
                             </p>
                             <p class="card-text text-center fw-semibold h4 mt-2"
                                style="color: var(--main-cta-button)">${product.getMinPrice().getDisplayPriceToString()}
@@ -363,8 +399,8 @@
         let quantity = parseInt($("#product-detail__amount").prop("innerText"))
         let accountId = '${sessionScope.accountId}'
         if (accountId !== '' || accountId !== null) {
-            const totalQuantity= parseInt($("#cart-badge").text())
-            if(totalQuantity + quantity <=10) {
+            const totalQuantity = parseInt($("#cart-badge").text())
+            if (totalQuantity + quantity <= 10) {
                 $.ajax({
                     url: '/add-product?id=' + id + '&width=' + width + '&height=' + height + '&quantity=' + quantity,
                     type: 'POST',
@@ -385,13 +421,11 @@
 
                     }
                 })
-            }
-            else {
+            } else {
                 $("#popup").css("display", "block")
                 $("#popup-overlay").css("display", "block")
             }
-        }
-        else alert("Bạn cần đăng nhập")
+        } else alert("Bạn cần đăng nhập")
     }
 </script>
 </body>

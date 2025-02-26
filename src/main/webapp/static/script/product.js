@@ -144,6 +144,10 @@ $("#send-comment").click(function (e) {
                     $("#post-review-result").text("Đã gửi bình luận của bạn thành công")
                     $("#current-star-rating").text(`${currentRating.toFixed(1)}`)
                     $(".current-review").text(parseInt($(".current-review").text()) + 1 + " bình luận")
+                    $("#review-upload-spinner").removeClass("d-none")
+                    setTimeout(() => {
+                        $("#review-upload-spinner").addClass("d-none")
+                    }, 1000)
                     $("#comment-container").append(createReviewElement(response.reviewData))
                 } else {
                     //Thông báo thất bại
@@ -177,6 +181,9 @@ function getReviewList(amount) {
                 //Hiển thị bình luận
                 if (response.result) {
                     reviewLimit = response.limit ? response.limit : reviewLimit
+                    setTimeout(() => {
+                        $("#review-upload-spinner").addClass("d-none")
+                    }, 1000)
                     for (let review of response.reviewData) {
                         $("#comment-container").append(createReviewElement(review))
                     }
@@ -187,7 +194,8 @@ function getReviewList(amount) {
                     $("#load-more-review").attr("disabled", true)
                     $("#load-more-review").addClass("d-none")
                 }
-                if (reviewLimit === 0) {
+
+                if (response.limit === 0) {
                     $("#comment-container").append(`<p class="d-flex justify-content-center row text-center">Sản phẩm chưa có bình luận</p>`)
                 }
             },

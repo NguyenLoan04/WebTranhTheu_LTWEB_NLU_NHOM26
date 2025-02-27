@@ -7,8 +7,8 @@
     <title>Xem và Sửa thông tin danh mục</title>
     <%@include file="../../public/library.jsp"%>
     <!-- css property -->
-    <link rel="stylesheet" href="../../../template/style/admin/style-form/general-form.css">
-    <link rel="stylesheet" href="../../../template/style/admin/style-form/style-read-edit-category-form.css">
+    <link rel="stylesheet" href="../../../static/style/admin/style-form/general-form.css">
+    <link rel="stylesheet" href="../../../static/style/admin/style-form/style-read-edit-category-form.css">
 
 </head>
 <body>
@@ -119,6 +119,6 @@
     </form>
 </div>
 
-<script src="../../../template/script/admin/provider-form/read-edit-provider-form.js"></script>
+<script src="../../../static/script/admin/provider-form/read-edit-provider-form.js"></script>
 </body>
 </html>

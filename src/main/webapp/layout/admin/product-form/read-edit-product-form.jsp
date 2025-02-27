@@ -7,8 +7,8 @@
     <title>Xem và Sửa thông tin sản phẩm</title>
     <%@include file="../../public/library.jsp" %>
     <!-- css property -->
-    <link rel="stylesheet" href="../../../template/style/admin/style-form/general-form.css">
-    <link rel="stylesheet" href="../../../template/style/admin/style-form/style-read-edit-product-form.css">
+    <link rel="stylesheet" href="../../../static/style/admin/style-form/general-form.css">
+    <link rel="stylesheet" href="../../../static/style/admin/style-form/style-read-edit-product-form.css">
 </head>
 <body>
 <!-- Form container -->
@@ -308,6 +308,6 @@
     </form>
 </div>
 
-<script src="../../../template/script/admin/product-form/read-edit-product-form.js"></script>
+<script src="../../../static/script/admin/product-form/read-edit-product-form.js"></script>
 </body>
 </html>

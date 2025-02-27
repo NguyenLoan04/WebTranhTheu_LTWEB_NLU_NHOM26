@@ -3,6 +3,7 @@ package com.example.webtranhtheu_ltweb_nlu_nhom26.controller.admin;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.User;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.services.UserService;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.util.CloudinaryConfig;
+import com.example.webtranhtheu_ltweb_nlu_nhom26.util.PasswordEncryption;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
@@ -22,7 +23,7 @@ public class UpdateInfoAdminController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Part avatar = request.getPart("avatar");
-        String password = request.getParameter("password");
+        String password = request.getParameter("password") == null || request.getParameter("password").isEmpty() ? null : PasswordEncryption.hashPassword(request.getParameter("password"));
         String fullName = request.getParameter("fullName");
         String email = request.getParameter("email");
         String phone = request.getParameter("phone");
@@ -38,5 +39,6 @@ public class UpdateInfoAdminController extends HttpServlet {
             userService.updateAvatar(userId, avatarUrl);
         }
         userService.updateInfoAdmin(user);
+        session.setAttribute("account", userService.getUserById(userId));
     }
 }

@@ -89,6 +89,9 @@ public class UserService {
 
     public void updateInfoAdmin(User user) {
         userDAO.updateInfoAdmin(user);
+        if(user.getPassword() != null) {
+            userDAO.updatePassword(user.getId(), user.getPassword());
+        }
     }
 
 

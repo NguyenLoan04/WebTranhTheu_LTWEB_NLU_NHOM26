@@ -3,7 +3,7 @@
   User: MINH THU
   Date: 12/23/2024
   Time: 1:46 PM
-  To change this template use File | Settings | File Templates.
+  To change this static use File | Settings | File statics.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -12,7 +12,7 @@
     <title>Thêm chính sách</title>
     <%@include file="../../public/library.jsp"%>
     <!-- css property -->
-    <link rel="stylesheet" href="../../../template/style/admin/style-form/general-form.css">
+    <link rel="stylesheet" href="../../../static/style/admin/style-form/general-form.css">
 
 </head>
 <body>

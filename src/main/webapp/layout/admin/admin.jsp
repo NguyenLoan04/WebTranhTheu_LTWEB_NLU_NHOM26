@@ -4,7 +4,7 @@
   User: MINH THU
   Date: 12/23/2024
   Time: 1:30 PM
-  To change this template use File | Settings | File Templates.
+  To change this static use File | Settings | File statics.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -17,8 +17,8 @@
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
     <!-- css property -->
-    <link rel="stylesheet" href="../../template/style/admin/nav-admin.css">
-    <link rel="stylesheet" href="../../template/style/admin/popup-logout.css">
+    <link rel="stylesheet" href="../../static/style/admin/nav-admin.css">
+    <link rel="stylesheet" href="../../static/style/admin/popup-logout.css">
 
 </head>
 <body>
@@ -132,6 +132,6 @@
     </div>
 </div>
 
-<script src="../../template/script/admin/admin.js"></script>
+<script src="../../static/script/admin/admin.js"></script>
 </body>
 </html>

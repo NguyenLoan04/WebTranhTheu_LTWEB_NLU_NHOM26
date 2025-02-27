@@ -7,8 +7,8 @@
     <title>Xem và Sửa thông tin đơn hàng</title>
     <%@include file="../../public/library.jsp"%>
     <!-- css property -->
-    <link rel="stylesheet" href="../../../template/style/admin/style-form/general-form.css">
-    <link rel="stylesheet" href="../../../template/style/admin/style-form/style-add-order-form.css">
+    <link rel="stylesheet" href="../../../static/style/admin/style-form/general-form.css">
+    <link rel="stylesheet" href="../../../static/style/admin/style-form/style-add-order-form.css">
 
 </head>
 <body>
@@ -163,6 +163,6 @@
     </form>
 </div>
 
-<script src="../../../template/script/admin/order-form/read-edit-order-form.js"></script>
+<script src="../../../static/script/admin/order-form/read-edit-order-form.js"></script>
 </body>
 </html>

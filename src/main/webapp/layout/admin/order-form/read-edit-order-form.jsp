@@ -24,7 +24,7 @@
             <div class="col"><span class="style-title">Email người dùng</span></div>
         </div>
         <div class="row pt-2">
-            <div class="col p-0"><input type="text" class="w-100 style-input" placeholder="Nhập email người dùng" value="<c:out value="${order.getUser().getEmail()}"/>" required disabled>
+            <div class="col p-0"><input type="text" class="w-100 style-input" placeholder="Nhập email người dùng" value="<c:out value="${userOrder.getEmail()}"/>" required disabled>
             </div>
         </div>
         <!-- sản phẩm mua -->
@@ -36,7 +36,6 @@
                 <table id="myOrderEditTable" class="w-100">
                     <thead>
                     <tr>
-                        <th class="text-center">Mã sản phẩm</th>
                         <th class="text-center">Tên sản phẩm</th>
                         <th class="text-center">Kích thước</th>
                         <th class="text-center">Số lượng</th>
@@ -44,12 +43,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="o" items="${order.getListOrderDetails()}">
+                    <c:forEach var="o" items="${order.getProducts()}">
                         <tr>
-                            <td>${o.getProduct().getCode()}</td>
-                            <td>${o.getProduct().getTitle()}</td>
+                            <td>${o.getTitle()}</td>
                             <td>${o.getWidth()}x${o.getHeight()}</td>
-                            <td>${o.getAmount()}</td>
+                            <td>${o.getQuantity()}</td>
                             <td><fmt:formatNumber value="${o.getPrice()}" type="number" maxFractionDigits="0" /></td>
                         </tr>
                     </c:forEach>
@@ -90,14 +88,14 @@
         <div class="row pt-2">
             <div class="col p-0">
                 <select class="style-select" id="status-order" disabled required>
-                    <option value="1" ${order.getStatusOrder() == 1 ? 'selected' : ''}>Chờ xác nhận</option>
-                    <option value="7" ${order.getStatusOrder() == 7 ? 'selected' : ''}>Đã cọc</option>
-                    <option value="2" ${order.getStatusOrder() == 2 ? 'selected' : ''}>Chờ lấy hàng</option>
-                    <option value="3" ${order.getStatusOrder() == 3 ? 'selected' : ''}>Chờ giao hàng</option>
-                    <option value="4" ${order.getStatusOrder() == 4 ? 'selected' : ''}>Đã giao</option>
-                    <option value="5" ${order.getStatusOrder() == 5 ? 'selected' : ''}>Đã nhận hàng</option>
-                    <option value="6" ${order.getStatusOrder() == 6 ? 'selected' : ''}>Đơn yêu cầu hoàn trả</option>
-                    <option value="0" ${order.getStatusOrder() == 0 ? 'selected' : ''}>Đã hủy</option>
+                    <option value="1" ${order.getStatus() == 1 ? 'selected' : ''}>Chờ xác nhận</option>
+                    <option value="7" ${order.getStatus() == 7 ? 'selected' : ''}>Đã cọc</option>
+                    <option value="2" ${order.getStatus() == 2 ? 'selected' : ''}>Chờ lấy hàng</option>
+                    <option value="3" ${order.getStatus() == 3 ? 'selected' : ''}>Chờ giao hàng</option>
+                    <option value="4" ${order.getStatus() == 4 ? 'selected' : ''}>Đã giao</option>
+                    <option value="5" ${order.getStatus() == 5 ? 'selected' : ''}>Đã nhận hàng</option>
+                    <option value="6" ${order.getStatus() == 6 ? 'selected' : ''}>Đơn yêu cầu hoàn trả</option>
+                    <option value="0" ${order.getStatus() == 0 ? 'selected' : ''}>Đã hủy</option>
                 </select>
             </div>
         </div>

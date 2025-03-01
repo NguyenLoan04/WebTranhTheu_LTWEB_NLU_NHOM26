@@ -1,8 +1,6 @@
 package com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.order;
 
-import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.admin.orderAdmin.OrderDetails;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.product.Discount;
-import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.User;
 
 import java.io.Serializable;
 import java.sql.Timestamp;

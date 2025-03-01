@@ -2,9 +2,7 @@ package com.example.webtranhtheu_ltweb_nlu_nhom26.services;
 
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.admin.OrderDTO;
 
-import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.admin.orderAdmin.OrderAdmin;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.order.Order;
-import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.admin.orderAdmin.OrderDetails;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.User;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.cart.CartProduct;
 
@@ -49,13 +47,16 @@ public class OrderService {
     }
 
 
-    public static OrderAdmin getOrderById(int orderId) {
-        OrderAdmin order = orderDAO.getOrderById(orderId);
-        User user = orderDAO.getUserByOrderId(orderId);
-        order.setUser(user);
-        List<OrderDetails> listOrderDetails = orderDAO.getOrderDetailByOrderId(orderId);
-        order.setListOrderDetails(listOrderDetails);
+    public static Order getOrderById(int orderId) {
+        Order order = orderDAO.getOrderById(orderId);
+
+        List<OrderProduct> listOrderDetails = orderDAO.getOrderDetailByOrderId(orderId);
+        order.setProducts(listOrderDetails);
         return order;
+    }
+
+    public static User getUserByOrderId(int orderId) {
+        return orderDAO.getUserByOrderId(orderId);
     }
 
     public static boolean updateOrder(int orderId, int statusOrder, Timestamp deliveredAt) {

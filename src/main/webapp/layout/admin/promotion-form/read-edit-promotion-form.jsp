@@ -7,7 +7,7 @@
     <title>Xem và Sửa thông tin khuyến mãi</title>
     <%@include file="../../public/library.jsp"%>
     <!-- css property -->
-    <link rel="stylesheet" href="../../../template/style/admin/style-form/general-form.css">
+    <link rel="stylesheet" href="../../../static/style/admin/style-form/general-form.css">
 
 </head>
 <body>
@@ -137,6 +137,6 @@
     </form>
 </div>
 
-<script src="../../../template/script/admin/promotion-form/read-edit-promotion-form.js"></script>
+<script src="../../../static/script/admin/promotion-form/read-edit-promotion-form.js"></script>
 </body>
 </html>

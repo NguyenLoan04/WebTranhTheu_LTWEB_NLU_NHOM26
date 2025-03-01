@@ -213,9 +213,10 @@
 <section class="container my-4_5" id="product-description">
     <div class="background-container  p-4_5">
         <h4 class="main-color">Mô tả sản phẩm</h4>
-        <p class="product-description m-3">
-            ${product.description}
-        </p>
+        <c:forEach var="description" items="${product.getDisplayDescriptionDetails()}">
+            <p class="product-description m-3">${description}</p>
+        </c:forEach>
+
     </div>
 </section>
 

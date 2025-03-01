@@ -130,4 +130,29 @@ public class Order implements Serializable {
     public void setCancelReason(int cancelReason) {
         this.cancelReason = cancelReason;
     }
+
+    public String getStatusDetail() {
+        return switch (this.status) {
+            case 1 -> "Chờ xác nhận";
+            case 2 -> "Chờ lấy hàng";
+            case 3 -> "Chờ giao hàng";
+            case 4 -> "Đã giao hàng";
+            case 5 -> "Đã nhận được hàng";
+            case 6 -> "Yêu cầu đổi trả";
+            default -> "Đã hủy";
+        };
+    }
+
+    public String getCancelReasonDetail() {
+        if (this.status != 0) return "";
+        return switch (this.cancelReason) {
+            case 1 -> "Tôi muốn đổi hình thức thanh toán";
+            case 2 -> "Tôi muốn đổi địa chỉ nhận hàng";
+            case 3 -> "Tôi muốn đổi sản phẩm";
+            case 4 -> "Tôi không có nhu cầu mua nữa";
+            case 5 -> "Thời gian giao hàng quá lâu";
+            case 6 -> "Tôi tìm thấy nội dung phù hợp hơn";
+            default -> "Lý do không xác định";
+        };
+    }
 }

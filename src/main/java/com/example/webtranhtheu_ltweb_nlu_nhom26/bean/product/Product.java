@@ -239,5 +239,9 @@ public class Product implements Serializable {
         Product product = (Product) o;
         return id == product.id && type == product.type && code.equals(product.code) && title.equals(product.title) && description.equals(product.description);
     }
+
+    public String[] getDisplayDescriptionDetails() {
+        return this.description.split("&nbsp;");
+    }
 }
 

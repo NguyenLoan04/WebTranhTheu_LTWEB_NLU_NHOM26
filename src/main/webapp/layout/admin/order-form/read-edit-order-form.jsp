@@ -1,11 +1,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Xem và Sửa thông tin đơn hàng</title>
-    <%@include file="../../public/library.jsp"%>
+    <%@include file="../../public/library.jsp" %>
     <!-- css property -->
     <link rel="stylesheet" href="../../../static/style/admin/style-form/general-form.css">
     <link rel="stylesheet" href="../../../static/style/admin/style-form/style-add-order-form.css">
@@ -24,7 +24,8 @@
             <div class="col"><span class="style-title">Email người dùng</span></div>
         </div>
         <div class="row pt-2">
-            <div class="col p-0"><input type="text" class="w-100 style-input" placeholder="Nhập email người dùng" value="<c:out value="${userOrder.getEmail()}"/>" required disabled>
+            <div class="col p-0"><input type="text" class="w-100 style-input" placeholder="Nhập email người dùng"
+                                        value="<c:out value="${userOrder.getEmail()}"/>" required disabled>
             </div>
         </div>
         <!-- sản phẩm mua -->
@@ -39,7 +40,7 @@
                         <th class="text-center">Tên sản phẩm</th>
                         <th class="text-center">Kích thước</th>
                         <th class="text-center">Số lượng</th>
-                        <th class="text-center">Giá bán</th>
+                        <th class="text-center">Giá bán (đ)</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -48,12 +49,22 @@
                             <td>${o.getTitle()}</td>
                             <td>${o.getWidth()}x${o.getHeight()}</td>
                             <td>${o.getQuantity()}</td>
-                            <td><fmt:formatNumber value="${o.getPrice()}" type="number" maxFractionDigits="0" /></td>
+                            <td><fmt:formatNumber value="${o.getPrice()}" type="number" maxFractionDigits="0"/></td>
                         </tr>
                     </c:forEach>
                     </tbody>
                 </table>
             </div>
+        </div>
+        <!-- Tổng đơn hàng -->
+        <div class="row pt-3">
+            <div class="col"><span class="style-title">Tổng đơn hàng (đồng)</span>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col p-0">
+                <input type="text" class="w-100 style-input" placeholder="Tổng đơn hàng"
+                       value="<fmt:formatNumber value='${order.getTotalPrice()}' type='number' pattern='#,###'/>" required disabled></div>
         </div>
         <!-- Địa chỉ giao hàng -->
         <div class="row pt-3">
@@ -62,7 +73,8 @@
         </div>
         <div class="row pt-2">
             <div class="col p-0">
-                <input type="text" id="address-shipping" class="w-100 style-input" placeholder="Nhập địa chỉ giao hàng" value="<c:out value="${order.getShippingAddress()}"/>" required disabled></div>
+                <input type="text" id="address-shipping" class="w-100 style-input" placeholder="Nhập địa chỉ giao hàng"
+                       value="<c:out value="${order.getShippingAddress()}"/>" required disabled></div>
         </div>
         <!-- ngày tạo -->
         <div class="row pt-3">
@@ -70,7 +82,8 @@
             </div>
         </div>
         <div class="row pt-2">
-            <div class="col p-0"><input type="date" class="w-100 style-input" value="${createAt}" required disabled></div>
+            <div class="col p-0"><input type="date" class="w-100 style-input" value="${createAt}" required disabled>
+            </div>
         </div>
         <!-- ngày giao hàng -->
         <div class="row pt-3">
@@ -78,7 +91,8 @@
             </div>
         </div>
         <div class="row pt-2">
-            <div class="col p-0"><input type="date" id="date-delivery" class="w-100 style-input" value="${deliveredAt}" disabled></div>
+            <div class="col p-0"><input type="date" id="date-delivery" class="w-100 style-input" value="${deliveredAt}"
+                                        disabled></div>
         </div>
         <!-- trạng thái đơn hàng -->
         <div class="row pt-3">
@@ -107,13 +121,21 @@
         <div class="row pt-2 select-reason-cancel-order ${order.getCancelReason() == -1 ? 'd-none' : ''}">
             <div class="col p-0">
                 <select class="style-select" id="reason-cancel-order" required disabled>
-                    <option value="1" ${order.getCancelReason() == 1 ? 'selected' : ''}>Tôi muốn đổi hình thức thanh toán</option>
-                    <option value="2" ${order.getCancelReason() == 2 ? 'selected' : ''}>Tôi muốn đổi địa chỉ nhận hàng</option>
+                    <option value="1" ${order.getCancelReason() == 1 ? 'selected' : ''}>Tôi muốn đổi hình thức thanh
+                        toán
+                    </option>
+                    <option value="2" ${order.getCancelReason() == 2 ? 'selected' : ''}>Tôi muốn đổi địa chỉ nhận hàng
+                    </option>
                     <option value="3" ${order.getCancelReason() == 3 ? 'selected' : ''}>Tôi muốn đổi sản phẩm</option>
-                    <option value="4" ${order.getCancelReason() == 4 ? 'selected' : ''}>Tôi không có nhu cầu mua nữa</option>
-                    <option value="4" ${order.getCancelReason() == 5 ? 'selected' : ''}>Thời gian giao hàng quá lâu</option>
-                    <option value="4" ${order.getCancelReason() == 6 ? 'selected' : ''}>Tôi không có nhu cầu mua nữa</option>
-                    <option value="4" ${order.getCancelReason() == 7 ? 'selected' : ''}>Tôi tìm thấy nội dung phù hợp hơn</option>
+                    <option value="4" ${order.getCancelReason() == 4 ? 'selected' : ''}>Tôi không có nhu cầu mua nữa
+                    </option>
+                    <option value="4" ${order.getCancelReason() == 5 ? 'selected' : ''}>Thời gian giao hàng quá lâu
+                    </option>
+                    <option value="4" ${order.getCancelReason() == 6 ? 'selected' : ''}>Tôi không có nhu cầu mua nữa
+                    </option>
+                    <option value="4" ${order.getCancelReason() == 7 ? 'selected' : ''}>Tôi tìm thấy nội dung phù hợp
+                        hơn
+                    </option>
                 </select>
             </div>
         </div>
@@ -155,7 +177,9 @@
                 <button type="button" id="cancelEditBtn" class="style-cancel-btn">Hủy</button>
             </div>
             <div class="col d-none edit-hidden">
-                <button class="style-update-btn" value="<c:out value="${order.getId()}"/>" type="submit" id="submitBtn">Cập nhật</button>
+                <button class="style-update-btn" value="<c:out value="${order.getId()}"/>" type="submit" id="submitBtn">
+                    Cập nhật
+                </button>
             </div>
         </div>
     </form>

@@ -96,7 +96,7 @@ public interface OrderDAO {
             """)
     int addDetailToOrder(@Bind("orderId") int orderId, @Bind("productId") int productId, @Bind("amount") int amount, @Bind("price") double price, @Bind("width") int width, @Bind("height") int height);
 
-    @SqlQuery("SELECT o.id, o.statusOrder as status, o.createdAt, CASE WHEN o.deliveredAt = '0000-00-00 00:00:00' THEN NULL ELSE o.deliveredAt END AS deliveredAt, o.shippingAddress, o.statusPay, o.method, ifnull(c.reason, -1) as cancelReason FROM orders o LEFT JOIN cancel_orders c on o.id = c.orderId WHERE o.id = :orderId")
+    @SqlQuery("SELECT o.id, o.statusOrder as status, o.createdAt, x.totalPrice, CASE WHEN o.deliveredAt = '0000-00-00 00:00:00' THEN NULL ELSE o.deliveredAt END AS deliveredAt, o.shippingAddress, o.statusPay, o.method, ifnull(c.reason, -1) as cancelReason FROM orders o LEFT JOIN cancel_orders c on o.id = c.orderId LEFT JOIN (select orderId, sum(price) as totalPrice from order_products_details where orderId = :orderId group by orderId) as x on o.id = x.orderId WHERE o.id = :orderId")
     @RegisterBeanMapper(Order.class)
     Order getOrderById(@Bind("orderId") int orderId);
 

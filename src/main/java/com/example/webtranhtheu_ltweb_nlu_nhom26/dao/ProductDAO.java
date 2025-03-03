@@ -40,8 +40,8 @@ public interface ProductDAO {
     Category getCategory(@Bind("id") int id);
 
     //Lấy thumbnail của sản phẩm
-    @SqlQuery("select imgUrl from product_images where productId = :id limit 1")
-    String getThumbnail(@Bind("id") int id);
+//    @SqlQuery("select imgUrl from product_images where productId = :id limit 1")
+//    String getThumbnail(@Bind("id") int id);
 
     //Lấy nhà cung cấp của sản phẩm
     @SqlQuery("""
@@ -102,6 +102,12 @@ public interface ProductDAO {
     @RegisterBeanMapper(Discount.class)
     Discount getProductDiscounts(@Bind("id") int id);
 
+    @SqlQuery("""
+        select imgUrl
+        from product_images
+        where productId = :id
+    """)
+    List<String> getListProductImageById(@Bind("id") int id);
     //Lấy id của các sản phẩm hot (là các sản phẩm được order nhiều nhất trong 3 tháng gần đây)
     @SqlQuery("""
         select distinct products.id

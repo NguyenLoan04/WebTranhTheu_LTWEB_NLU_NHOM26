@@ -34,7 +34,7 @@ $("#product-detail__share-btn i").click(function () {
 //Nút thêm vào danh sách yêu thích
 $("#product-detail__loved-btn i").click(function () {
     const msg = $("#product-detail__loved-btn .notification-message")
-    let productId= new URL(window.location.href).searchParams.get('id')
+    let productId = new URL(window.location.href).searchParams.get('id')
     console.log(productId)
     //Thay đổi trạng thái icon và nội dung message
     if ($("#product-detail__loved-btn i").hasClass("fa-regular")) {
@@ -181,12 +181,12 @@ function getReviewList(amount) {
                 //Hiển thị bình luận
                 if (response.result) {
                     reviewLimit = response.limit ? response.limit : reviewLimit
-                    setTimeout(() => {
-                        $("#review-upload-spinner").addClass("d-none")
-                    }, 1000)
+                    // setTimeout(() => {
+                    $("#review-upload-spinner").addClass("d-none")
                     for (let review of response.reviewData) {
                         $("#comment-container").append(createReviewElement(review))
                     }
+                    // }, 1000)
                     currentReviewOffset = response.currentOffset
                 } else offset = -1
                 if (currentReviewOffset >= reviewLimit || currentReviewOffset === -1 || response.limit === response.currentOffset) {
@@ -326,7 +326,7 @@ $(".switch-size-btn").click(function () {
 getReviewList(reviewAmount)
 getPrice(currentWidth, currentHeight)
 
-function closeError(){
+function closeError() {
     $("#popup-overlay").css("display", "none")
     $("#popup").css("display", "none")
     // document.getElementById("popup-overlay").style.display="none"

@@ -24,7 +24,7 @@ public class DisplayFullProduct extends DecorationProductDetail {
         product.getListTopics().addAll(this.getListTopics(productId));
         product.getListPrices().addAll(this.getListPrices(productId).stream().sorted(Comparator.comparingDouble(Price::getPrice)).toList());
         product.getListMaterials().addAll(this.getListMaterials(productId));
-        product.getListImageUrls().addAll(this.getListImageUrls(productId));
+        product.getListImageUrls().addAll(this.productDAO.getListProductImageById(productId));
         product.getListReviews().addAll(this.getListReviews(productId, 0, 3)); //Mặc định offset = 0
         return product;
     }

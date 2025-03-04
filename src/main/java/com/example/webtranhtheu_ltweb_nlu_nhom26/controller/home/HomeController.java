@@ -24,13 +24,16 @@ public class HomeController extends HttpServlet {
         if (session.getAttribute("listCategory") == null) {
             session.setAttribute("listCategory", CategoryService.getNameAndPatternCategory());
         }
+        int defaultRowProduct = 5;
         HomeService service = new HomeService();
-        List<Product> listHotProduct = service.getHotProduct();
+        List<Product> listHotProduct = service.getHotProduct(defaultRowProduct);
         List<Product> listMostRatedProduct = service.getMostRatedProduct();
         List<Product> listDiscountProduct = service.getCurrentProductsDiscount();
+        List<Product> listNewestProduct = service.getNewestProduct(defaultRowProduct);
         request.setAttribute("hotProduct", listHotProduct);
         request.setAttribute("mostRatedProduct", listMostRatedProduct);
         request.setAttribute("discountProduct", listDiscountProduct);
+        request.setAttribute("newestProduct", listNewestProduct);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 

@@ -25,8 +25,17 @@ public class HomeService {
         return listProduct;
     }
 
-    public List<Product> getHotProduct() {
-        List<Integer> listProductId = this.productDAO.getIdOfHotProduct();
+    public List<Product> getHotProduct(int limit) {
+        List<Integer> listProductId = this.productDAO.getIdOfHotProduct(limit);
+        List<Product> listProduct = new LinkedList<>();
+        for (int id : listProductId) {
+            listProduct.add(new DisplayCardProduct(new ConcreteProductDetail()).getDisplayProductInfo(id));
+        }
+        return listProduct;
+    }
+
+    public List<Product> getNewestProduct(int limit) {
+        List<Integer> listProductId = this.productDAO.getNewestProduct(limit);
         List<Product> listProduct = new LinkedList<>();
         for (int id : listProductId) {
             listProduct.add(new DisplayCardProduct(new ConcreteProductDetail()).getDisplayProductInfo(id));

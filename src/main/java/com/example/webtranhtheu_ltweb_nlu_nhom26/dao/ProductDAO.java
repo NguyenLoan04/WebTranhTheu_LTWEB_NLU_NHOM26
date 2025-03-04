@@ -39,10 +39,6 @@ public interface ProductDAO {
     @RegisterBeanMapper(Category.class)
     Category getCategory(@Bind("id") int id);
 
-    //Lấy thumbnail của sản phẩm
-//    @SqlQuery("select imgUrl from product_images where productId = :id limit 1")
-//    String getThumbnail(@Bind("id") int id);
-
     //Lấy nhà cung cấp của sản phẩm
     @SqlQuery("""
         select providers.id, providers.providerName, addresses.location, providers.createdAt, providers.updatedAt

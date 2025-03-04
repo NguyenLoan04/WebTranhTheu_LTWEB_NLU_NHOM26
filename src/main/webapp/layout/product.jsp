@@ -24,6 +24,14 @@
         <div class="row">
             <div class="col-3 p-4_5">
                 <img id="product-image" src="${product.getThumbnail()}" alt="">
+<%--                <div id="product-choose-image" class="w-100">--%>
+<%--                    <c:forEach var="image" items="${product.getListImageUrls()}">--%>
+<%--                        <div class="mx-1" style="width: 20%">--%>
+<%--                            <img src="${product.getThumbnail()}" alt="">--%>
+<%--                        </div>--%>
+<%--                    </c:forEach>--%>
+<%--                </div>--%>
+
                 <div class="mt-4_5 row d-flex justify-content-start align-items-center">
                     <div class="col"></div>
                     <div id="product-detail__share-btn" class="col position-relative">

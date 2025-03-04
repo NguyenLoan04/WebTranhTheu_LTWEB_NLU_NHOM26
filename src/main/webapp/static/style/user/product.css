@@ -46,27 +46,6 @@ textarea {
     cursor: pointer;
 }
 
-
-.sub-info-title {
-    font-size: 14px;
-}
-
-.product-description {
-    text-indent: 3%;
-}
-
-.notification-message {
-    position: absolute;
-    text-wrap: nowrap;
-    color: var(--label-color);
-    width: fit-content;
-    left: -100%;
-}
-
-.card-img {
-    object-fit: contain;
-    aspect-ratio: 3/2;
-}
 #popup{
     display: none;
     position: fixed;
@@ -90,4 +69,30 @@ textarea {
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 99;
+}
+
+#product-choose-image image {
+    aspect-ratio: 16/15;
+    object-fit: cover;
+}
+
+.sub-info-title {
+    font-size: 14px;
+}
+
+.product-description {
+    text-indent: 3%;
+}
+
+.notification-message {
+    position: absolute;
+    text-wrap: nowrap;
+    color: var(--label-color);
+    width: fit-content;
+    left: -100%;
+}
+
+.card-img {
+    object-fit: contain;
+    aspect-ratio: 3/2;
 }

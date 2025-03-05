@@ -1,6 +1,6 @@
 package com.example.webtranhtheu_ltweb_nlu_nhom26.controller.admin.order;
 
-import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.admin.orderAdmin.OrderAdmin;
+import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.order.Order;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.services.OrderService;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -20,8 +20,9 @@ public class GetFormReadEditOrderController extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         String orderId = request.getParameter("orderId");
-        OrderAdmin order = OrderService.getOrderById(Integer.parseInt(orderId));
+        Order order = OrderService.getOrderById(Integer.parseInt(orderId));
         request.setAttribute("order", order);
+        request.setAttribute("userOrder", OrderService.getUserByOrderId(order.getId()));
         Timestamp timestamp = order.getCreatedAt();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String formattedDate = dateFormat.format(timestamp); // Chuyển đổi sang định dạng yyyy-MM-dd

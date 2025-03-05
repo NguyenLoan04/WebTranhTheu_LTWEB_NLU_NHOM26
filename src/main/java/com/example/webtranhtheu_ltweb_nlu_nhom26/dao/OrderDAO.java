@@ -2,16 +2,12 @@ package com.example.webtranhtheu_ltweb_nlu_nhom26.dao;
 
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.admin.OrderDTO;
 
-import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.admin.orderAdmin.OrderAdmin;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.order.Order;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.order.OrderProduct;
 import org.jdbi.v3.sqlobject.config.RegisterBeanMapper;
 import org.jdbi.v3.sqlobject.customizer.Bind;
 
-import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.admin.orderAdmin.OrderDetails;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.User;
-import com.example.webtranhtheu_ltweb_nlu_nhom26.dao.mapper.BaseOrderDetailMapper;
-import org.jdbi.v3.sqlobject.config.RegisterRowMapper;
 import org.jdbi.v3.sqlobject.statement.GetGeneratedKeys;
 
 import org.jdbi.v3.sqlobject.statement.SqlQuery;
@@ -100,17 +96,17 @@ public interface OrderDAO {
             """)
     int addDetailToOrder(@Bind("orderId") int orderId, @Bind("productId") int productId, @Bind("amount") int amount, @Bind("price") double price, @Bind("width") int width, @Bind("height") int height);
 
-    @SqlQuery("SELECT o.id, o.statusOrder, o.createdAt, CASE WHEN o.deliveredAt = '0000-00-00 00:00:00' THEN NULL ELSE o.deliveredAt END AS deliveredAt, o.shippingAddress, o.statusPay, o.method, ifnull(c.reason, -1) as cancelReason FROM orders o LEFT JOIN cancel_orders c on o.id = c.orderId WHERE o.id = :orderId")
-    @RegisterBeanMapper(OrderAdmin.class)
-    OrderAdmin getOrderById(@Bind("orderId") int orderId);
+    @SqlQuery("SELECT o.id, o.statusOrder as status, o.createdAt, x.totalPrice, CASE WHEN o.deliveredAt = '0000-00-00 00:00:00' THEN NULL ELSE o.deliveredAt END AS deliveredAt, o.shippingAddress, o.statusPay, o.method, ifnull(c.reason, -1) as cancelReason FROM orders o LEFT JOIN cancel_orders c on o.id = c.orderId LEFT JOIN (select orderId, sum(price) as totalPrice from order_products_details where orderId = :orderId group by orderId) as x on o.id = x.orderId WHERE o.id = :orderId")
+    @RegisterBeanMapper(Order.class)
+    Order getOrderById(@Bind("orderId") int orderId);
 
     @SqlQuery("select a.id, a.email from orders o join accounts a on o.accountId = a.id where o.id = :orderId")
     @RegisterBeanMapper(User.class)
     User getUserByOrderId(@Bind("orderId") int orderId);
 
-    @SqlQuery("select p.id as productId, p.codeProduct, p.title, o.amount, o.width, o.height, o.price from order_products_details o join products p on o.productId = p.id where o.orderId = :orderId")
-    @RegisterRowMapper(BaseOrderDetailMapper.class)
-    List<OrderDetails> getOrderDetailByOrderId(@Bind("orderId") int orderId);
+    @SqlQuery("select p.id as id, p.title, o.amount as quantity, o.width, o.height, o.price from order_products_details o join products p on o.productId = p.id where o.orderId = :orderId")
+    @RegisterBeanMapper(OrderProduct.class)
+    List<OrderProduct> getOrderDetailByOrderId(@Bind("orderId") int orderId);
 
     @SqlUpdate("update orders set statusOrder = :statusOrder, deliveredAt = :deliveredAt where id = :orderId")
     boolean updateOrderStatus(@Bind("orderId") int orderId, @Bind("statusOrder") int statusOrder, @Bind("deliveredAt")Timestamp deliveredAt);

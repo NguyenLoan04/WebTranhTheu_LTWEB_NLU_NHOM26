@@ -7,8 +7,8 @@
     <title>Dashboard</title>
     <%@include file="../public/library.jsp"%>
     <!-- css property -->
-    <link rel="stylesheet" href="../../template/style/admin/general-content-admin.css">
-    <link rel="stylesheet" href="../../template/style/admin/dashboard.css">
+    <link rel="stylesheet" href="../../static/style/admin/general-content-admin.css">
+    <link rel="stylesheet" href="../../static/style/admin/dashboard.css">
 
 </head>
 <body>
@@ -236,6 +236,6 @@
     </div>
 </div>
 
-<script src="../../template/script/admin/dashboard.js"></script>
+<script src="../../static/script/admin/dashboard.js"></script>
 </body>
 </html>

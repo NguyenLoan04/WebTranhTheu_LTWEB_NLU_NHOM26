@@ -6,8 +6,8 @@
     <title>Cài đặt người dùng</title>
     <%@include file="../public/library.jsp"%>
     <!-- css property -->
-    <link rel="stylesheet" href="../../template/style/admin/general-content-admin.css">
-    <link rel="stylesheet" href="../../template/style/admin/setting-user.css">
+    <link rel="stylesheet" href="../../static/style/admin/general-content-admin.css">
+    <link rel="stylesheet" href="../../static/style/admin/setting-user.css">
 
 </head>
 <body>
@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col">
             <div class="img-container mx-auto">
-                <img src="<c:out value="${user.getAvatarUrl()}"/>" class="img" id="avatar-container">
+                <img src="<c:out value="${sessionScope.account.getAvatarUrl()}"/>" class="img" id="avatar-container">
                 <i class="fa-solid fa-pen-to-square icon-edit-avt update-hidden d-none" onclick="changeAvatar()"></i>
             </div>
         </div>
@@ -40,29 +40,29 @@
             <div class="col">
                 <div class="row mt-2">
                     <div class="mb-3">Tên đăng nhập</div>
-                    <div><input type="text" value="<c:out value="${user.getUsername()}"/>" name="username" class="w-100 style-input" id="username" required disabled></div>
+                    <div><input type="text" value="<c:out value="${sessionScope.account.getUsername()}"/>" name="username" class="w-100 style-input" id="username" required disabled></div>
                 </div>
                 <div class="row mt-4">
                     <div class="mb-3">Mật khẩu:</div>
-                    <div><input type="password" value="<c:out value="${user.getPassword()}"/>" name="password" class="w-100 style-input"
+                    <div><input type="password" name="password" class="w-100 style-input"
                                 id="password" disabled></div>
                 </div>
                 <div class="row mt-4">
                     <div class="mb-3">Họ và tên</div>
-                    <div><input type="text" value="<c:out value="${user.getFullName()}"/>" name="fullName" class="w-100 style-input"
+                    <div><input type="text" value="<c:out value="${sessionScope.account.getFullName()}"/>" name="fullName" class="w-100 style-input"
                                 id="name" disabled></div>
                 </div>
             </div>
             <div class="col">
                 <div class="row mt-2">
                     <div class="mb-3">Email</div>
-                    <div><input type="text" value="<c:out value="${user.getEmail()}"/>" name="email" class="w-100 style-input"
+                    <div><input type="text" value="<c:out value="${sessionScope.account.getEmail()}"/>" name="email" class="w-100 style-input"
                                 id="email" disabled>
                     </div>
                 </div>
                 <div class="row mt-4">
                     <div class="mb-3">Số điện thoại</div>
-                    <div><input type="text" value="<c:out value="${user.getPhone()}"/>" name="phone" class="w-100 style-input" id="phone"
+                    <div><input type="text" value="<c:out value="${sessionScope.account.getPhone()}"/>" name="phone" class="w-100 style-input" id="phone"
                                 disabled></div>
                 </div>
                 <div class="row mt-4">
@@ -70,11 +70,11 @@
                     <div>
                         <div class="d-inline">
                             <label>Nam</label>
-                            <input type="radio" name="gender" value="1" ${user.getGender() == 1 ? 'checked' : ''} class="ms-1 me-3" id="gender-man" disabled>
+                            <input type="radio" name="gender" value="1" ${sessionScope.account.getGender() == 1 ? 'checked' : ''} class="ms-1 me-3" id="gender-man" disabled>
                         </div>
                         <div class="d-inline">
                             <label>Nữ</label>
-                            <input type="radio" name="gender" value="2" ${user.getGender() == 2 ? 'checked' : ''} class="ms-1" id="gender-woman" disabled>
+                            <input type="radio" name="gender" value="2" ${sessionScope.account.getGender() == 2 ? 'checked' : ''} class="ms-1" id="gender-woman" disabled>
                         </div>
                     </div>
                 </div>

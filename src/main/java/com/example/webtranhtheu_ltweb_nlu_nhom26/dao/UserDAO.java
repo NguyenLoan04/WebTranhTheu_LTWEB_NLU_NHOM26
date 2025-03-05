@@ -68,7 +68,7 @@ public interface UserDAO {
     @RegisterBeanMapper(User.class)
     boolean insertUser(@BindBean User user);
 
-    @SqlQuery("select id, avatar_url as avatarUrl, username, fullname as fullName, pass as password, email, phone, gender, description, statusAccount, role, createdAt, updatedAt from accounts where id = :accountId")
+    @SqlQuery("select id, avatar_url as avatarUrl, username, fullname as fullName, email, phone, gender, description, statusAccount, role, createdAt, updatedAt from accounts where id = :accountId")
     @RegisterBeanMapper(User.class)
     User getUser(@Bind("accountId") int accountId);
 
@@ -88,7 +88,7 @@ public interface UserDAO {
     boolean updateUser(@BindBean User user);
 
     @SqlUpdate("UPDATE accounts\n" +
-            "SET fullname = :fullName, pass = :password, email = :email, phone = :phone, gender = :gender, updatedAt = :updatedAt where id = :id")
+            "SET fullname = :fullName, email = :email, phone = :phone, gender = :gender, updatedAt = :updatedAt where id = :id")
     @RegisterBeanMapper(User.class)
     boolean updateInfoAdmin(@BindBean User user);
 

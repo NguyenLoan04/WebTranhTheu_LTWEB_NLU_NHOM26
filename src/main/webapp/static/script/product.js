@@ -31,46 +31,46 @@ $("#product-detail__share-btn i").click(function () {
     }, 1000)
 })
 
-// //Nút thêm vào danh sách yêu thích
-// $("#product-detail__loved-btn i").click(function () {
-//     const msg = $("#product-detail__loved-btn .notification-message")
-//     let productId= new URL(window.location.href).searchParams.get('id')
-//     console.log(productId)
-//     //Thay đổi trạng thái icon và nội dung message
-//     if ($("#product-detail__loved-btn i").hasClass("fa-regular")) {
-//         $("#product-detail__loved-btn i").removeClass("fa-regular")
-//         $("#product-detail__loved-btn i").addClass("fa-solid")
-//         msg.text("Đã thêm vào mục Yêu thích")
-//         $.ajax({
-//             url: "/add-to-wishlist",
-//             type: "POST",
-//             data: {
-//                 "productId": productId
-//             },
-//             success: function () {
-//                 console.log("Da them")
-//             },
-//             error: function () {
-//
-//             }
-//         })
-//         // $(this).removeClass("fa-regular")
-//         // $(this).addClass("fa-solid")
-//         // msg.text("Đã thêm vào mục Yêu thích")
-//     } else {
-//         $(this).removeClass("fa-solid")
-//         $(this).addClass("fa-regular")
-//         msg.text("Đã gỡ khỏi mục Yêu thích")
-//     }
-//
-//     // Hiển thị message
-//     msg.removeClass("d-none")
-//     msg.addClass("d-block")
-//     setTimeout(() => { // Ẩn message
-//         msg.removeClass("d-block")
-//         msg.addClass("d-none")
-//     }, 1000)
-// })
+//Nút thêm vào danh sách yêu thích
+$("#product-detail__loved-btn i").click(function () {
+    const msg = $("#product-detail__loved-btn .notification-message")
+    let productId = new URL(window.location.href).searchParams.get('id')
+    console.log(productId)
+    //Thay đổi trạng thái icon và nội dung message
+    if ($("#product-detail__loved-btn i").hasClass("fa-regular")) {
+        $("#product-detail__loved-btn i").removeClass("fa-regular")
+        $("#product-detail__loved-btn i").addClass("fa-solid")
+        msg.text("Đã thêm vào mục Yêu thích")
+        $.ajax({
+            url: "/add-to-wishlist",
+            type: "POST",
+            data: {
+                "productId": productId
+            },
+            success: function () {
+                console.log("Da them")
+            },
+            error: function () {
+
+            }
+        })
+        // $(this).removeClass("fa-regular")
+        // $(this).addClass("fa-solid")
+        // msg.text("Đã thêm vào mục Yêu thích")
+    } else {
+        $(this).removeClass("fa-solid")
+        $(this).addClass("fa-regular")
+        msg.text("Đã gỡ khỏi mục Yêu thích")
+    }
+
+    // Hiển thị message
+    msg.removeClass("d-none")
+    msg.addClass("d-block")
+    setTimeout(() => { // Ẩn message
+        msg.removeClass("d-block")
+        msg.addClass("d-none")
+    }, 1000)
+})
 
 // Tăng số lươợng sản phẩm mua
 $("#product-detail__add-amount").click(function () {
@@ -144,6 +144,10 @@ $("#send-comment").click(function (e) {
                     $("#post-review-result").text("Đã gửi bình luận của bạn thành công")
                     $("#current-star-rating").text(`${currentRating.toFixed(1)}`)
                     $(".current-review").text(parseInt($(".current-review").text()) + 1 + " bình luận")
+                    $("#review-upload-spinner").removeClass("d-none")
+                    setTimeout(() => {
+                        $("#review-upload-spinner").addClass("d-none")
+                    }, 1000)
                     $("#comment-container").append(createReviewElement(response.reviewData))
                 } else {
                     //Thông báo thất bại
@@ -177,15 +181,22 @@ function getReviewList(amount) {
                 //Hiển thị bình luận
                 if (response.result) {
                     reviewLimit = response.limit ? response.limit : reviewLimit
+                    // setTimeout(() => {
+                    $("#review-upload-spinner").addClass("d-none")
                     for (let review of response.reviewData) {
                         $("#comment-container").append(createReviewElement(review))
                     }
+                    // }, 1000)
                     currentReviewOffset = response.currentOffset
                 } else offset = -1
                 if (currentReviewOffset >= reviewLimit || currentReviewOffset === -1 || response.limit === response.currentOffset) {
                     // $("#comment-container").append(`<p class="d-flex justify-content-center row text-center">Đã tải hết bình luận</p>`)
                     $("#load-more-review").attr("disabled", true)
                     $("#load-more-review").addClass("d-none")
+                }
+
+                if (response.limit === 0) {
+                    $("#comment-container").append(`<p class="d-flex justify-content-center row text-center">Sản phẩm chưa có bình luận</p>`)
                 }
             },
             error: (response) => {
@@ -315,7 +326,7 @@ $(".switch-size-btn").click(function () {
 getReviewList(reviewAmount)
 getPrice(currentWidth, currentHeight)
 
-function closeError(){
+function closeError() {
     $("#popup-overlay").css("display", "none")
     $("#popup").css("display", "none")
     // document.getElementById("popup-overlay").style.display="none"

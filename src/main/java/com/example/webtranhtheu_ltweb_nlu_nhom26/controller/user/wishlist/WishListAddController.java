@@ -33,28 +33,28 @@ public class WishListAddController extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         response.setContentType("application/json");
-        Object account = session.getAttribute("account");
+        User account = (User) session.getAttribute("account");
         String productId = request.getParameter("productId");
-//        List<WishProduct> wishlist = (List<WishProduct>) session.getAttribute("wishlist");
-//        System.out.println(productId);
+        System.out.println(productId);
         if (account == null) {
             response.sendRedirect("/login");
         } else {
+            List<WishProduct> wishProductList =  account.getWishProducts();
             Product product = productService.getProduct(Integer.parseInt(productId));
             product.setListPrices(productService.getProductPrices(Integer.parseInt(productId)));
-//            if (wishlist == null) {
-//                wishlist = userService.getWishProducts((Integer) accountId);
-//            }
-//            System.out.println(wishlist);
-//            boolean inserted = userService.insertWishProduct((Integer) accountId, Integer.parseInt(productId));
-//            if (inserted) {
-//                wishlist.add(new WishProduct(product, new Timestamp(System.currentTimeMillis())));
-//                session.setAttribute("wishlist", wishlist);
-//                request.getRequestDispatcher("/layout/product.jsp").forward(request, response);
-//            } else {
-//                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-//            }
-
+            if (wishProductList == null) {
+                wishProductList =new ArrayList<>();
+            }
+            account.setWishProducts(wishProductList);
+            boolean inserted = userService.insertWishProduct(account.getId(), Integer.parseInt(productId));
+            if (inserted) {
+                wishProductList.add(new WishProduct(product,new Timestamp(System.currentTimeMillis())));
+                account.setWishProducts(wishProductList);
+                System.out.println(wishProductList);
+                session.setAttribute("account", account);
+            } else {
+                response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            }
         }
     }
 }

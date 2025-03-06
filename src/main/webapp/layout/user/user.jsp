@@ -74,6 +74,11 @@
                     Lịch sử đã xem
                 </a>
                 <a class="list-group-item list-group-item-action"
+                   href="${pageContext.request.contextPath}/user/user-wishlist">
+                    <i class="bi bi-eye"></i>
+                    Danh sách yêu thích
+                </a>
+                <a class="list-group-item list-group-item-action"
                    href="${pageContext.request.contextPath}/user/user-orders">
                     <i class="bi bi-box-seam"></i>
                     Đơn hàng của tôi

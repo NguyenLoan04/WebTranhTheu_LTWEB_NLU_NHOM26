@@ -47,7 +47,9 @@ public class UserService {
     public User getUserById(int userId) {
         User user = userDAO.getUser(userId);
         List<Address> location = userDAO.getLocation(userId);
+        List<WishProduct> wishProducts = userDAO.getWishProducts(userId);
         user.setLocation(location);
+        user.setWishProducts(wishProducts);
         //user.setWishProducts(userDAO.getWishProducts(userId));
         return user;
     }

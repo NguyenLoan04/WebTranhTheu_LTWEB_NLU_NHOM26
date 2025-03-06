@@ -1,12 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--<jsp:include page="../common.jsp"/>--%>
 <html>
 <head>
-<%--    <title>Lịch sử xem</title>--%>
-<%--    <%@include file="../public/library.jsp" %>--%>
-    <!-- css property -->
-<%--    <link rel="stylesheet" href="../../static/style/user/account-page.css">--%>
     <link rel="stylesheet" href="../../static/style/user/style-forms/viewed-info.css">
 </head>
 <body>
@@ -87,6 +82,7 @@
                             const currentCartLength = data.currentCartLength
                             badge.removeClass("d-none")
                             badge.text(currentCartLength)
+                            showMessageUpdate("Thêm vào giỏ hàng thành công")
                         } else alert("Có lỗi khi thêm sản phẩm vào giỏ hàng")
                     },
                     error: function () {
@@ -105,8 +101,17 @@
         $.ajax({
             url: "user/history/add-all-to-cart",
             type: "POST",
-            success: function (){
-                Array.from(document.getElementsByClassName("product-item")).forEach(element => { element.remove()});
+            success: function (data){
+                data = $.parseJSON(data)
+                if (data.result) {
+                    console.log(data)
+                    Array.from(document.getElementsByClassName("product-item")).forEach(element => { element.remove()});
+                    const badge = $("#cart-badge")
+                    const currentCartLength = data.currentCartLength
+                    badge.removeClass("d-none")
+                    badge.text(currentCartLength)
+                    showMessageUpdate("Thêm vào giỏ hàng thành công")
+                } else alert("Có lỗi khi thêm sản phẩm vào giỏ hàng")
             },
             error: function (){
 

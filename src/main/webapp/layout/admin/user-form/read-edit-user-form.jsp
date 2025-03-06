@@ -34,8 +34,7 @@
         <div class="row pt-2">
             <div class="col p-0"><input type="password" id="password" class="w-100 style-input"
                                         placeholder="Nhập mật khẩu"
-                                        name="password" value="<c:out value="${user.getPassword()}"/>"
-                                        disabled>
+                                        name="password" disabled>
             </div>
         </div>
         <!-- họ và tên -->

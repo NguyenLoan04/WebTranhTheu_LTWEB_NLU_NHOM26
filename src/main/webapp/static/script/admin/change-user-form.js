@@ -200,7 +200,7 @@ $(document).ready(function () {
                         data: formData,
                         processData: false,  // Không chuyển đổi dữ liệu thành chuỗi
                         contentType: false,
-                        success: function (response) {
+                        success: function () {
                             alert('Chỉnh sửa người dùng thành công!');
                             table.ajax.reload();
                             hiddenOverlay();

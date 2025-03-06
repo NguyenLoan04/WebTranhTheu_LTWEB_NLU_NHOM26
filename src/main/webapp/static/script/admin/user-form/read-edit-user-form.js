@@ -53,10 +53,10 @@ document.getElementById("fileInput").addEventListener("change", () => {
 });
 
 $('#editBtn').click(function () {
-    window.scrollTo({top: 0, behavior: 'smooth'});
     $('#title').text('Chỉnh sửa thông tin người dùng')
     $('.read').addClass('d-none');
     $('#name').prop('disabled', false);
+    $('#password').prop('disabled',false);
     $('#role').prop('disabled', false);
     $('#email').prop('disabled', false);
     $('#phone').prop('disabled', false);
@@ -73,6 +73,7 @@ $('#cancelEditBtn').click(function () {
     $('#read-edit-user-form')[0].reset();
     $('#title').text('Xem thông tin người dùng');
     $('#name').prop('disabled', true);
+    $('#password').prop('disabled',true);
     $('#role').prop('disabled', true);
     $('#email').prop('disabled', true);
     $('.read').removeClass('d-none');

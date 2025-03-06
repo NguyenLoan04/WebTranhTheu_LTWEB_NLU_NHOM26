@@ -1,7 +1,6 @@
-package com.example.webtranhtheu_ltweb_nlu_nhom26.bean.admin;
+package com.example.webtranhtheu_ltweb_nlu_nhom26.enums;
 
 public enum OrderStatus {
-    //còn xử lý sau
     CANCELED(0),
     PENDING_CONFIRMATION(1),
     WAITING_FOR_PICKUP(2),

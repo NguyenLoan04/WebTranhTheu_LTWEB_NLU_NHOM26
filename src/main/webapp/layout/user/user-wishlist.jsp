@@ -32,15 +32,15 @@
                         data-height="${product.product.getMinPrice().height}">
                         <th style="width: 20%">
                             <img src="${product.product.getThumbnail()}" alt="${product.product.title}"
-                                 class="resized-image my-3">
+                                 class="resized-image my-3" onclick="window.location.href = '/product?id=${product.product.id}'">
                         </th>
-                        <th class="p-3">
-                            <p class="title h6 fw-normal">${product.product.title}</p>
+                        <th class="p-4">
+                            <p class="title h6 fw-normal" onclick="window.location.href = '/product?id=${product.product.id}'">${product.product.title}</p>
                         </th>
-                        <th class="p-3">
+                        <th class="p-4">
                             <p class="price title h6 fw-normal">${product.product.getMinPrice().price}</p>
                         </th>
-                        <th class="p-3" style="width: 25%">
+                        <th class="p-4" style="width: 25%">
                             <button class="add-to-cart me-2"><i class="bi bi-cart-plus"></i></button>
                             <button class="delete-btn"><i class="bi bi-trash"></i></button>
                         </th>

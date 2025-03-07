@@ -75,7 +75,7 @@
                 </a>
                 <a class="list-group-item list-group-item-action"
                    href="${pageContext.request.contextPath}/user/user-wishlist">
-                    <i class="bi bi-eye"></i>
+                    <i class="bi bi-heart"></i>
                     Danh sách yêu thích
                 </a>
                 <a class="list-group-item list-group-item-action"

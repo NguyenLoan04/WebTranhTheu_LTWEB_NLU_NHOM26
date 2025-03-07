@@ -1,6 +1,7 @@
 .image-resize{
-    width: 148px;
-    height: 97px;
+    object-fit: contain;
+    aspect-ratio: 3/2;
+    width: 100%;
 }
 .h1,.h2,.h3,.h4,.h5{
     color: var(--sub-cta-button);

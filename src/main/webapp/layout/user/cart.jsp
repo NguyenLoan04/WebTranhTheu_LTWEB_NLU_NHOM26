@@ -13,104 +13,105 @@
     <div class="row mt-4 mb-4">
         <div class="col-8 cart">
             <div class="h3 pt-4 mb-3 text-center">Giỏ hàng</div>
-            <div class="row cart-title px-4">
-                <div class="col-3 form-check">
-                    <input class="form-check-input" type="checkbox" id="checkAll">
-                    <label class="form-check-label" for="checkAll">
-                        Chọn tất cả
-                    </label>
-                </div>
-                <div class="col-3 text-center">Sản phẩm</div>
-                <div class="col-3 text-center">Số lượng</div>
-                <div class="col-2">Giá tiền</div>
-            </div>
-            <hr/>
             <c:if test="${empty cart.products}">
                 <div class="h4 main-color opacity-50 d-flex justify-content-center align-items-center fw-normal text-center">
                     Giỏ hàng trống
                 </div>
             </c:if>
-            <div class="cart-item-list" id="cart-container">
-                <c:forEach items="${cart.products}" var="entry">
-                    <div class=" row py-3 cart-item" data-width="${entry.value.price.width}"
-                         data-height="${entry.value.price.height}" data-id="${entry.value.id}">
-                        <div class="col-1 text-center">
-                            <div class="row pb-4"></div>
-                            <div class="row ps-4">
-                                <div class="form-check">
-                                    <input value="${entry.value.id}_${entry.value.price.width}_${entry.value.price.height}"
-                                           class="product-checkbox form-check-input" type="checkbox"
-                                           onclick="updateTotalPrice()">
-                                </div>
-                            </div>
-                        </div>
-                        <img class="col-2" src="<c:url value="${entry.value.thumbnailUrl}"/>">
-                        <div class="col-3 ps-5 pe-0">
-                            <div class="row">${entry.value.title}</div>
-                            <div class="row pb-2"></div>
-                            <div class="row price-selected">
-                                <label class="col-3 p-0 me-2 price-label">Loại: </label>
-                                <select class=" col-7 row select-area rounded" name="select"
-                                        id="size_${entry.value.id}_${entry.value.price.width}_${entry.value.price.height}"
-                                        onchange="updateProductBySize(${entry.value.id},${entry.value.price.width},${entry.value.price.height})">
-                                    <c:forEach var="price" items="${entry.value.prices}">
-                                        <c:if test="${price.width == entry.value.price.width && price.height == entry.value.price.height}">
-                                            <option class="text-center me-2 rounded select-option"
-                                                    data-width="${price.width}" data-height="${price.height}" selected>
-                                                    ${price.width} x ${price.height}
-                                            </option>
-                                        </c:if>
-                                        <c:if test="${price.width != entry.value.price.width && price.height!=entry.value.price.height}">
-                                            <option class="text-center me-2 rounded select-option"
-                                                    data-width="${price.width}" data-height="${price.height}">
-                                                    ${price.width} x ${price.height}
-                                            </option>
-                                        </c:if>
-                                    </c:forEach>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-3 text-center">
-                            <div class="row pb-4"></div>
-                            <div class="row">
-                                <div class="row">
-                                    <div class="col-4 text-center">
-                                        <button class="rounded" id="product-detail__remove-amount"
-                                                onclick="updateSubByQuantity(${entry.value.id},${entry.value.price.width},${entry.value.price.height})">
-                                            <i class="fa-solid fa-minus"></i>
-                                        </button>
-                                    </div>
-                                    <div class="col-4 text-center product-quantity"
-                                         id="quantity_${entry.value.id}_${entry.value.price.width}_${entry.value.price.height}">
-                                            ${entry.value.quantity}
-                                    </div>
-                                    <div class="col-4 text-center">
-                                        <button class="rounded" id="product-detail__add-amount"
-                                                onclick="updatePlusByQuantity(${entry.value.id},${entry.value.price.width},${entry.value.price.height})">
-                                            <i class="fa-solid fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col p-0">
-                            <div class="row pb-4 "></div>
-                            <div class="row ps-3"
-                                 id="product-detail__price">${entry.value.displayElementDiscountPrice()}</div>
-                            <c:if test="${entry.value.getDiscount().getId() != 0}">
-                                <div class="row ps-3"><s class="p-0">${entry.value.displayElementPrice()}</s></div>
-                            </c:if>
-                        </div>
-                        <div class="col-1 p-0">
-                            <div class="row pb-4"></div>
-                            <i class="bi bi-trash"></i>
-                        </div>
+            <c:if test="${not empty cart.products}">
+                <div class="row cart-title px-4">
+                    <div class="col-3 form-check">
+                        <input class="form-check-input" type="checkbox" id="checkAll">
+                        <label class="form-check-label" for="checkAll">
+                            Chọn tất cả
+                        </label>
                     </div>
-                </c:forEach>
-            </div>
+                    <div class="col-3 text-center">Sản phẩm</div>
+                    <div class="col-3 text-center">Số lượng</div>
+                    <div class="col-2">Giá tiền</div>
+                </div>
+                <hr/>
+                <div class="cart-item-list" id="cart-container">
+                    <c:forEach items="${cart.products}" var="entry">
+                        <div class="row py-3 cart-item" data-width="${entry.value.price.width}"
+                             data-height="${entry.value.price.height}" data-id="${entry.value.id}">
+                            <div class="col-1 text-center">
+                                <div class="row pb-4"></div>
+                                <div class="row ps-4">
+                                    <div class="form-check">
+                                        <input value="${entry.value.id}_${entry.value.price.width}_${entry.value.price.height}"
+                                               class="product-checkbox form-check-input" type="checkbox"
+                                               onclick="updateTotalPrice()">
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="col-2 px-0 image-resize" src="<c:url value="${entry.value.thumbnailUrl}"/>">
+                            <div class="col-3 ps-5 pe-0">
+                                <div class="row pb-4 fw-semibold">${entry.value.title}</div>
+                                <div class="row price-selected">
+                                    <label class="col-3 p-0 me-2 price-label">Loại: </label>
+                                    <select class=" col-7 row select-area rounded" name="select"
+                                            id="size_${entry.value.id}_${entry.value.price.width}_${entry.value.price.height}"
+                                            onchange="updateProductBySize(${entry.value.id},${entry.value.price.width},${entry.value.price.height})">
+                                        <c:forEach var="price" items="${entry.value.prices}">
+                                            <c:if test="${price.width == entry.value.price.width && price.height == entry.value.price.height}">
+                                                <option class="text-center me-2 rounded select-option"
+                                                        data-width="${price.width}" data-height="${price.height}"
+                                                        selected>
+                                                        ${price.width} x ${price.height}
+                                                </option>
+                                            </c:if>
+                                            <c:if test="${price.width != entry.value.price.width && price.height!=entry.value.price.height}">
+                                                <option class="text-center me-2 rounded select-option"
+                                                        data-width="${price.width}" data-height="${price.height}">
+                                                        ${price.width} x ${price.height}
+                                                </option>
+                                            </c:if>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-3 text-center">
+                                <div class="row pb-4"></div>
+                                <div class="row">
+                                    <div class="row">
+                                        <div class="col-4 text-center">
+                                            <button class="rounded" id="product-detail__remove-amount"
+                                                    onclick="updateSubByQuantity(${entry.value.id},${entry.value.price.width},${entry.value.price.height})">
+                                                <i class="fa-solid fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <div class="col-4 text-center product-quantity"
+                                             id="quantity_${entry.value.id}_${entry.value.price.width}_${entry.value.price.height}">
+                                                ${entry.value.quantity}
+                                        </div>
+                                        <div class="col-4 text-center">
+                                            <button class="rounded" id="product-detail__add-amount"
+                                                    onclick="updatePlusByQuantity(${entry.value.id},${entry.value.price.width},${entry.value.price.height})">
+                                                <i class="fa-solid fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col p-0">
+                                <div class="row pb-4 "></div>
+                                <div class="row ps-3"
+                                     id="product-detail__price">${entry.value.displayElementDiscountPrice()}</div>
+                                <c:if test="${entry.value.getDiscount().getId() != 0}">
+                                    <div class="row ps-3"><s class="p-0">${entry.value.displayElementPrice()}</s></div>
+                                </c:if>
+                            </div>
+                            <div class="col-1 p-0">
+                                <div class="row pb-4"></div>
+                                <i class="bi bi-trash"></i>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </c:if>
         </div>
-        <div class="col-1"></div>
-        <div class="col-3 ms-0 discount_pay">
+        <div class="col-3 p-0 ms-5 discount_pay">
             <div class="row discount_area p-3 py-4">
                 <div class="row">
                     <div class="col-8 h5">
@@ -152,8 +153,8 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-8 h6">Tổng số tiền (đã tính VAT):</div>
-                    <div class="col-4" id="total-price"></div>
+                    <div class="col-8 h6 me-0">Tổng số tiền (đã tính VAT):</div>
+                    <div class="col-4 px-0 pt-3" id="total-price"></div>
                 </div>
                 <div class="row ps-5 py-4 ">
                     <button class="payable rounded" onclick="sendSelectedProduct()">Thanh toán</button>

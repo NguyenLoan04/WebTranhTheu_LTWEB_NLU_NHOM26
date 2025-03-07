@@ -15,30 +15,43 @@
             </div>
         </c:if>
         <c:if test="${not empty account.getWishProducts()}">
-        <button class="addAll-btn mb-4" onclick="addAllToCart()">Thêm tất cả vào giỏ hàng</button>
-        <!--Từng sản phẩm-->
-        <c:forEach var="product" items="${account.getWishProducts()}">
-            <div id="${product.product.id}" class="row product-item p-2"
-                 data-id="${product.product.id}"
-                 data-width="${product.product.getMinPrice().width}"
-                 data-height="${product.product.getMinPrice().height}">
-                <!--Hình tỉ lệ 4:1-->
-                <img src="<c:url value="${product.product.getThumbnail()}"/>" alt="Artwork"
-                     class="resized-image col-3">
-                <div class="col-4 container">
-                    <div class="row product_title main-color h5">${product.product.title}</div>
-                    <div class="row pt-4" id="minPrice">${product.product.getMinPrice().price}</div>
-                </div>
-                <div class="col-2">
-                    <button class="add-to-cart"><i class="bi bi-cart-plus"></i></button>
-                </div>
-                <div class="col-2">
-                    <button class="delete-btn"><i class="bi bi-trash"></i></button>
-                </div>
-            </div>
-        </c:forEach>
+            <button class="addAll-btn mb-4" onclick="addAllToCart()">Thêm tất cả vào giỏ hàng</button>
+            <table id="table-detail" class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Hình ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Giá tiền</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <c:forEach var="product" items="${account.getWishProducts()}">
+                    <tr class="product-item" data-id="${product.product.id}"
+                        data-width="${product.product.getMinPrice().width}"
+                        data-height="${product.product.getMinPrice().height}">
+                        <th style="width: 20%">
+                            <img src="${product.product.getThumbnail()}" alt="${product.product.title}"
+                                 class="resized-image my-3">
+                        </th>
+                        <th class="p-3">
+                            <p class="title h6 fw-normal">${product.product.title}</p>
+                        </th>
+                        <th class="p-3">
+                            <p class="price title h6 fw-normal">${product.product.getMinPrice().price}</p>
+                        </th>
+                        <th class="p-3" style="width: 25%">
+                            <button class="add-to-cart me-2"><i class="bi bi-cart-plus"></i></button>
+                            <button class="delete-btn"><i class="bi bi-trash"></i></button>
+                        </th>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+
+        </c:if>
     </div>
-    </c:if>
+
 </div>
 <div id="popup" class="p-3">
     <div class="row  text-center fw-bold h5 border-bottom">
@@ -49,20 +62,9 @@
 </div>
 <script src="static/script/header.js"></script>
 <script>
-    function formatPriceViewed(productId) {
-        let card;
-        let product_price;
-        let priceFormat;
-        card = $("div#" + productId)
-        product_price = card.find("#minPrice")
-        priceFormat = formatter.format(product_price.prop("innerText"))
-        product_price.text(priceFormat.replaceAll("₫", "VNĐ") + "")
-    }
-
-    <c:forEach var="product" items="${account.getWishProducts()}">
-    formatPriceViewed(${product.product.id})
-    </c:forEach>
-
+    $(".price").each(function (index){
+        formatPrice($(this))
+    })
     function addToCart(element) {
         let id = element.attr("data-id");
         let width = element.attr("data-width")

@@ -33,28 +33,28 @@ public class WishListAddController extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         response.setCharacterEncoding("utf-8");
         response.setContentType("application/json");
-        Object accountId = session.getAttribute("accountId");
+        User account = (User) session.getAttribute("account");
         String productId = request.getParameter("productId");
-        List<WishProduct> wishlist = (List<WishProduct>) session.getAttribute("wishlist");
-//        System.out.println(productId);
-        if (accountId == null) {
+        System.out.println(productId);
+        if (account == null) {
             response.sendRedirect("/login");
         } else {
+            List<WishProduct> wishProductList =  account.getWishProducts();
             Product product = productService.getProduct(Integer.parseInt(productId));
             product.setListPrices(productService.getProductPrices(Integer.parseInt(productId)));
-            if (wishlist == null) {
-                wishlist = userService.getWishProducts((Integer) accountId);
+            if (wishProductList == null) {
+                wishProductList =new ArrayList<>();
             }
-            System.out.println(wishlist);
-            boolean inserted = userService.insertWishProduct((Integer) accountId, Integer.parseInt(productId));
+            account.setWishProducts(wishProductList);
+            boolean inserted = userService.insertWishProduct(account.getId(), Integer.parseInt(productId));
             if (inserted) {
-                wishlist.add(new WishProduct(product, new Timestamp(System.currentTimeMillis())));
-                session.setAttribute("wishlist", wishlist);
-                request.getRequestDispatcher("/layout/product.jsp").forward(request, response);
+                wishProductList.add(new WishProduct(product,new Timestamp(System.currentTimeMillis())));
+                account.setWishProducts(wishProductList);
+                System.out.println(wishProductList);
+                session.setAttribute("account", account);
             } else {
                 response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             }
-
         }
     }
 }

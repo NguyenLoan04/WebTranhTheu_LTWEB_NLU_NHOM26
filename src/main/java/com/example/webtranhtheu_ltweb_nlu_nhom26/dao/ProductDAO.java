@@ -120,9 +120,18 @@ public interface ProductDAO {
                     order by count(productId)
                 )
             ) as limit_orders on limit_orders.productId = products.id
-        limit 5
+        limit :limit
     """)
-    List<Integer> getIdOfHotProduct();
+    List<Integer> getIdOfHotProduct(@Bind("limit") int limit);
+
+    //Lấy id cùa các sản phẩm mới
+    @SqlQuery("""
+        select products.id
+        from products
+        order by products.updatedAt desc
+        limit :limit
+    """)
+    List<Integer> getNewestProduct(@Bind("limit") int limit);
 
     //Lấy danh sách các product có đánh giá cao nhất
     @SqlQuery("select products.id from products join ( select productId, avg(rating) as rating from product_reviews group by productId order by rating desc limit 5) as product_ratings on product_ratings.productId = products.id")

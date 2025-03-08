@@ -8,6 +8,12 @@
     <jsp:include page="public/library.jsp"/>
 </head>
 <body>
+<c:set var="isInWishlist" value="false"/>
+<c:forEach var="wishProduct" items="${account.getWishProducts()}">
+    <c:if test="${wishProduct.getProduct().getId() == product.id}">
+        <c:set var="isInWishlist" value="true"/>
+    </c:if>
+</c:forEach>
 <jsp:include page="public/header.jsp"/>
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="container">
     <ol class="breadcrumb pt-2">
@@ -51,7 +57,14 @@
                     </div>
 
                     <div id="product-detail__loved-btn" class="col position-relative">
-                        <i class="cursor-pointer h4 main-color fa-regular fa-heart"></i>
+                        <c:choose>
+                            <c:when test="${isInWishlist}">
+                                <i class="cursor-pointer h4 main-color fa-solid fa-heart"></i>
+                            </c:when>
+                            <c:otherwise>
+                                <i class="cursor-pointer h4 main-color fa-regular fa-heart"></i>
+                            </c:otherwise>
+                        </c:choose>
                         <p class="bg-opacity-75 p-1 d-none notification-message bg-dark rounded"></p>
                     </div>
 
@@ -84,11 +97,11 @@
                         ${product.getStringDisplayMaterials()}
                     </span></div>
                     <div class="col-6">Chủ đề: <span class="fw-semibold">
-                        <c:forEach var="topic" items="${product.listTopics}" varStatus="status">
-                            ${topic.title}
-                            <c:if test="${!status.last}">, </c:if>
-                        </c:forEach>
-                    </span></div>
+    <c:forEach var="topic" items="${product.listTopics}" varStatus="status">
+        ${topic.title}
+        <c:if test="${!status.last}">, </c:if>
+    </c:forEach>
+    </span></div>
                 </div>
                 <div class="row mt-2">
                     <div class="col-6">Hãng sản xuất: <span class="fw-semibold">Tranh thêu Hà Sơn</span></div>
@@ -98,32 +111,32 @@
                 <div class="row my-2 mt-3">
                     <div class="col-4">
                         <div class=" d-flex justify-content-around" id="product-info__rating">
-                            <div class="col-2 product-info__star-container   px-0">
+                            <div class="col-2 product-info__star-container px-0">
                                 <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                                 <div class="product-info__star-mask"></div>
                                 <i class="fa-regular fa-star product-info__star-outline"
                                    style="color: var(--big-text-color)"></i>
                             </div>
-                            <div class="col-2 product-info__star-container   px-0">
+                            <div class="col-2 product-info__star-container px-0">
                                 <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                                 <div class="product-info__star-mask"></div>
                                 <i class="fa-regular fa-star product-info__star-outline"
                                    style="color: var(--big-text-color)"></i>
                             </div>
-                            <div class="col-2 product-info__star-container   px-0">
+                            <div class="col-2 product-info__star-container px-0">
                                 <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                                 <div class="product-info__star-mask"></div>
                                 <i class="fa-regular fa-star product-info__star-outline"
                                    style="color: var(--big-text-color)"></i>
                             </div>
-                            <div class="col-2 product-info__star-container   px-0">
+                            <div class="col-2 product-info__star-container px-0">
                                 <i class="fa-solid fa-star product-info__star sample_half"
                                    style="color: var(--big-text-color)"></i>
                                 <div class="product-info__star-mask"></div>
                                 <i class="fa-regular fa-star product-info__star-outline"
                                    style="color: var(--big-text-color)"></i>
                             </div>
-                            <div class="col-2 product-info__star-container   px-0">
+                            <div class="col-2 product-info__star-container px-0">
                                 <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                                 <div class="product-info__star-mask"></div>
                                 <i class="fa-regular fa-star product-info__star-outline"
@@ -255,7 +268,7 @@
 
 </section>
 <section class="container my-4_5" id="product-description">
-    <div class="background-container  p-4_5">
+    <div class="background-container p-4_5">
         <h4 class="main-color">Mô tả sản phẩm</h4>
         <c:forEach var="description" items="${product.getDisplayDescriptionDetails()}">
             <p class="product-description m-3">${description}</p>
@@ -264,7 +277,7 @@
     </div>
 </section>
 <section class="container my-4_5" id="product-review">
-    <div class="background-container  p-4_5">
+    <div class="background-container p-4_5">
         <div id="product-review-comment">
             <h4 class="main-color">Đánh giá</h4>
             <div class="row mt-4">
@@ -274,32 +287,32 @@
                             class="h5">/5.0</span>
                     </div>
                     <div id="product-review__star" class="mt-2 d-flex justify-content-center">
-                        <div class="col-2 product-info__star-container   px-0">
+                        <div class="col-2 product-info__star-container px-0">
                             <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                             <div class="product-info__star-mask" style="width: 100%"></div>
                             <i class="fa-regular fa-star product-info__star-outline"
                                style="color: var(--big-text-color)"></i>
                         </div>
-                        <div class="col-2 product-info__star-container   px-0">
+                        <div class="col-2 product-info__star-container px-0">
                             <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                             <div class="product-info__star-mask" style="width: 100%"></div>
                             <i class="fa-regular fa-star product-info__star-outline"
                                style="color: var(--big-text-color)"></i>
                         </div>
-                        <div class="col-2 product-info__star-container   px-0">
+                        <div class="col-2 product-info__star-container px-0">
                             <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                             <div class="product-info__star-mask" style="width: 100%"></div>
                             <i class="fa-regular fa-star product-info__star-outline"
                                style="color: var(--big-text-color)"></i>
                         </div>
-                        <div class="col-2 product-info__star-container   px-0">
+                        <div class="col-2 product-info__star-container px-0">
                             <i class="fa-solid fa-star product-info__star sample_half"
                                style="color: var(--big-text-color)"></i>
                             <div class="product-info__star-mask" style="width: 100%"></div>
                             <i class="fa-regular fa-star product-info__star-outline"
                                style="color: var(--big-text-color)"></i>
                         </div>
-                        <div class="col-2 product-info__star-container   px-0">
+                        <div class="col-2 product-info__star-container px-0">
                             <i class="fa-solid fa-star product-info__star" style="color: var(--big-text-color)"></i>
                             <div class="product-info__star-mask" style="width: 100%"></div>
                             <i class="fa-regular fa-star product-info__star-outline"
@@ -314,8 +327,8 @@
                     </div>
                 </div>
                 <div class="col-8">
-                    <textarea class="form-control" id="product-review--comment" rows="4"
-                              placeholder="Đánh giá của bạn về sản phẩm"></textarea>
+    <textarea class="form-control" id="product-review--comment" rows="4"
+              placeholder="Đánh giá của bạn về sản phẩm"></textarea>
                     <p class="text-center mt-1 mb-0" style="font-size: 12px">(Bạn cần mua sản phẩm để có thể bình
                         luận)</p>
                     <p class="d-none d-flex justify-content-center" id="post-review-result"></p>
@@ -340,7 +353,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center mt-4">
-                <button class="sub-cta-button  py-2 px-3 rounded" id="load-more-review">
+                <button class="sub-cta-button py-2 px-3 rounded" id="load-more-review">
                     Xem thêm
                 </button>
             </div>

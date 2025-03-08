@@ -199,4 +199,13 @@ public class User implements Serializable {
     public void setOrders(List<Order> orders) {
         this.orders = orders;
     }
+
+    public WishProduct getWishProductById(int productId) {
+        for (WishProduct wishProduct : wishProducts) {
+            if (wishProduct.getProduct().getId() == productId) {
+                return wishProduct;
+            }
+        }
+        return null;
+    }
 }

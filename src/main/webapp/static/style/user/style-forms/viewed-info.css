@@ -37,7 +37,7 @@
 .add-to-cart{
     background-color: var(--main-cta-button);
     color: var(--web-background-color);
-    width: 80px;
+    /*width: 80px;*/
     height: 40px;
     border-radius: 5px;
     text-align: center; ;
@@ -45,7 +45,7 @@
 .delete-btn{
     background-color: var(--sub-cta-button);
     color: var(--web-background-color);
-    width: 80px;
+    /*width: 80px;*/
     height: 40px;
     border-radius: 5px;
     text-align: center;

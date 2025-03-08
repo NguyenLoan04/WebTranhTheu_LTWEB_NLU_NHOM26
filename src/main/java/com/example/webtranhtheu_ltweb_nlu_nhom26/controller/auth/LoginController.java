@@ -4,6 +4,7 @@ import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.AuthDTO;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.cart.Cart;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.product.Discount;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.User;
+import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.WishProduct;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.services.AuthService;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.services.DiscountService;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.services.UserService;
@@ -15,6 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -57,6 +59,10 @@ public class LoginController extends HttpServlet {
             User account = new UserService().getUserById(authDTO.getId());
             if(account != null){
                 session.setAttribute("account", account);
+                List<WishProduct> wishProducts = account.getWishProducts();
+                if(wishProducts == null){
+                    account.setWishProducts(new ArrayList<>());
+                }
             }
             //Thêm thông tin cho cart
             Cart cart= Cart.getInstance();

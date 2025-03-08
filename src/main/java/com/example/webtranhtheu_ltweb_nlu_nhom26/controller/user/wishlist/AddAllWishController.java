@@ -1,8 +1,9 @@
-package com.example.webtranhtheu_ltweb_nlu_nhom26.controller.user.viewed_history;
+package com.example.webtranhtheu_ltweb_nlu_nhom26.controller.user.wishlist;
 
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.cart.Cart;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.product.Product;
-import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.history.ViewedHistory;
+import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.User;
+import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.user.WishProduct;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.util.ControllerUtil;
 import com.google.gson.JsonObject;
 import jakarta.servlet.ServletException;
@@ -13,9 +14,10 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.util.List;
 
-@WebServlet(name = "AddAllViewedController", value = "/user/history/add-all-to-cart")
-public class AddAllViewedController extends HttpServlet {
+@WebServlet(name = "AddAllWishController", value = "/user/wishlist/add-all-to-cart")
+public class AddAllWishController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -26,23 +28,20 @@ public class AddAllViewedController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
         HttpSession session = request.getSession();
-        Object accountIdObject = session.getAttribute("accountId");
-        ViewedHistory viewedHistory= (ViewedHistory) session.getAttribute("viewedHistory");
+        User account = (User) session.getAttribute("account");
+        List<WishProduct> wishProductList = account.getWishProducts();
         JsonObject jsonResult = new JsonObject();
-        if (accountIdObject == null) {
-            // Xử lý khúc này
+        if (account == null) {
             response.sendRedirect("/");
         } else {
             Cart cart = (Cart) session.getAttribute("cart");
             if (cart == null) {
                 cart = Cart.getInstance();
             }
-            for(Product product: viewedHistory.getViewedProducts()){
-                cart.addProduct(product,product.getMinPrice(),1);
+            for (WishProduct wishProduct : wishProductList) {
+                cart.addProduct(wishProduct.getProduct(), wishProduct.getProduct().getMinPrice(), 1);
             }
-            viewedHistory.getViewedProducts().clear();
             session.setAttribute("cart", cart);
-            session.setAttribute("viewedHistory", viewedHistory);
             jsonResult.addProperty("currentCartLength", cart.getCartSize());
             ControllerUtil.sendAjaxResultSuccess(response, jsonResult, null);
         }

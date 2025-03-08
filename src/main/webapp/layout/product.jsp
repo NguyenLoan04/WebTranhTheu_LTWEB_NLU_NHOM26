@@ -6,6 +6,7 @@
     <title>${product.category.title} ${product.title} - Nét Việt</title>
     <link rel="stylesheet" href="../static/style/user/product.css">
     <jsp:include page="public/library.jsp"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
 <c:set var="isInWishlist" value="false"/>
@@ -32,19 +33,51 @@
                 <div class="w-100">
                     <img id="product-image" src="${product.getThumbnail()}" alt="">
                 </div>
+
+<%--                <div id="product-choose-image" class="w-100 mt-2 d-flex justify-content-center carousel slide">--%>
+<%--                    <div class="carousel-inner">--%>
+<%--                        <c:forEach var="image" items="${product.getPreviewImage(4)}">--%>
+<%--                            <div class="carousel-item p-1 col d-flex justify-content-center">--%>
+<%--                                <c:choose>--%>
+<%--                                    <c:when test="${!image.isEmpty()}">--%>
+<%--                                        <img src="${image}" class="w-100 preview-image" style="object-fit: cover" alt="">--%>
+<%--                                    </c:when>--%>
+<%--                                    <c:otherwise>--%>
+<%--                                        <div class="w-100" style="background-color: #aaaaaa; height: 100%"></div>--%>
+<%--                                    </c:otherwise>--%>
+<%--                                </c:choose>--%>
+<%--                            </div>--%>
+<%--                        </c:forEach>--%>
+<%--                    </div>--%>
+
+<%--                    <button class="carousel-control-prev" type="button" data-bs-target="#product-choose-image" data-bs-slide="prev">--%>
+<%--                        <span  style="background-color: var(--text-color)" class="carousel-control-prev-icon" aria-hidden="true"></span>--%>
+<%--                        <span class="visually-hidden">Previous</span>--%>
+<%--                    </button>--%>
+<%--                    <button class="carousel-control-next" type="button" data-bs-target="#product-choose-image" data-bs-slide="next">--%>
+<%--                        <span style="background-color: var(--text-color)"  class="carousel-control-next-icon" aria-hidden="true"></span>--%>
+<%--                        <span class="visually-hidden">Next</span>--%>
+<%--                    </button>--%>
+<%--                </div>--%>
+
                 <div id="product-choose-image" class="w-100 mt-2 opacity-75 d-flex justify-content-center">
                     <c:forEach var="image" items="${product.getPreviewImage(3)}">
                         <div class="p-1 col d-flex justify-content-center">
                             <c:choose>
                                 <c:when test="${!image.isEmpty()}">
-                                    <img src="${image}" class="w-100" style="object-fit: cover" alt="">
+                                    <img src="${image}" class="w-100 preview-image" style="object-fit: cover" alt="">
                                 </c:when>
                                 <c:otherwise>
-                                    <div class="w-100" style="background-color: #aaaaaa; height: 100%"></div>
+                                    <div class="w-100 opacity-100" style="height: 100%"></div>
                                 </c:otherwise>
                             </c:choose>
                         </div>
                     </c:forEach>
+                    <c:if test="${product.listImageUrls.size() > 2}">
+                        <div class="w-100" style="background-color: #aaaaaa; height: 100%">
+                            + ${product.listImageUrls.size() - 2}
+                        </div>
+                    </c:if>
                 </div>
 
                 <div class="mt-4_5 row d-flex justify-content-start align-items-center">

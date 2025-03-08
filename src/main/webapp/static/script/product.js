@@ -17,6 +17,13 @@ function displayRating(rating, starWidth) {
     });
 }
 
+//Thay đổi hình review
+$(".preview-image").click(function () {
+    const displayPreview = $("#product-image")
+    if ($(this).attr("src") !== displayPreview.attr("src")) {
+        displayPreview.attr("src", $(this).attr("src"))
+    }
+})
 
 // Nút chia sẻ (copy vào clipboard)
 $("#product-detail__share-btn i").click(function () {
@@ -68,7 +75,6 @@ $("#product-detail__loved-btn i").click(function () {
                 "productId": productId
             },
             success: function () {
-                window.location.reload()
             },
             error: function () {
 

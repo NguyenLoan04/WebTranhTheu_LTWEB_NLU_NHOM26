@@ -22,7 +22,7 @@
     <div class="row pt-2 pb-4 border-bottom">
         <h5>Thông tin sản phẩm</h5>
         <div class="row mt-3">
-            <img src="${review.product.getThumbnail()}" alt="${review.product.getTitle()}" class="col-3 resized-image">
+            <img src="${review.product.getThumbnail()}" alt="${review.product.getTitle()}" class="col-3 resized-image" onclick="window.location.href = '/product?id=${review.product.id}'">
             <div class="col pt-2 ps-0 ms-3">
                 <div class="h4 main-color mb-3">${review.product.title}</div>
                 <div class="my-2">Nhà cung cấp: <span class="fw-semibold">${review.product.provider.providerName}</span>

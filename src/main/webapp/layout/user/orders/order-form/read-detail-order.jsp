@@ -91,7 +91,7 @@
             <c:forEach var="product" items="${order.products}">
                 <tr>
                     <th style="width: 20%">
-                        <img src="${product.thumbnail}" class="my-3 resized-image">
+                        <img src="${product.thumbnail}" class="my-3 resized-image" onclick="window.location.href = '/product?id=${product.id}'">
                     </th>
                     <th class="p-3">
                         <p class="title h5 main-color">${product.title}</p>

@@ -233,6 +233,19 @@ public class Product implements Serializable {
         return ProductUtil.getStringDisplayMaterials(this);
     }
 
+    public String[] getDisplayDescriptionDetails() {
+        return this.description.split("&nbsp;");
+    }
+
+    public String[] getPreviewImage(int count) {
+        String[] result = new String[count];
+        for (int i = 0; i < count; i++) {
+            if (i < this.getListImageUrls().size()) result[i] = this.getListImageUrls().get(i);
+            else result[i] = "";
+        }
+        return result;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
@@ -240,8 +253,5 @@ public class Product implements Serializable {
         return id == product.id && type == product.type && code.equals(product.code) && title.equals(product.title) && description.equals(product.description);
     }
 
-    public String[] getDisplayDescriptionDetails() {
-        return this.description.split("&nbsp;");
-    }
 }
 

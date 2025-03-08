@@ -23,26 +23,38 @@
     <div class="background-container ">
         <div class="row">
             <div class="col-3 p-4_5">
-                <img id="product-image" src="${product.getThumbnail()}" alt="">
-<%--                <div id="product-choose-image" class="w-100">--%>
-<%--                    <c:forEach var="image" items="${product.getListImageUrls()}">--%>
-<%--                        <div class="mx-1" style="width: 20%">--%>
-<%--                            <img src="${product.getThumbnail()}" alt="">--%>
-<%--                        </div>--%>
-<%--                    </c:forEach>--%>
-<%--                </div>--%>
+                <div class="w-100">
+                    <img id="product-image" src="${product.getThumbnail()}" alt="">
+                </div>
+                <div id="product-choose-image" class="w-100 mt-2 opacity-75 d-flex justify-content-center">
+                    <c:forEach var="image" items="${product.getPreviewImage(3)}">
+                        <div class="p-1 col d-flex justify-content-center">
+                            <c:choose>
+                                <c:when test="${!image.isEmpty()}">
+                                    <img src="${image}" class="w-100" style="object-fit: cover" alt="">
+                                </c:when>
+                                <c:otherwise>
+                                    <div class="w-100" style="background-color: #aaaaaa; height: 100%"></div>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
+                    </c:forEach>
+                </div>
 
                 <div class="mt-4_5 row d-flex justify-content-start align-items-center">
                     <div class="col"></div>
+
                     <div id="product-detail__share-btn" class="col position-relative">
                         <i class="cursor-pointer h4 main-color fa-regular fa-share-from-square"></i>
                         <p class="bg-opacity-75 p-1 d-none notification-message bg-dark rounded">Đã copy link vào
                             clipboard</p>
                     </div>
+
                     <div id="product-detail__loved-btn" class="col position-relative">
                         <i class="cursor-pointer h4 main-color fa-regular fa-heart"></i>
                         <p class="bg-opacity-75 p-1 d-none notification-message bg-dark rounded"></p>
                     </div>
+
                     <div class="col"></div>
                 </div>
 

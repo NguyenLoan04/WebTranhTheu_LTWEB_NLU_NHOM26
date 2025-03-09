@@ -17,6 +17,13 @@ function displayRating(rating, starWidth) {
     });
 }
 
+//Thay đổi hình review
+$(".preview-image").click(function () {
+    const displayPreview = $("#product-image")
+    if ($(this).attr("src") !== displayPreview.attr("src")) {
+        displayPreview.attr("src", $(this).attr("src"))
+    }
+})
 
 // Nút chia sẻ (copy vào clipboard)
 $("#product-detail__share-btn i").click(function () {
@@ -34,7 +41,7 @@ $("#product-detail__share-btn i").click(function () {
 //Nút thêm vào danh sách yêu thích
 $("#product-detail__loved-btn i").click(function () {
     const msg = $("#product-detail__loved-btn .notification-message")
-    let productId= new URL(window.location.href).searchParams.get('id')
+    let productId = new URL(window.location.href).searchParams.get('id')
     //Thay đổi trạng thái icon và nội dung message
     if ($("#product-detail__loved-btn i").hasClass("fa-regular")) {
         $("#product-detail__loved-btn i").removeClass("fa-regular")
@@ -47,7 +54,7 @@ $("#product-detail__loved-btn i").click(function () {
                 "productId": productId
             },
             success: function () {
-                window.location.reload()
+                console.log("Da them")
             },
             error: function () {
 
@@ -68,7 +75,6 @@ $("#product-detail__loved-btn i").click(function () {
                 "productId": productId
             },
             success: function () {
-                window.location.reload()
             },
             error: function () {
 
@@ -194,12 +200,12 @@ function getReviewList(amount) {
                 //Hiển thị bình luận
                 if (response.result) {
                     reviewLimit = response.limit ? response.limit : reviewLimit
-                    setTimeout(() => {
-                        $("#review-upload-spinner").addClass("d-none")
-                    }, 1000)
+                    // setTimeout(() => {
+                    $("#review-upload-spinner").addClass("d-none")
                     for (let review of response.reviewData) {
                         $("#comment-container").append(createReviewElement(review))
                     }
+                    // }, 1000)
                     currentReviewOffset = response.currentOffset
                 } else offset = -1
                 if (currentReviewOffset >= reviewLimit || currentReviewOffset === -1 || response.limit === response.currentOffset) {
@@ -339,9 +345,33 @@ $(".switch-size-btn").click(function () {
 getReviewList(reviewAmount)
 getPrice(currentWidth, currentHeight)
 
-function closeError(){
+function closeError() {
     $("#popup-overlay").css("display", "none")
     $("#popup").css("display", "none")
     // document.getElementById("popup-overlay").style.display="none"
     // document.getElementById("popup").style.display="none"
 }
+
+$("#display-full-preview-img").click(function() {
+    $("#full-preview-image").removeClass("d-none")
+})
+
+//Close preview
+$("#full-preview-image--close-button").click(function() {
+    $("#full-preview-image").addClass("d-none")
+})
+
+//THay hình ảnh hiển thị
+$(".full-preview-image--display").click(function() {
+    const previewThumbnail = $("#full-preview-image--thumbnail")
+    const currentSrc = $(this).attr("src")
+    if (currentSrc !== previewThumbnail.attr("src")) previewThumbnail.attr("src", currentSrc)
+})
+
+// Click vào hình thumbnail thì mở cửa sổ chi tiết
+$("#product-image").click(function() {
+    const previewThumbnail = $("#full-preview-image--thumbnail")
+    const currentSrc = $(this).attr("src")
+    if (currentSrc !== previewThumbnail.attr("src")) previewThumbnail.attr("src", currentSrc)
+    $("#full-preview-image").removeClass("d-none")
+})

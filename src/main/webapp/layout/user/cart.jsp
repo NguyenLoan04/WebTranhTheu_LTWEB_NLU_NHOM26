@@ -14,7 +14,7 @@
         <div class="col-8 cart">
             <div class="h3 pt-4 mb-3 text-center">Giỏ hàng</div>
             <c:if test="${empty cart.products}">
-                <div class="h4 main-color opacity-50 d-flex justify-content-center align-items-center fw-normal text-center">
+                <div class="h4 mt-4 main-color opacity-50 d-flex justify-content-center align-items-center fw-normal text-center">
                     Giỏ hàng trống
                 </div>
             </c:if>
@@ -45,9 +45,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <img class="col-2 px-0 image-resize" src="<c:url value="${entry.value.thumbnailUrl}"/>">
+                            <img class="col-2 px-0 image-resize" src="<c:url value="${entry.value.thumbnailUrl}"/>" onclick="window.location.href = '/product?id=${entry.value.id}'">
                             <div class="col-3 ps-5 pe-0">
-                                <div class="row pb-4 fw-semibold">${entry.value.title}</div>
+                                <div class="row pb-4 fw-semibold" onclick="window.location.href = '/product?id=${entry.value.id}'">${entry.value.title}</div>
                                 <div class="row price-selected">
                                     <label class="col-3 p-0 me-2 price-label">Loại: </label>
                                     <select class=" col-7 row select-area rounded" name="select"

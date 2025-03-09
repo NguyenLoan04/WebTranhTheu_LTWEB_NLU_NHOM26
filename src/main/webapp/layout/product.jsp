@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-3 p-4_5">
                 <div class="w-100">
-                    <img id="product-image" src="${product.getThumbnail()}" alt="">
+                    <img class="cursor-pointer" id="product-image" src="${product.getThumbnail()}" alt="">
                 </div>
 
                 <%--                <div id="product-choose-image" class="w-100 mt-2 d-flex justify-content-center carousel slide">--%>
@@ -64,7 +64,7 @@
 
                 <div id="product-choose-image" class="w-100 mt-2 d-flex justify-content-center">
                     <c:forEach var="image" items="${product.getPreviewImage(2)}">
-                        <div class="p-1 col d-flex justify-content-center opacity-75">
+                        <div class="preview-image-container p-1 col d-flex justify-content-center opacity-75">
                             <c:choose>
                                 <c:when test="${!image.isEmpty()}">
                                     <img src="${image}" class="cursor-pointer w-100 preview-image"
@@ -77,9 +77,11 @@
                         </div>
                     </c:forEach>
                     <c:if test="${product.listImageUrls.size() > 2}">
-                        <div class="main-cta-button rounded cursor-pointer col d-flex justify-content-center align-items-center"
+                        <div class="filter-background-button rounded cursor-pointer col d-flex justify-content-center align-items-center"
                              id="display-full-preview-img">
-                            <p class="m-0 h4 fw-semibold user-select-none">+${product.listImageUrls.size() - 2}</p>
+                            <p class="z-1 m-0 h4 fw-semibold user-select-none" style="color: var(--label-color)">
+                                +${product.listImageUrls.size() - 2}
+                            </p>
                         </div>
                     </c:if>
                 </div>
@@ -435,12 +437,14 @@
     </div>
 </section>
 
-<section id="full-preview-image" class="d-none container-fluid position-fixed">
+<section id="full-preview-image" class="z-2 d-none container-fluid position-fixed">
     <div id="full-preview-image--container" class="row" style="height: 80%">
-        <div class="d-flex justify-content-center align-items-center position-relative">
-            <img id="full-preview-image--thumbnail" class="" src="${product.getThumbnail()}" alt="">
-            <div class="position-absolute w-100" style="background-color: rgba(0, 11, 14, 0.75); bottom: 0">
-                <p class="text-center h5 fw-normal" style="color: var(--label-color)">${product.title}</p>
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="position-relative">
+                <img id="full-preview-image--thumbnail" class="" src="${product.getThumbnail()}" alt="">
+                <div class="position-absolute w-100" style="background-color: rgba(0, 11, 14, 0.75); bottom: 0">
+                    <p class="text-center h5 fw-normal" style="color: var(--label-color)">${product.title}</p>
+                </div>
             </div>
         </div>
     </div>

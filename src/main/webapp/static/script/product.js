@@ -361,8 +361,17 @@ $("#full-preview-image--close-button").click(function() {
     $("#full-preview-image").addClass("d-none")
 })
 
+//THay hình ảnh hiển thị
 $(".full-preview-image--display").click(function() {
     const previewThumbnail = $("#full-preview-image--thumbnail")
     const currentSrc = $(this).attr("src")
     if (currentSrc !== previewThumbnail.attr("src")) previewThumbnail.attr("src", currentSrc)
+})
+
+// Click vào hình thumbnail thì mở cửa sổ chi tiết
+$("#product-image").click(function() {
+    const previewThumbnail = $("#full-preview-image--thumbnail")
+    const currentSrc = $(this).attr("src")
+    if (currentSrc !== previewThumbnail.attr("src")) previewThumbnail.attr("src", currentSrc)
+    $("#full-preview-image").removeClass("d-none")
 })

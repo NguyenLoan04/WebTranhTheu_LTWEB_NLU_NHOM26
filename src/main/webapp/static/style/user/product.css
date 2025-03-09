@@ -46,21 +46,45 @@ textarea {
     cursor: pointer;
 }
 
-#popup{
+#full-preview-image {
+    background-color: var(--text-color);
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+}
+
+#full-preview-image--chooser {
+    overflow-x: auto;
+}
+
+#full-preview-image--close-button {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+}
+
+#full-preview-image--close-button * {
+    color: var(--label-color);
+}
+
+#popup {
     display: none;
     position: fixed;
     border-radius: 5px;
     height: 100px;
     width: 500px;
     border: solid 1px var(--big-text-color);
-    top:45%;
+    top: 45%;
     left: 30%;
     background: var(--web-background-color);
     justify-content: center;
     align-items: center;
     z-index: 1000;
 }
-#popup-overlay{
+
+#popup-overlay {
     display: none;
     position: fixed;
     top: 0;

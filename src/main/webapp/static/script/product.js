@@ -351,3 +351,18 @@ function closeError() {
     // document.getElementById("popup-overlay").style.display="none"
     // document.getElementById("popup").style.display="none"
 }
+
+$("#display-full-preview-img").click(function() {
+    $("#full-preview-image").removeClass("d-none")
+})
+
+//Close preview
+$("#full-preview-image--close-button").click(function() {
+    $("#full-preview-image").addClass("d-none")
+})
+
+$(".full-preview-image--display").click(function() {
+    const previewThumbnail = $("#full-preview-image--thumbnail")
+    const currentSrc = $(this).attr("src")
+    if (currentSrc !== previewThumbnail.attr("src")) previewThumbnail.attr("src", currentSrc)
+})

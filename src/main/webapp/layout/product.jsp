@@ -6,7 +6,9 @@
     <title>${product.category.title} ${product.title} - Nét Việt</title>
     <link rel="stylesheet" href="../static/style/user/product.css">
     <jsp:include page="public/library.jsp"/>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
 </head>
 <body>
 <c:set var="isInWishlist" value="false"/>
@@ -34,48 +36,50 @@
                     <img id="product-image" src="${product.getThumbnail()}" alt="">
                 </div>
 
-<%--                <div id="product-choose-image" class="w-100 mt-2 d-flex justify-content-center carousel slide">--%>
-<%--                    <div class="carousel-inner">--%>
-<%--                        <c:forEach var="image" items="${product.getPreviewImage(4)}">--%>
-<%--                            <div class="carousel-item p-1 col d-flex justify-content-center">--%>
-<%--                                <c:choose>--%>
-<%--                                    <c:when test="${!image.isEmpty()}">--%>
-<%--                                        <img src="${image}" class="w-100 preview-image" style="object-fit: cover" alt="">--%>
-<%--                                    </c:when>--%>
-<%--                                    <c:otherwise>--%>
-<%--                                        <div class="w-100" style="background-color: #aaaaaa; height: 100%"></div>--%>
-<%--                                    </c:otherwise>--%>
-<%--                                </c:choose>--%>
-<%--                            </div>--%>
-<%--                        </c:forEach>--%>
-<%--                    </div>--%>
+                <%--                <div id="product-choose-image" class="w-100 mt-2 d-flex justify-content-center carousel slide">--%>
+                <%--                    <div class="carousel-inner">--%>
+                <%--                        <c:forEach var="image" items="${product.getPreviewImage(4)}">--%>
+                <%--                            <div class="carousel-item p-1 col d-flex justify-content-center">--%>
+                <%--                                <c:choose>--%>
+                <%--                                    <c:when test="${!image.isEmpty()}">--%>
+                <%--                                        <img src="${image}" class="w-100 preview-image" style="object-fit: cover" alt="">--%>
+                <%--                                    </c:when>--%>
+                <%--                                    <c:otherwise>--%>
+                <%--                                        <div class="w-100" style="background-color: #aaaaaa; height: 100%"></div>--%>
+                <%--                                    </c:otherwise>--%>
+                <%--                                </c:choose>--%>
+                <%--                            </div>--%>
+                <%--                        </c:forEach>--%>
+                <%--                    </div>--%>
 
-<%--                    <button class="carousel-control-prev" type="button" data-bs-target="#product-choose-image" data-bs-slide="prev">--%>
-<%--                        <span  style="background-color: var(--text-color)" class="carousel-control-prev-icon" aria-hidden="true"></span>--%>
-<%--                        <span class="visually-hidden">Previous</span>--%>
-<%--                    </button>--%>
-<%--                    <button class="carousel-control-next" type="button" data-bs-target="#product-choose-image" data-bs-slide="next">--%>
-<%--                        <span style="background-color: var(--text-color)"  class="carousel-control-next-icon" aria-hidden="true"></span>--%>
-<%--                        <span class="visually-hidden">Next</span>--%>
-<%--                    </button>--%>
-<%--                </div>--%>
+                <%--                    <button class="carousel-control-prev" type="button" data-bs-target="#product-choose-image" data-bs-slide="prev">--%>
+                <%--                        <span  style="background-color: var(--text-color)" class="carousel-control-prev-icon" aria-hidden="true"></span>--%>
+                <%--                        <span class="visually-hidden">Previous</span>--%>
+                <%--                    </button>--%>
+                <%--                    <button class="carousel-control-next" type="button" data-bs-target="#product-choose-image" data-bs-slide="next">--%>
+                <%--                        <span style="background-color: var(--text-color)"  class="carousel-control-next-icon" aria-hidden="true"></span>--%>
+                <%--                        <span class="visually-hidden">Next</span>--%>
+                <%--                    </button>--%>
+                <%--                </div>--%>
 
-                <div id="product-choose-image" class="w-100 mt-2 opacity-75 d-flex justify-content-center">
-                    <c:forEach var="image" items="${product.getPreviewImage(3)}">
-                        <div class="p-1 col d-flex justify-content-center">
+                <div id="product-choose-image" class="w-100 mt-2 d-flex justify-content-center">
+                    <c:forEach var="image" items="${product.getPreviewImage(2)}">
+                        <div class="p-1 col d-flex justify-content-center opacity-75">
                             <c:choose>
                                 <c:when test="${!image.isEmpty()}">
-                                    <img src="${image}" class="w-100 preview-image" style="object-fit: cover" alt="">
+                                    <img src="${image}" class="cursor-pointer w-100 preview-image"
+                                         style="object-fit: cover" alt="">
                                 </c:when>
                                 <c:otherwise>
-                                    <div class="w-100 opacity-100" style="height: 100%"></div>
+                                    <div class="col opacity-100" style="height: 100%"></div>
                                 </c:otherwise>
                             </c:choose>
                         </div>
                     </c:forEach>
                     <c:if test="${product.listImageUrls.size() > 2}">
-                        <div class="w-100" style="background-color: #aaaaaa; height: 100%">
-                            + ${product.listImageUrls.size() - 2}
+                        <div class="main-cta-button rounded cursor-pointer col d-flex justify-content-center align-items-center"
+                             id="display-full-preview-img">
+                            <p class="m-0 h4 fw-semibold user-select-none">+${product.listImageUrls.size() - 2}</p>
                         </div>
                     </c:if>
                 </div>
@@ -430,6 +434,32 @@
         </div>
     </div>
 </section>
+
+<section id="full-preview-image" class="d-none container-fluid position-fixed">
+    <div id="full-preview-image--container" class="row" style="height: 80%">
+        <div class="d-flex justify-content-center align-items-center position-relative">
+            <img id="full-preview-image--thumbnail" class="" src="${product.getThumbnail()}" alt="">
+            <div class="position-absolute w-100" style="background-color: rgba(0, 11, 14, 0.75); bottom: 0">
+                <p class="text-center h5 fw-normal" style="color: var(--label-color)">${product.title}</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="full-preview-image--chooser" class="pt-3 row d-flex justify-content-center" style="height: 20%">
+        <c:forEach var="image" items="${product.listImageUrls}">
+            <div class="mx-1 p-1 d-flex justify-content-center" style="width: 10%">
+                <img src="${image}" class="cursor-pointer w-100 full-preview-image--display" style="object-fit: cover"
+                     alt="">
+            </div>
+        </c:forEach>
+    </div>
+
+    <div id="full-preview-image--close-button" class="cursor-pointer">
+        <i class="bi bi-x-lg h5"></i>
+    </div>
+
+</section>
+
 <div id="popup-overlay"></div>
 <div id="popup" class="p-3">
     <div class="row text-center fw-bold h5 border-bottom">

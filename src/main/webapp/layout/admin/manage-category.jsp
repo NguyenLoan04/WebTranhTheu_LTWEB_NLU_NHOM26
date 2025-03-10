@@ -5,8 +5,8 @@
     <title>Quản lý danh mục</title>
     <%@include file="../public/library.jsp"%>
     <!-- css property -->
-    <link rel="stylesheet" href="../../template/style/admin/general-content-admin.css">
-    <link rel="stylesheet" href="../../template/style/admin/display-form-admin.css">
+    <link rel="stylesheet" href="../../static/style/admin/general-content-admin.css">
+    <link rel="stylesheet" href="../../static/style/admin/display-form-admin.css">
 
 </head>
 <body>
@@ -38,6 +38,6 @@
 
 <div id="formWrapper" class="hidden"></div>
 
-<script src="../../template/script/admin/change-category-form.js"></script>
+<script src="../../static/script/admin/change-category-form.js"></script>
 </body>
 </html>

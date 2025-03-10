@@ -56,6 +56,10 @@ public class UserService {
 
     public void updateUser(User user, String[] location, String[] deleteLocation) {
         userDAO.updateUser(user);
+        if(user.getPassword() != null) {
+            userDAO.updatePassword(user.getId(), user.getPassword());
+        }
+
         for (int i = 0; i < deleteLocation.length; i++) {
             userDAO.deleteUserAddress(user.getId(), Integer.parseInt(deleteLocation[i]));
         }
@@ -91,6 +95,9 @@ public class UserService {
 
     public void updateInfoAdmin(User user) {
         userDAO.updateInfoAdmin(user);
+        if(user.getPassword() != null) {
+            userDAO.updatePassword(user.getId(), user.getPassword());
+        }
     }
 
 

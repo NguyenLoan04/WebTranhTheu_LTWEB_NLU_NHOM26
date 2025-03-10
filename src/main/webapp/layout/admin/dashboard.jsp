@@ -7,8 +7,8 @@
     <title>Dashboard</title>
     <%@include file="../public/library.jsp"%>
     <!-- css property -->
-    <link rel="stylesheet" href="../../template/style/admin/general-content-admin.css">
-    <link rel="stylesheet" href="../../template/style/admin/dashboard.css">
+    <link rel="stylesheet" href="../../static/style/admin/general-content-admin.css">
+    <link rel="stylesheet" href="../../static/style/admin/dashboard.css">
 
 </head>
 <body>
@@ -199,21 +199,22 @@
                             <h5 class="card-title widget-card-title mb-3">Tổng số lượng đơn hàng</h5>
                             <h4 class="card-subtitle text-body-order m-0">${totalOrder}</h4>
                         </div>
+                        <c:set var="quantityOrderOnStatus" value="${requestScope.quantityOrderOnStatus}" />
                         <div class="col choose-radio-order" id="choose-order-3">
                             <h5 class="card-title widget-card-title mb-3">Tổng số lượng đơn hàng</h5>
-                            <h6 class="card-subtitle text-body-order m-0 mb-1">Chờ xác nhận: ${totalOn1StatusOrder}</h6>
-                            <h6 class="card-subtitle text-body-order m-0 mb-1">Đã cọc: ${totalOn7StatusOrder}</h6>
-                            <h6 class="card-subtitle text-body-order m-0 mb-1">Chờ lấy hàng: ${totalOn2StatusOrder}</h6>
-                            <h6 class="card-subtitle text-body-order m-0 mb-1">Chờ giao hàng: ${totalOn3StatusOrder}</h6>
-                            <h6 class="card-subtitle text-body-order m-0 mb-1">Đã giao: ${totalOn4StatusOrder}</h6>
-                            <h6 class="card-subtitle text-body-order m-0 mb-1">Đã nhận hàng: ${totalOn5StatusOrder}</h6>
-                            <h6 class="card-subtitle text-body-order m-0">Đơn yêu cầu hoàn trả: ${totalOn6StatusOrder}</h6>
-                            <h6 class="card-subtitle text-body-order m-0">Đơn hủy: ${totalOn0StatusOrder}</h6>
+                            <h6 class="card-subtitle text-body-order m-0 mb-1">Chờ xác nhận: ${quantityOrderOnStatus["pendingConfirmation"]}</h6>
+                            <h6 class="card-subtitle text-body-order m-0 mb-1">Đã cọc: ${quantityOrderOnStatus["deposited"]}</h6>
+                            <h6 class="card-subtitle text-body-order m-0 mb-1">Chờ lấy hàng: ${quantityOrderOnStatus["waitingForPickup"]}</h6>
+                            <h6 class="card-subtitle text-body-order m-0 mb-1">Chờ giao hàng: ${quantityOrderOnStatus["waitingForDelivery"]}</h6>
+                            <h6 class="card-subtitle text-body-order m-0 mb-1">Đã giao: ${quantityOrderOnStatus["delivered"]}</h6>
+                            <h6 class="card-subtitle text-body-order m-0 mb-1">Đã nhận hàng: ${quantityOrderOnStatus["received"]}</h6>
+                            <h6 class="card-subtitle text-body-order m-0">Đơn yêu cầu hoàn trả: ${quantityOrderOnStatus["returnRequested"]}</h6>
+                            <h6 class="card-subtitle text-body-order m-0">Đơn hủy: ${quantityOrderOnStatus["canceled"]}</h6>
                         </div>
                         <div class="col choose-radio-order" id="choose-order-4">
                             <h5 class="card-title widget-card-title mb-3">Tổng số lượng đơn hàng</h5>
-                            <h6 class="card-subtitle text-body-order m-0 mb-1">Chưa thanh toán: ${totalOn0StatusPayment}</h6>
-                            <h6 class="card-subtitle text-body-order m-0">Đã thanh toán: ${totalOn1StatusPayment}</h6>
+                            <h6 class="card-subtitle text-body-order m-0 mb-1">Chưa thanh toán: ${quantityOrderOnStatus["paymentUnpaid"]}</h6>
+                            <h6 class="card-subtitle text-body-order m-0">Đã thanh toán: ${quantityOrderOnStatus["paymentPaid"]}</h6>
                         </div>
                         <div class="col ps-0">
                             <div class="d-block">
@@ -236,6 +237,6 @@
     </div>
 </div>
 
-<script src="../../template/script/admin/dashboard.js"></script>
+<script src="../../static/script/admin/dashboard.js"></script>
 </body>
 </html>

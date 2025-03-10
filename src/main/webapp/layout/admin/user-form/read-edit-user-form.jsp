@@ -7,8 +7,8 @@
     <title>Xem và Sửa thông tin người dùng</title>
     <%@include file="../../public/library.jsp" %>
     <!-- css property -->
-    <link rel="stylesheet" href="../../../template/style/admin/style-form/general-form.css">
-    <link rel="stylesheet" href="../../../template/style/admin/style-form/style-read-edit-user-form.css">
+    <link rel="stylesheet" href="../../../static/style/admin/style-form/general-form.css">
+    <link rel="stylesheet" href="../../../static/style/admin/style-form/style-read-edit-user-form.css">
 
 </head>
 <body>
@@ -34,8 +34,7 @@
         <div class="row pt-2">
             <div class="col p-0"><input type="password" id="password" class="w-100 style-input"
                                         placeholder="Nhập mật khẩu"
-                                        name="password" value="<c:out value="${user.getPassword()}"/>"
-                                        disabled>
+                                        name="password" disabled>
             </div>
         </div>
         <!-- họ và tên -->
@@ -225,6 +224,6 @@
     </form>
 </div>
 
-<script src="../../../template/script/admin/user-form/read-edit-user-form.js"></script>
+<script src="../../../static/script/admin/user-form/read-edit-user-form.js"></script>
 </body>
 </html>

@@ -1,7 +1,8 @@
 package com.example.webtranhtheu_ltweb_nlu_nhom26.controller.admin;
 
 import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.admin.OrderDTO;
-import com.example.webtranhtheu_ltweb_nlu_nhom26.bean.admin.orderAdmin.OrderAdmin;
+import com.example.webtranhtheu_ltweb_nlu_nhom26.enums.OrderStatus;
+import com.example.webtranhtheu_ltweb_nlu_nhom26.enums.PaymentStatus;
 import com.example.webtranhtheu_ltweb_nlu_nhom26.services.DashboardAdminService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,7 +11,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "DashBoardController", value = "/admin/dashboard")
 public class DashBoardController extends HttpServlet {
@@ -27,16 +30,19 @@ public class DashBoardController extends HttpServlet {
         int totalPolicy = dashboardAdminService.getTotalPolicy();
         int totalUser = dashboardAdminService.getTotalUser();
         int totalOrder = dashboardAdminService.getTotalOrder();
-        int totalOn0StatusOrder = dashboardAdminService.getTotalOrderStatus(OrderAdmin.STATUS_ORDER_CANCELED); //Đã hủy
-        int totalOn1StatusOrder = dashboardAdminService.getTotalOrderStatus(OrderAdmin.STATUS_ORDER_PENDING_CONFIRMATION); //Chờ xác nhận
-        int totalOn2StatusOrder = dashboardAdminService.getTotalOrderStatus(OrderAdmin.STATUS_ORDER_WAITING_FOR_PICKUP); //Chờ lấy hàng
-        int totalOn3StatusOrder = dashboardAdminService.getTotalOrderStatus(OrderAdmin.STATUS_ORDER_WAITING_FOR_DELIVERY); //Chờ giao hàng
-        int totalOn4StatusOrder = dashboardAdminService.getTotalOrderStatus(OrderAdmin.STATUS_ORDER_DELIVERED); //Đã giao
-        int totalOn5StatusOrder = dashboardAdminService.getTotalOrderStatus(OrderAdmin.STATUS_ORDER_RECEIVED); //Đã nhận hàng
-        int totalOn6StatusOrder = dashboardAdminService.getTotalOrderStatus(OrderAdmin.STATUS_ORDER_RETURN_REQUESTED); //Đơn yêu cầu hoàn trả
-        int totalOn7StatusOrder = dashboardAdminService.getTotalOrderStatus(OrderAdmin.STATUS_ORDER_DEPOSITED); //Đã cọc
-        int totalOn1StatusPayment = dashboardAdminService.getTotalOrderPayStatus(OrderAdmin.STATUS_PAYMENT_PAID); //Đã thanh toán
-        int totalOn0StatusPayment = dashboardAdminService.getTotalOrderPayStatus(OrderAdmin.STATUS_PAYMENT_UNPAID); //Chưa thanh toán
+
+        Map<String, Integer> quantityOrderOnStatus = new HashMap<>();
+        quantityOrderOnStatus.put("canceled", dashboardAdminService.getTotalOrderStatus(OrderStatus.CANCELED.getCode()));
+        quantityOrderOnStatus.put("pendingConfirmation", dashboardAdminService.getTotalOrderStatus(OrderStatus.PENDING_CONFIRMATION.getCode()));
+        quantityOrderOnStatus.put("waitingForPickup", dashboardAdminService.getTotalOrderStatus(OrderStatus.WAITING_FOR_PICKUP.getCode()));
+        quantityOrderOnStatus.put("waitingForDelivery", dashboardAdminService.getTotalOrderStatus(OrderStatus.WAITING_FOR_DELIVERY.getCode()));
+        quantityOrderOnStatus.put("delivered", dashboardAdminService.getTotalOrderStatus(OrderStatus.DELIVERED.getCode()));
+        quantityOrderOnStatus.put("received", dashboardAdminService.getTotalOrderStatus(OrderStatus.RECEIVED.getCode()));
+        quantityOrderOnStatus.put("returnRequested", dashboardAdminService.getTotalOrderStatus(OrderStatus.RETURN_REQUESTED.getCode()));
+        quantityOrderOnStatus.put("deposited", dashboardAdminService.getTotalOrderStatus(OrderStatus.DEPOSITED.getCode()));
+
+        quantityOrderOnStatus.put("paymentPaid", dashboardAdminService.getTotalOrderPayStatus(PaymentStatus.PAYMENT_PAID.getCode()));
+        quantityOrderOnStatus.put("paymentUnpaid", dashboardAdminService.getTotalOrderPayStatus(PaymentStatus.PAYMENT_UNPAID.getCode()));
 
         List<OrderDTO> listOrder = dashboardAdminService.getLastListOrder();
 
@@ -47,17 +53,8 @@ public class DashBoardController extends HttpServlet {
         request.setAttribute("totalPolicy", totalPolicy);
         request.setAttribute("totalUser", totalUser);
         request.setAttribute("totalOrder", totalOrder);
-        request.setAttribute("totalOn0StatusOrder", totalOn0StatusOrder);
-        request.setAttribute("totalOn1StatusOrder", totalOn1StatusOrder);
-        request.setAttribute("totalOn2StatusOrder", totalOn2StatusOrder);
-        request.setAttribute("totalOn3StatusOrder", totalOn3StatusOrder);
-        request.setAttribute("totalOn4StatusOrder", totalOn4StatusOrder);
-        request.setAttribute("totalOn5StatusOrder", totalOn5StatusOrder);
-        request.setAttribute("totalOn6StatusOrder", totalOn6StatusOrder);
-        request.setAttribute("totalOn7StatusOrder", totalOn7StatusOrder);
+        request.setAttribute("quantityOrderOnStatus", quantityOrderOnStatus);
         request.setAttribute("listOrder", listOrder);
-        request.setAttribute("totalOn1StatusPayment", totalOn1StatusPayment);
-        request.setAttribute("totalOn0StatusPayment", totalOn0StatusPayment);
 
         request.getRequestDispatcher("/layout/admin/dashboard.jsp").forward(request, response);
     }

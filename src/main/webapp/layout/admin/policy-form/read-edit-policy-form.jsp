@@ -7,7 +7,7 @@
     <title>Xem và Sửa thông tin chính sách</title>
     <%@include file="../../public/library.jsp" %>
     <!-- css property -->
-    <link rel="stylesheet" href="../../../template/style/admin/style-form/general-form.css">
+    <link rel="stylesheet" href="../../../static/style/admin/style-form/general-form.css">
 </head>
 <body>
 <!-- Form container -->
@@ -101,6 +101,6 @@ và select còn lại chứa các sản phẩm không áp dụng chính sách đ
 
 </div>
 
-<script src="../../../template/script/admin/policy-form/read-edit-policy-form.js"></script>
+<script src="../../../static/script/admin/policy-form/read-edit-policy-form.js"></script>
 </body>
 </html>

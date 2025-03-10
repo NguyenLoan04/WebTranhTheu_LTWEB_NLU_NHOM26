@@ -17,11 +17,7 @@ public class SettingInfoController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
-        HttpSession session = request.getSession();
-        Integer id = (Integer) session.getAttribute("accountId");
-        UserService userService = new UserService();
-        User user = userService.getUserById(id);
-        request.setAttribute("user", user);
+
         request.getRequestDispatcher("/layout/admin/setting-user.jsp").forward(request, response);
     }
 
